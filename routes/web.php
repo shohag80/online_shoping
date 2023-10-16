@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController\HomeController;
+use App\Http\Controllers\FrontendController\AboutController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,4 @@ use App\Http\Controllers\FrontendController\HomeController;
 */
 
 Route::get('/',[HomeController::class, 'home']);
+Route::get('/about', [AboutController::class, 'about']);

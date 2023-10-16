@@ -89,60 +89,6 @@
 </button>
 </div>
 <div id="navbar" class="navbar-collapse collapse">
-
-<ul id="categories" class="nav navbar-nav">
-<li class="dropdown">
-<a href="Pizzas_c_11.html" data-toggle="dropdown">All Your Wish</a>
-
-<ul class="dropdown-menu">
-<li><a href="Thin-Crust_c_18.html" class="subcat">Thin Crust</a></li>
-<li><a href="Deep-Dish_c_25.html" class="subcat">Deep Dish</a></li>
-<li><a href="Personal-Pan_c_26.html" class="subcat">Personal Pan</a></li>
-</ul>
-
-</li>
-<li class>
-<a href="Entreacutees_c_12.html">Menu_bar</a>
-
-<ul class="dropdown-menu">
-</ul>
-
-</li>
-<li class>
-<a href="Sides_c_13.html">Menu_bar</a>
-
-<ul class="dropdown-menu">
-</ul>
-
-</li>
-<li class>
-<a href="Drinks_c_14.html">Menu_bar</a>
-
-<ul class="dropdown-menu">
-</ul>
-
-</li>
-<li class>
-<a href="Desserts_c_15.html">Menu_bar</a>
-
-<ul class="dropdown-menu">
-</ul>
-
-</li>
-<li class>
-<a href="Salads_c_16.html">Menu_bar</a>
-
-<ul class="dropdown-menu">
-</ul>
-
-</li>
-<li class>
-<a href="Pasta_c_17.html">Menu_bar</a>
-
-<ul class="dropdown-menu">
-</ul>
-
-</li>
 </ul>
 
 </div>
@@ -150,17 +96,6 @@
 </section>
 </div>
 <div class="col-sm-1 search-form-col p-0 float-right">
-
-<button type="submit" class="search-submit" data-toggle="modal" data-target="#exampleModalCenter">
-    <span role="presentation" class="icon-search"></span>
-</button>
-
-<div class="minicart hidden-md">
-<a href="view_cart.asp" class="minicart-inner clearfix">
-<span role="presentation" class="icon-basket cart-icon"></span>
-
-</a>
-</div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true" aria-label="example ModalCenter">
 <div class="modal-dialog modal-dialog-centered" role="document">
