@@ -113,7 +113,7 @@
 
 </li>
 <li class>
-<a href="{{Route('FrontendCategory')}}">category</a>
+<a href="{{url('/Category')}}">Category</a>
 
 <ul class="dropdown-menu">
 </ul>
