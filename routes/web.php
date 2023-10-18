@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
@@ -23,12 +22,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // FrontendRoutes
-
 // Route::get('/',[HomeController::class,'home']);
 // Route::get('/Category',[CategoriesController::class,'categoryList'])->name('FrontendCategory');
 // Route::get('/Brands',[BrandsController::class,'brandsList']);
 // Route::get('/Products',[ProductsController::class,'products']);
-
 
 
 //BackendRoutes
@@ -36,4 +33,5 @@ Route::get('/',[BackendControllersHomeController::class,'home']);
 Route::get('/Category',[BackendControllersCategoriesController::class,'category']);
 Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
 Route::get('/Products',[BackendControllersProductsController::class,'products']);
-Route::get('/Category/form',[BackendControllersCategoriesController::class, 'add_category']);
+Route::get('/Category/form',[BackendControllersCategoriesController::class,'add_category']);
+Route::post('/Category/form/Submit',[BackendControllersCategoriesController::class,'store']);

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/flexslider/flexslider.css?vcart=13.3.0" type="text/css" media="screen" />
     <link href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/contentbuilder/minimalist-blocks/content.min.css?vcart=13.3.0" rel="stylesheet" type="text/css" />
     <link rel="StyleSheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/fancypizza-core/css/default.css?vcart=13.3.0" type="text/css" />
-
 </head>
 
 <body class="home-page noleftbar norightbar qv-enabled not-logged-in" data-currency="$" data-decimal="2">
@@ -27,7 +26,7 @@
     @include('Backend.Partials.Header')
 
 
-    <div class="container" ;>
+    <div class="container";>
         @yield('Container')
 
     </div>

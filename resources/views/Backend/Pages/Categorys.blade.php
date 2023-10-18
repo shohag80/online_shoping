@@ -1,9 +1,6 @@
 @extends('Backend.Master')
 @section('Container')
 
-
-
-
 <div class="row container-fluid">
   <div class="contairer">
   <h1><b>Category List:</b></h1>
@@ -13,49 +10,51 @@
     <a href="{{url('/Category/form')}}" class="font_style btn btn-success" type="button">Add Category</a>
   </div>
 </div>
+<br/><br/>
 
-<div class="container-fluid">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Default</td>
-        <td>Defaultson</td>
-        <td>def@somemail.com</td>
-      </tr>
-      <tr class="success">
-        <td>Success</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr class="danger">
-        <td>Danger</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr class="info">
-        <td>Info</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-      <tr class="warning">
-        <td>Warning</td>
-        <td>Refs</td>
-        <td>bo@example.com</td>
-      </tr>
-      <tr class="active">
-        <td>Active</td>
-        <td>Activeson</td>
-        <td>act@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<span class="border border-warning">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">SL</th>
+      <th scope="col">Name</th>
+      <th scope="col">Discription</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</span>
 
+<br/><br/>
 @endsection

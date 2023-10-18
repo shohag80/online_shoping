@@ -16,4 +16,8 @@ class CategoriesController extends Controller
         //dd('Hello');
         return view('Backend/Pages/Add_Category');
     }
+
+    public function store (Request $request){
+        dd($request->all());
+    }
 }
