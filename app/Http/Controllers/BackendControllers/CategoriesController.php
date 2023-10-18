@@ -11,4 +11,9 @@ class CategoriesController extends Controller
         //dd('Hello Backend Category');
         return view('Backend/Pages/Categorys');
     }
+
+    public function add_category(){
+        //dd('Hello');
+        return view('Backend/Pages/Add_Category');
+    }
 }

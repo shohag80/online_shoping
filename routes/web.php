@@ -36,3 +36,4 @@ Route::get('/',[BackendControllersHomeController::class,'home']);
 Route::get('/Category',[BackendControllersCategoriesController::class,'category']);
 Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
 Route::get('/Products',[BackendControllersProductsController::class,'products']);
+Route::get('/Category/form',[BackendControllersCategoriesController::class, 'add_category']);
