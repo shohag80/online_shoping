@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendControllers\BrandsController as BackendControllersBrandsController;
 use App\Http\Controllers\BackendControllers\CategoriesController as BackendControllersCategoriesController;
 use App\Http\Controllers\BackendControllers\HomeController as BackendControllersHomeController;
+use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FrontendControllers\BrandsController;
@@ -35,3 +36,7 @@ Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
 Route::get('/Products',[BackendControllersProductsController::class,'products']);
 Route::get('/Category/form',[BackendControllersCategoriesController::class,'add_category']);
 Route::post('/Category/form/Submit',[BackendControllersCategoriesController::class,'store']);
+
+
+
+Route::get('/MasterPro',[MasterProController::class,'viewPro']);
