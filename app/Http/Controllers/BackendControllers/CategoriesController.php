@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
     public function category(){
         //dd('Hello Backend Category');
-        return view('Backend/Pages/Categorys');
+        $Categories=Category::all();
+        return view('Backend/Pages/Categories', compact('Categories'));
+        
     }
 
     public function add_category(){
@@ -18,6 +21,11 @@ class CategoriesController extends Controller
     }
 
     public function store (Request $request){
-        dd($request->all());
+        //dd($request->all());
+        Category::create([
+            'category_name'=> $request->category_name,
+            'discription'=> $request->discription,
+        ]); 
+        return redirect()->back();        
     }
 }

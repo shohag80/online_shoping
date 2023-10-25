@@ -6,7 +6,7 @@
 
     <div class="col-md-12">
       <div style="margin-top: 50px; margin-left: 10px;" class="text-center">
-        <h1 class="mt-3 text-white">Registration</h1>
+        <h1 class="mt-3 text-white">Create Category</h1>
         <p class="white-text">You are 5 minutes away from compleating your Informantion!</p>
       </div>
     </div>
@@ -18,13 +18,13 @@
       <div class="card card-custom pb-4">
         <div class="card-body mt-0 mx-5">
 
-          <form action="{{url('/Category/form/Submit')}}" method="post">
+          <form action="{{url('/category/form/store')}}" method="post">
             @csrf
             <div>
               <div class="col">
                 <div class="form-outline">
-                  <label class="form-label" for="form9Example1">Category name</label>
-                  <input type="text" name="Category_Name" id="" class="form-control"/>
+                  <label class="form-label" for="form9Example1">Category Name</label>
+                  <input type="text" name="category_name" id="" class="form-control"/>
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@
               <div class="col">
                 <div class="form-outline">
                   <label class="form-label" for="form9Example1">Category Discription</label>
-                  <textarea name="Discription" id="" cols="49" rows="5"></textarea>
+                  <textarea name="discription" id="" cols="49" rows="5"></textarea>
                 </div>
               </div>
             </div>

@@ -31,11 +31,17 @@ use Illuminate\Support\Facades\Route;
 
 //BackendRoutes
 Route::get('/',[BackendControllersHomeController::class,'home']);
-Route::get('/Category',[BackendControllersCategoriesController::class,'category']);
+
 Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
+Route::get('/Brands/BrandList',[BackendControllersBrandsController::class,'add_brand'])->name('Add_Brand');
+Route::post('/Brands/BrandList',[BackendControllersBrandsController::class,'brand_store'])->name('Brand_Store');
+
+
 Route::get('/Products',[BackendControllersProductsController::class,'products']);
+
+Route::get('/Category',[BackendControllersCategoriesController::class,'category']);
 Route::get('/Category/form',[BackendControllersCategoriesController::class,'add_category']);
-Route::post('/Category/form/Submit',[BackendControllersCategoriesController::class,'store']);
+Route::post('/category/form/store',[BackendControllersCategoriesController::class,'store']);
 
 
 

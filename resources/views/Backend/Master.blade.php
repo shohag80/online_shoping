@@ -17,7 +17,6 @@
 </head>
 
 <body class="home-page noleftbar norightbar qv-enabled not-logged-in" data-currency="$" data-decimal="2">
-    <div id="skip"><a href="#page-content">Skip to Main Content</a></div>
 
     
     @include('Backend.Partials.Header_Top')
