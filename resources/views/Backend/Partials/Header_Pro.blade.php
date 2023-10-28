@@ -42,32 +42,32 @@
                                 Brands
                             </button>
                             <ul class="dropdown-menu bg-success">
-                                <li><a class="dropdown-item" href="{{route('add_category_pro')}}">Add</a></li>
-                                <li><a class="dropdown-item" href="{{route('category_list_pro')}}">ALL Brands</a></li>
+                                <li><a class="dropdown-item" href="{{route('Add_Brand_Pro')}}">Add</a></li>
+                                <li><a class="dropdown-item" href="{{route('All_Brands_Pro')}}">All Brands</a></li>
                             </ul>
                             <button type="button" class="btn btn-danger  mr-md-1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Products
                             </button>
                             <ul class="dropdown-menu bg-danger">
-                                <li><a class="dropdown-item" href="{{route('add_product_pro')}}">Add Products</a></li>
-                                <li><a class="dropdown-item" href="{{route('product_list_pro')}}">Products List</a></li>
-                                <li><a class="dropdown-item" href="{{route('product_reviews')}}">Products Reviews</a></li>
+                                <li><a class="dropdown-item" href="{{route('add_product_pro')}}">Add</a></li>
+                                <li><a class="dropdown-item" href="{{route('product_list_pro')}}">All Products</a></li>
+                                <li><a class="dropdown-item" href="{{route('product_reviews')}}">Reviews</a></li>
                             </ul>
                             <button type="button" class="btn btn-warning mr-md-1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Orders
                             </button>
                             <ul class="dropdown-menu bg-warning">
-                                <li><a class="dropdown-item" href="#">Recents</a></li>
-                                <li><a class="dropdown-item" href="#">Last Month</a></li>
-                                <li><a class="dropdown-item" href="#">All Orders</a></li>
+                                <li><a class="dropdown-item" href="{{route('Recent')}}">Recent</a></li>
+                                <li><a class="dropdown-item" href="{{route('Last_Month')}}">Last Month</a></li>
+                                <li><a class="dropdown-item" href="{{route('All_Orders')}}">All Orders</a></li>
                             </ul>
                             <button type="button" class="btn btn-dark" data-bs-toggle="dropdown" aria-expanded="false">
                                 Contacts
                             </button>
                             <ul class="dropdown-menu bg-dark">
-                                <li><a class="dropdown-item text-white contact-btn" href="#">Head Office</a></li>
-                                <li><a class="dropdown-item text-white contact-btn" href="#">Customer Care</a></li>
-                                <li><a class="dropdown-item text-white contact-btn" href="#">Suppliers Shops</a></li>
+                                <li><a class="dropdown-item text-white contact-btn" href="{{route('Head_Office')}}">Head Office</a></li>
+                                <li><a class="dropdown-item text-white contact-btn" href="{{route('Customer_Care')}}">Customer Care</a></li>
+                                <li><a class="dropdown-item text-white contact-btn" href="{{route('Supplier_Shops')}}">Suppliers Shops</a></li>
                             </ul>
                         </div>
                     </div>

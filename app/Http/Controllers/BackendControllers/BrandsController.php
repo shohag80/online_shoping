@@ -29,7 +29,13 @@ class BrandsController extends Controller
         return redirect()->back();
     }
 
-
+    public function add_brand_pro(){
+        //dd('Hello Add Brand ');
+        return view('Backend/Pages/Brands/Add');
+    }
     
+    public function all_brands_pro(){
+        return view('Backend/Pages/Brands/All_Brand');
+    }
 
 }

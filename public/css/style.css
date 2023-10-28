@@ -33,10 +33,9 @@ body{
     width: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
-
 
 /* Button Design */
 .btn-light{
@@ -48,7 +47,7 @@ body{
     color: white;
 }
 .contact-btn:hover{
-    background-color: black;
+    background-color: rgb(245, 21, 21);
 }
 .profile-btn:hover{
     color: dark;
