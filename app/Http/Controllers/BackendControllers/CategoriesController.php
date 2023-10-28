@@ -28,4 +28,17 @@ class CategoriesController extends Controller
         ]); 
         return redirect()->back();        
     }
+
+    // Master_Pro
+
+    public function add_category_pro(){
+        //dd('Hello');
+        return view('Backend/Pages/Categories/Add_Category');
+    }
+
+
+    public function category_list_pro(){
+        //dd('Hello');
+        return view('Backend/Pages/Categories/Category_List');
+    }
 }

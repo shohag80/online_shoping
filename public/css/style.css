@@ -4,10 +4,52 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 body{
     background: f1fbff;
 }
-.dropdown-item{
+
+.section-padding{
+    padding: 100px 0px;
+}
+
+.carousel-item{
+    height: 100vh;
+    min-height: 350px;
+}
+
+.carousel-caption{
+    z-index: 2;
+}
+
+.carousel-caption h5{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(54, 3, 95);
+}
+
+.carousel-inner::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+
+/* Button Design */
+.btn-light{
+    background-color: rgb(159, 48, 255);
     color: white;
 }
-.dropdown-item:hover{
-    background-color: white;
-    color: black;
+.btn-light:hover{
+    background-color: rgb(119, 36, 191);
+    color: white;
+}
+.contact-btn:hover{
+    background-color: black;
+}
+.profile-btn:hover{
+    color: dark;
 }

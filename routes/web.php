@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\BackendControllers\AdminControllers;
 use App\Http\Controllers\BackendControllers\BrandsController as BackendControllersBrandsController;
 use App\Http\Controllers\BackendControllers\CategoriesController as BackendControllersCategoriesController;
+use App\Http\Controllers\BackendControllers\CustomerController;
+use App\Http\Controllers\BackendControllers\DeliveryController;
 use App\Http\Controllers\BackendControllers\HomeController as BackendControllersHomeController;
+use App\Http\Controllers\BackendControllers\MasterHomeControllers;
 use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
+use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FrontendControllers\BrandsController;
 use App\Http\Controllers\FrontendControllers\CategoriesController;
@@ -45,4 +50,18 @@ Route::post('/category/form/store',[BackendControllersCategoriesController::clas
 
 
 
-Route::get('/MasterPro',[MasterProController::class,'viewPro']);
+Route::get('/MasterPro',[MasterProController::class,'viewPro'])->name('master_pro');
+
+Route::get('/home',[MasterHomeControllers::class, 'main'])->name('Home');
+Route::get('/profile/admins',[AdminControllers::class, 'master_admin'])->name('Admins');
+Route::get('/profile/suppliers',[SuppliersController::class, 'master_supplier'])->name('Supplier');
+Route::get('/profile/customers',[CustomerController::class, 'customer'])->name('Customers');
+Route::get('/profile/delivery_mans',[DeliveryController::class, 'delivery_mans'])->name('delivery');
+
+Route::get('/category/add',[BackendControllersCategoriesController::class,'add_category_pro'])->name('add_category_pro');
+Route::get('/category/list',[BackendControllersCategoriesController::class,'category_list_pro'])->name('category_list_pro');
+
+Route::get('/product/add',[BackendControllersProductsController::class,'add_product_pro'])->name('add_product_pro');
+Route::get('/product/list',[BackendControllersProductsController::class,'product_list_pro'])->name('product_list_pro');
+Route::get('/product/reviews',[BackendControllersProductsController::class,'product_reviews'])->name('product_reviews');
+
