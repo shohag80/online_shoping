@@ -3,14 +3,42 @@
 namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
     public  function products(){
-        //dd('Hello Products');
-        return view('Backend/Pages/Products');
+        $productdata = Product::all();
+        return view('Backend/Pages/Products', compact('productdata'));
     }
+
+    public function form(){
+        $category=Category::all();
+        $brand=Brand::all();
+        return view('Backend/Pages/Add_Product', compact('category', 'brand'));
+    }
+
+    public function form_data_store(Request $request){
+        
+        Product::create([
+            'photo'=>$request->product_image,
+            'category_name'=>$request->category_id,
+            'brand_name'=>$request->brand_id,
+            'product_name'=>$request->product_name,
+            'price'=>$request->product_price,
+            'discription'=>$request->discription,
+        ]);
+
+        return redirect(url('/Products'));
+    }
+
+
+
+
+
 
     public function add_product_pro(){
         return view('Backend/Pages/Products/Add_Product');

@@ -46,6 +46,8 @@ Route::post('/Brands/BrandList',[BackendControllersBrandsController::class,'bran
 
 
 Route::get('/Products',[BackendControllersProductsController::class,'products']);
+Route::get('/Product/form',[BackendControllersProductsController::class,'form']);
+Route::post('/Product/store',[BackendControllersProductsController::class,'form_data_store'])->name('Product_Store');
 
 Route::get('/Category',[BackendControllersCategoriesController::class,'category']);
 Route::get('/Category/form',[BackendControllersCategoriesController::class,'add_category']);

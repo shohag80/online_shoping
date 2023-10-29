@@ -26,7 +26,7 @@ class BrandsController extends Controller
             'discription'=>$request->discription,
         ]);
 
-        return redirect()->back();
+        return redirect(url('/Brands'));
     }
 
     public function add_brand_pro(){

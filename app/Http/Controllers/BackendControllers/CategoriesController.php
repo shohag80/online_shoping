@@ -26,7 +26,7 @@ class CategoriesController extends Controller
             'category_name'=> $request->category_name,
             'discription'=> $request->discription,
         ]); 
-        return redirect()->back();        
+        return redirect(url('/Category'));        
     }
 
     // Master_Pro
