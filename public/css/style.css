@@ -23,18 +23,18 @@ body{
     font-size: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgb(54, 3, 95);
+    color: rgb(255, 255, 255);
 }
 
-.carousel-inner::before{
-    content: '';
+.carousel-inner::after{
+    content:'';
     position: absolute;
     height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: -1;
 }
 
 /* Button Design */

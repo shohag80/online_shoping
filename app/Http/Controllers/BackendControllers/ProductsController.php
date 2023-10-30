@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
     public  function products(){
-        $productdata = Product::all();
+        // $productdata = Product::all();
+        $productdata = Product::paginate(10);
         return view('Backend/Pages/Products', compact('productdata'));
     }
 
@@ -31,7 +32,7 @@ class ProductsController extends Controller
             'price'=>$request->product_price,
             'discription'=>$request->discription,
         ]);
-
+        notify()->success('your data store successfully.');
         return redirect(url('/Products'));
     }
 

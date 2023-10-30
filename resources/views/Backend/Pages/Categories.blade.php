@@ -8,7 +8,7 @@
 </div>
 <br /><br />
 
-<span class="border border-warning">
+<div class="border border-warning">
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -33,7 +33,8 @@
 
     </tbody>
   </table>
-</span>
+  {{$Categories->links()}}
+</div>
 
 <br /><br />
 @endsection

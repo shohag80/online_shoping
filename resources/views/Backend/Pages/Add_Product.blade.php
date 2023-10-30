@@ -6,7 +6,7 @@
 
     <div class="col-md-12">
       <div style="margin-top: 50px; margin-left: 10px;" class="text-center">
-        <h1 class="mt-3 text-white">Add Product</h1>
+        <h1 class="mt-3"><b>Add Product</b></h1>
         <p class="white-text">You are 5 minutes away from compleating your Informantion!</p>
       </div>
     </div>
@@ -25,7 +25,7 @@
                 <div class="form-outline">
                   <label class="form-label" for="form9Example1">Category Name</label><br/>
                   
-                  <select name="category_id" style="height: 32px; width: 370px">
+                  <select name="category_id" style="height: 32px; width: 370px; border: 1px solid lightgray;">
                     <option>Select Category</option>
                     @foreach($category as $item)
                     <option value="{{$item->id}}">{{$item->category_name}}</option>
@@ -41,7 +41,7 @@
                 <div class="form-outline">
                   <label class="form-label" for="form9Example1">Brand Name</label><br/>
                   
-                  <select name="brand_id" style="height: 32px; width: 370px" aria-label="Default select example">
+                  <select name="brand_id" style="height: 32px; width: 370px; border: 1px solid lightgray;" aria-label="Default select example">
                     <option>Select Brand</option>
                     @foreach($brand as $item)
                     <option value="{{$item->id}}">{{$item->brand_name}}</option>
@@ -72,7 +72,7 @@
               <div class="col">
                 <div class="form-outline">
                   <label class="form-label" for="form9Example1">Product Image</label>
-                  <input type="file" name="product_image" id="" class="form-control" />
+                  <input type="file" style="border: 1px white;" name="product_image" id="" class="form-control" />
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
               <div class="col">
                 <div class="form-outline">
                   <label class="form-label" for="form9Example1">Category Discription</label>
-                  <textarea name="discription" id="" cols="49" rows="5"></textarea>
+                  <textarea name="discription" style="border: 1px solid lightgray;" id="" cols="49" rows="5"></textarea>
                 </div>
               </div>
             </div>

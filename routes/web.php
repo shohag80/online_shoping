@@ -55,6 +55,15 @@ Route::post('/category/form/store',[BackendControllersCategoriesController::clas
 
 
 
+
+
+
+
+
+
+
+
+
 Route::get('/MasterPro',[MasterProController::class,'viewPro'])->name('master_pro');
 
 Route::get('/home',[MasterHomeControllers::class, 'main'])->name('Home');

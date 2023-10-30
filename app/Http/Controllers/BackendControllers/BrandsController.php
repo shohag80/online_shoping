@@ -10,7 +10,7 @@ class BrandsController extends Controller
 {
     public function brands(){
         //dd('Hello Backend Brands');
-        $BrandData=Brand::all();
+        $BrandData=Brand::paginate(3);
         return view('Backend/Pages/Brands', compact('BrandData'));
     }
 
@@ -25,7 +25,7 @@ class BrandsController extends Controller
             'brand_name'=>$request->brand_name,
             'discription'=>$request->discription,
         ]);
-
+        notify()->success('Added Brand Successfully');
         return redirect(url('/Brands'));
     }
 

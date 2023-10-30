@@ -10,7 +10,7 @@ class CategoriesController extends Controller
 {
     public function category(){
         //dd('Hello Backend Category');
-        $Categories=Category::all();
+        $Categories=Category::paginate(3);
         return view('Backend/Pages/Categories', compact('Categories'));
         
     }
@@ -26,6 +26,7 @@ class CategoriesController extends Controller
             'category_name'=> $request->category_name,
             'discription'=> $request->discription,
         ]); 
+        notify()->success('Added Category Successfully');
         return redirect(url('/Category'));        
     }
 

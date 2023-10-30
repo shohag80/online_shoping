@@ -43,5 +43,7 @@
   </table>
 </span>
 
+{{$productdata->links()}}
+
 <br /><br />
 @endsection
