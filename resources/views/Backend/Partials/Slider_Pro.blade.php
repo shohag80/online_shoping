@@ -1,4 +1,4 @@
-<section class="section-padding">
+<section>
         <div class="container">
             <div class="row">
                 <div class="slider pt-4">

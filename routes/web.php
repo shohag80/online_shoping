@@ -86,6 +86,10 @@ Route::get('/order/recent',[OrderController::class,'recent_order'])->name('Recen
 Route::get('/order/last_month',[OrderController::class,'last_month'])->name('Last_Month');
 Route::get('/order/all_orders',[OrderController::class,'all_orders'])->name('All_Orders');
 
+Route::get('/delivery/panding', [DeliveryController::class,'panding'])->name('Delivery_Panding');
+Route::get('/delivery/processing', [DeliveryController::class,'processing'])->name('Delivery_Processing');
+Route::get('/delivery/complete', [DeliveryController::class,'complete'])->name('Delivery_Complete');
+
 Route::get('/contact/head_office',[ContactController::class,'head_office'])->name('Head_Office');
 Route::get('/contact/customer_care',[ContactController::class,'customer_care'])->name('Customer_Care');
 Route::get('/contact/supplier_shops',[ContactController::class,'supplier_shops'])->name('Supplier_Shops');

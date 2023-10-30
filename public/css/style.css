@@ -1,24 +1,31 @@
-.header{
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.header {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-body{
+
+body {
     background: f1fbff;
 }
 
-.section-padding{
+.stickey_header {
+    position: sticky;
+    top: 0;
+    z-index: 1000000;
+}
+
+.section-padding {
     padding: 100px 0px;
 }
 
-.carousel-item{
-    height: 100vh;
+.carousel-item {
+    height: 70vh;
     min-height: 350px;
 }
 
 .carousel-caption{
-    z-index: 2;
+    z-index: 1;
 }
 
-.carousel-caption h5{
+.carousel-caption h5 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
     text-transform: uppercase;
@@ -26,29 +33,32 @@ body{
     color: rgb(255, 255, 255);
 }
 
-.carousel-inner::after{
-    content:'';
+.carousel-inner::before {
+    content: '';
     position: absolute;
     height: 100%;
     width: 100%;
     margin: 0px;
     padding: 0px;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+    z-index: 2;
 }
 
 /* Button Design */
-.btn-light{
+.btn-light {
     background-color: rgb(159, 48, 255);
     color: white;
 }
-.btn-light:hover{
+
+.btn-light:hover {
     background-color: rgb(119, 36, 191);
     color: white;
 }
-.contact-btn:hover{
+
+.contact-btn:hover {
     background-color: rgb(245, 21, 21);
 }
-.profile-btn:hover{
+
+.profile-btn:hover {
     color: dark;
 }
