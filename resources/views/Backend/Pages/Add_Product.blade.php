@@ -20,11 +20,26 @@
 
           <form action="{{route('Product_Store')}}" method="post">
             @csrf
+
+            @if( $errors->any())
+
+            <div class="alert alert-danger">
+              <ul>
+                @foreach($errors->all() as $error)
+
+                  <li>{{$error}}</li> 
+
+                @endforeach
+              </ul>
+            </div>
+
+            @endif
+
             <div>
               <div class="col">
                 <div class="form-outline">
-                  <label class="form-label" for="form9Example1">Category Name</label><br/>
-                  
+                  <label class="form-label" for="form9Example1">Category Name</label><br />
+
                   <select name="category_id" style="height: 32px; width: 370px; border: 1px solid lightgray;">
                     <option>Select Category</option>
                     @foreach($category as $item)
@@ -39,8 +54,8 @@
             <div>
               <div class="col">
                 <div class="form-outline">
-                  <label class="form-label" for="form9Example1">Brand Name</label><br/>
-                  
+                  <label class="form-label" for="form9Example1">Brand Name</label><br />
+
                   <select name="brand_id" style="height: 32px; width: 370px; border: 1px solid lightgray;" aria-label="Default select example">
                     <option>Select Brand</option>
                     @foreach($brand as $item)

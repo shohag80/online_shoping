@@ -11,11 +11,7 @@
     @notifyCss
     <style type="text/css">
         .notify{
-            height: auto;
-            width: 60%;
             z-index: 1000000;
-            margin-top: 9%;
-            font-size: 16px;
         }
     </style>
     <link href="{{url('/css/styles.css')}}" rel="stylesheet"/>

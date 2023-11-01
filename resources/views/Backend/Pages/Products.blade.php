@@ -29,8 +29,8 @@
       <tr>
         <td>{{$item->id}}</td>
         <td>{{$item->photo}}</td>
-        <td>{{$item->category_name}}</td>
-        <td>{{$item->brand_name}}</td>
+        <td>{{$item->category->category_name}}</td>
+        <td>{{$item->brand->brand_name}}</td>
         <td>{{$item->product_name}}</td>
         <td>{{$item->price}}</td>
         <td>{{$item->discription}}</td>
