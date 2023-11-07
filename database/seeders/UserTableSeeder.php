@@ -14,9 +14,12 @@ class UserTableSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name'=>'Admin',
+            'name'=>'Md. Shohag Hosssain',
+            'role'=>'Manager',
+            'phone'=>'01975134225',
             'email'=>'mdshohaghossain8080@gmail.com',
             'password'=>bcrypt('808080'),
+            'photo'=>'',
         ]);
     }
 }

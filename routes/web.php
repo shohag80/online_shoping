@@ -47,6 +47,10 @@ Route::group(['middleware'=>'auth'], function(){
 
 Route::get('/',[BackendControllersHomeController::class,'home'])->name('Home_Page');
 
+Route::get('/admin',[AdminControllers::class,'admin'])->name('Admin');
+Route::get('/admin/form',[AdminControllers::class,'form'])->name('Admin_Form');
+Route::post('/admin/form/store',[AdminControllers::class,'store'])->name('Admin_Store');
+
 Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
 Route::get('/Brands/BrandList',[BackendControllersBrandsController::class,'add_brand'])->name('Add_Brand');
 Route::post('/Brands/BrandList',[BackendControllersBrandsController::class,'brand_store'])->name('Brand_Store');

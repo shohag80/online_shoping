@@ -44,6 +44,9 @@
                             <li>
                                 <a href="{{url('/Products')}}">Products</a>
                             </li>
+                            <li>
+                                <a href="{{route('Admin')}}">Admin</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
