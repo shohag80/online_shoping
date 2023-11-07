@@ -19,7 +19,8 @@
                     <div class="useraccount clearfix">
                         <ul class="clearfix">
 
-                            <li><a href="myaccount.asp">Login</a> <span style="color:#fff;">|</span></li>
+                            <li><a href="{{route('Login')}}">Login</a> <span style="color:#fff;">|</span></li>
+                            <li><a href="{{route('Logout')}}">Logout</a> <span style="color:#fff;">|</span></li>
                             <li><a href="register.asp">Register</a></li>
 
                         </ul>

@@ -6,23 +6,18 @@ body {
     background: f1fbff;
 }
 
-.stickey_header {
-    position: sticky;
-    top: 0;
-    z-index: 1000000;
-}
 
 .section-padding {
     padding: 100px 0px;
 }
 
 .carousel-item {
-    height: 70vh;
+    height: 100vh;
     min-height: 350px;
 }
 
 .carousel-caption{
-    z-index: 1;
+    z-index: 9999;
 }
 
 .carousel-caption h5 {
@@ -40,8 +35,8 @@ body {
     width: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 /* Button Design */
@@ -55,10 +50,33 @@ body {
     color: white;
 }
 
+
+/* Profile */
+
+
+
+
+/* Contact */
+
 .contact-btn:hover {
     background-color: rgb(245, 21, 21);
 }
 
+
+
+
+
+
+
+
+
+
+
+/* Profile */
+
 .profile-btn:hover {
     color: dark;
 }
+
+/* Login */
+

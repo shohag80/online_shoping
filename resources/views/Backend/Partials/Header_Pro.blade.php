@@ -22,35 +22,35 @@
                             </a>
 
                             <button type="button" class="btn btn-info mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                Profiles
+                                Profile
                             </button>
                             <ul class="dropdown-menu bg-info">
-                                <li><a class="dropdown-item profile-btn" href="{{route('Admins')}}">Admins</a></li>
-                                <li><a class="dropdown-item profile-btn" href="{{route('Supplier')}}">Suppliers</a></li>
-                                <li><a class="dropdown-item profile-btn" href="{{route('Customers')}}">Customers</a></li>
+                                <li><a class="dropdown-item profile-btn" href="{{route('Admins')}}">Admin</a></li>
+                                <li><a class="dropdown-item profile-btn" href="{{route('Supplier')}}">Supplier</a></li>
+                                <li><a class="dropdown-item profile-btn" href="{{route('Customers')}}">Customer</a></li>
                                 <li><a class="dropdown-item profile-btn" href="{{route('delivery')}}">Delivery Man</a></li>
                             </ul>
 
                             <button type="button" class="btn btn-secondary mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                Categories
+                                Category
                             </button>
                             <ul class="dropdown-menu bg-secondary">
                                 <li><a class="dropdown-item" href="{{route('add_category_pro')}}">Add Category</a></li>
                                 <li><a class="dropdown-item" href="{{route('category_list_pro')}}">Category List</a></li>
                             </ul>
                             <button type="button" class="btn btn-success border mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                Brands
+                                Brand
                             </button>
                             <ul class="dropdown-menu bg-success">
                                 <li><a class="dropdown-item" href="{{route('Add_Brand_Pro')}}">Add</a></li>
-                                <li><a class="dropdown-item" href="{{route('All_Brands_Pro')}}">All Brands</a></li>
+                                <li><a class="dropdown-item" href="{{route('All_Brands_Pro')}}">All Brand</a></li>
                             </ul>
                             <button type="button" class="btn btn-danger  mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                Products
+                                Product
                             </button>
                             <ul class="dropdown-menu bg-danger">
                                 <li><a class="dropdown-item" href="{{route('add_product_pro')}}">Add</a></li>
-                                <li><a class="dropdown-item" href="{{route('product_list_pro')}}">All Products</a></li>
+                                <li><a class="dropdown-item" href="{{route('product_list_pro')}}">All Product</a></li>
                                 <li><a class="dropdown-item" href="{{route('product_reviews')}}">Reviews</a></li>
                             </ul>
                             <button type="button" class="btn btn-warning mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">

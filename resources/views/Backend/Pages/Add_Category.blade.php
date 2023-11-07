@@ -32,8 +32,8 @@
             <div>
               <div class="col">
                 <div class="form-outline">
-                  <label class="form-label" for="form9Example1">Category Discription</label>
-                  <textarea style="border: 1px solid lightgray; name="discription" id="" cols="49" rows="5"></textarea>
+                  <label class="form-label" for="form9Example1">Category Drscription</label>
+                  <textarea style="border: 1px solid lightgray"; name="description" id="" cols="49" rows="5"></textarea>
                 </div>
               </div>
             </div>

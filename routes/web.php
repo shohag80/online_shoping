@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\BackendControllers\AdminControllers;
 use App\Http\Controllers\BackendControllers\BrandsController as BackendControllersBrandsController;
 use App\Http\Controllers\BackendControllers\CategoriesController as BackendControllersCategoriesController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\BackendControllers\ContactController;
 use App\Http\Controllers\BackendControllers\CustomerController;
 use App\Http\Controllers\BackendControllers\DeliveryController;
 use App\Http\Controllers\BackendControllers\HomeController as BackendControllersHomeController;
+use App\Http\Controllers\BackendControllers\LoginController as BackendControllersLoginController;
 use App\Http\Controllers\BackendControllers\MasterHomeControllers;
 use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\OrderController;
@@ -38,7 +40,12 @@ use Illuminate\Support\Facades\Route;
 
 
 //BackendRoutes
-Route::get('/',[BackendControllersHomeController::class,'home']);
+Route::get('login',[BackendControllersLoginController::class,'login'])->name('Login');
+Route::post('login/dologin',[BackendControllersLoginController::class,'loginForm'])->name('Do_Login');
+
+Route::group(['middleware'=>'auth'], function(){
+
+Route::get('/',[BackendControllersHomeController::class,'home'])->name('Home_Page');
 
 Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
 Route::get('/Brands/BrandList',[BackendControllersBrandsController::class,'add_brand'])->name('Add_Brand');
@@ -53,7 +60,9 @@ Route::get('/Category',[BackendControllersCategoriesController::class,'category'
 Route::get('/Category/form',[BackendControllersCategoriesController::class,'add_category']);
 Route::post('/category/form/store',[BackendControllersCategoriesController::class,'store']);
 
+Route::get('/logout',[BackendControllersLoginController::class,'logout'])->name('Logout');
 
+});
 
 
 

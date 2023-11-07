@@ -24,11 +24,16 @@ class CategoriesController extends Controller
         //dd($request->all());
         Category::create([
             'category_name'=> $request->category_name,
-            'discription'=> $request->discription,
+            'description'=> $request->description,
         ]); 
         notify()->success('Added Category Successfully');
         return redirect(url('/Category'));        
     }
+
+
+
+
+
 
     // Master_Pro
 
