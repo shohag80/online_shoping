@@ -15,11 +15,11 @@ class UserTableSeeder extends Seeder
     {
         User::create([
             'name'=>'Md. Shohag Hosssain',
-            'role'=>'Manager',
+            'role'=>'Admin',
             'phone'=>'01975134225',
             'email'=>'mdshohaghossain8080@gmail.com',
-            'password'=>bcrypt('808080'),
-            'photo'=>'Admin Photo',
+            'password'=>bcrypt('019751342256'),
+            'photo'=>'Admin_Photo.jpg',
         ]);
     }
 }

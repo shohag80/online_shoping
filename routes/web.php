@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Backend\LoginController;
+
 use App\Http\Controllers\BackendControllers\AdminControllers;
 use App\Http\Controllers\BackendControllers\BrandsController as BackendControllersBrandsController;
 use App\Http\Controllers\BackendControllers\CategoriesController as BackendControllersCategoriesController;

@@ -23,12 +23,13 @@
             <tr>
                 <th scope="row">{{$key+1}}</th>
                 <td>
-                    <img style="height: 40px; width: 40px;" src="{{url('uploads/'.$item->photo)}}" alt="">
+                    <img style="height: 40px; width: 40px;" src="{{url('uploads/'.$item->photo)}}" alt="admin_photo">
                 </td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->phone}}</td>
                 <td>{{$item->email}}</td>
                 <td>
+                    <a type="button" class="btn btn-primary" href="#">View</a>
                     <a type="button" class="btn btn-success">Update</a>
                     <a type="button" class="btn btn-danger">Delete</a>
                 </td>
