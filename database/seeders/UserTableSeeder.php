@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'phone'=>'01975134225',
             'email'=>'mdshohaghossain8080@gmail.com',
             'password'=>bcrypt('808080'),
-            'photo'=>'',
+            'photo'=>'Admin Photo',
         ]);
     }
 }

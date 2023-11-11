@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,7 +16,8 @@ class AdminControllers extends Controller
 
     public function admin(){
         // dd('Hello admin');
-        return view('Backend.Pages.Admin');
+        $admin_data=User::all();
+        return view('Backend.Pages.Admin',compact('admin_data'));
     }
     
     public function form(){
@@ -28,21 +30,35 @@ class AdminControllers extends Controller
         $valitator=Validator::make($request->all(),[
             'name'=>'required',
             'role'=>'required',
-            'phone'=>'required|min:11',
+            'phone'=>'required|min:11|max:11',
             'email'=>'required|email',
             'password'=>'required|min:6',
-            'photo'=>'required',
         ]);
-
+            // dd($valitator);
         if($valitator->fails()){
+            notify()->error('Please, Input your valid data.');
             return redirect()->back()->withErrors($valitator)->withInput();
         }
 
-        $fileName=null;
+
+        $file_name=null;
         if($request->hasFile('photo')){
             $file=$request->file('photo');
-            dd($file);
+            $file_name=date('Ymdhis').'.'.$file->getClientOriginalExtension();
+            $file->storeAs('uploads/',$file_name);
         }
+
+
+        User::create([
+            'name'=>$request->name,
+            'role'=>$request->role,
+            'phone'=>$request->phone,
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'photo'=>$file_name,
+        ]);
+
+        return redirect()->route('Admin');
         
     }
 }

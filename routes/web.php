@@ -14,12 +14,7 @@ use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\OrderController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
 use App\Http\Controllers\BackendControllers\SuppliersController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\FrontendControllers\BrandsController;
-use App\Http\Controllers\FrontendControllers\CategoriesController;
-use App\Http\Controllers\FrontendControllers\HomeController;
-use App\Http\Controllers\FrontendControllers\ProductsController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
