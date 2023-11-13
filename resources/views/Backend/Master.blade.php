@@ -14,6 +14,7 @@
             z-index: 1000000;
         }
     </style>
+    
     <link href="{{url('/css/styles.css')}}" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Courgette|Lato:100,300,400,700,900|Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/bootstrap/css/bootstrap.css?vcart=13.3.0" type="text/css" />
@@ -38,7 +39,6 @@
         
         
         @yield('Container')
-        
         
 
     </div>

@@ -26,7 +26,7 @@ class BrandsController extends Controller
             'discription'=>$request->discription,
         ]);
         notify()->success('Added Brand Successfully');
-        return redirect(url('/Brands'));
+        return redirect()->route('Brand');
     }
 
     public function add_brand_pro(){

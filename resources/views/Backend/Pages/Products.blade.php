@@ -3,7 +3,7 @@
 
 <div class="row container-fluid"> <div class="contairer"> <h1><b>Product List:</b></h1>
   </div> <div class="col-md-10"></div> <div class="col-md-2">
-  <a href="{{url('/Product/form')}}" class="font_style btn btn-success" type="button">Add Product</a>
+  <a href="{{route('Product_From')}}" class="font_style btn btn-success" type="button">Add Product</a>
 </div>
 </div>
 <br /><br />
@@ -28,7 +28,9 @@
 
       <tr>
         <td>{{$item->id}}</td>
-        <td>{{$item->photo}}</td>
+        <td>
+          <img height="60px" width="60px" src="{{url('uploads/',$item->photo)}}" alt="">
+        </td>
         <td>{{$item->category->category_name}}</td>
         <td>{{$item->brand->brand_name}}</td>
         <td>{{$item->product_name}}</td>

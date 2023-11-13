@@ -14,7 +14,8 @@ use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\OrderController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
 use App\Http\Controllers\BackendControllers\SuppliersController;
-
+use App\Http\Controllers\FrontendControllers\HomeController;
+use App\Http\Controllers\FrontendControllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,41 +29,53 @@ use Illuminate\Support\Facades\Route;
 */
 
 // FrontendRoutes
-// Route::get('/',[HomeController::class,'home']);
-// Route::get('/Category',[CategoriesController::class,'categoryList'])->name('FrontendCategory');
-// Route::get('/Brands',[BrandsController::class,'brandsList']);
-// Route::get('/Products',[ProductsController::class,'products']);
+
+Route::group(['prefix'=>'user'],function(){
+    
+
+Route::get('/',[HomeController::class,'userHome'])->name('User_Home');
+Route::get('/products',[ProductsController::class,'products'])->name('Products');
+
+
+
+});
+
+
+
+
 
 
 //BackendRoutes
+
+Route::group(['prefix'=>'admin'],function(){
+
 Route::get('login',[BackendControllersLoginController::class,'login'])->name('Login');
 Route::post('login/dologin',[BackendControllersLoginController::class,'loginForm'])->name('Do_Login');
 
 Route::group(['middleware'=>'auth'], function(){
 
+Route::get('/user_list',[AdminControllers::class,'admin'])->name('Admin');
+Route::get('/user/form',[AdminControllers::class,'form'])->name('Admin_Form');
+Route::post('/user/form/store',[AdminControllers::class,'store'])->name('Admin_Store');
+
 Route::get('/',[BackendControllersHomeController::class,'home'])->name('Home_Page');
 
-Route::get('/admin',[AdminControllers::class,'admin'])->name('Admin');
-Route::get('/admin/form',[AdminControllers::class,'form'])->name('Admin_Form');
-Route::post('/admin/form/store',[AdminControllers::class,'store'])->name('Admin_Store');
+Route::get('/category',[BackendControllersCategoriesController::class,'category'])->name('Category');
+Route::get('/category/form',[BackendControllersCategoriesController::class,'add_category'])->name('Add_Category');
+Route::post('/category/form/store',[BackendControllersCategoriesController::class,'store'])->name('Category_Store');
 
-Route::get('/Brands',[BackendControllersBrandsController::class,'brands']);
-Route::get('/Brands/BrandList',[BackendControllersBrandsController::class,'add_brand'])->name('Add_Brand');
-Route::post('/Brands/BrandList',[BackendControllersBrandsController::class,'brand_store'])->name('Brand_Store');
+Route::get('/brands',[BackendControllersBrandsController::class,'brands'])->name('Brand');
+Route::get('/brands/from',[BackendControllersBrandsController::class,'add_brand'])->name('Add_Brand');
+Route::post('/brands/from/store',[BackendControllersBrandsController::class,'brand_store'])->name('Brand_Store');
 
-
-Route::get('/Products',[BackendControllersProductsController::class,'products']);
-Route::get('/Product/form',[BackendControllersProductsController::class,'form']);
-Route::post('/Product/store',[BackendControllersProductsController::class,'form_data_store'])->name('Product_Store');
-
-Route::get('/Category',[BackendControllersCategoriesController::class,'category']);
-Route::get('/Category/form',[BackendControllersCategoriesController::class,'add_category']);
-Route::post('/category/form/store',[BackendControllersCategoriesController::class,'store']);
+Route::get('/products',[BackendControllersProductsController::class,'products'])->name('Products');
+Route::get('/Product/form',[BackendControllersProductsController::class,'form'])->name('Product_From');
+Route::post('/product/store',[BackendControllersProductsController::class,'form_data_store'])->name('Product_Store');
 
 Route::get('/logout',[BackendControllersLoginController::class,'logout'])->name('Logout');
-
 });
 
+});
 
 
 

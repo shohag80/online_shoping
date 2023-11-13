@@ -35,19 +35,19 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/')}}">Home</a>
+                                    <a href="{{route('Home_Page')}}">Home</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/Category')}}">Category</a>
+                                    <a href="{{route('Category')}}">Category</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/Brands')}}">Brands</a>
+                                    <a href="{{route('Brand')}}">Brands</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/Products')}}">Products</a>
+                                    <a href="{{route('Products')}}">Products</a>
                                 </li>
                             </ul>
                         </div>

@@ -18,7 +18,7 @@
       <div class="card card-custom pb-4">
         <div class="card-body mt-0 mx-5">
 
-          <form action="{{url('/category/form/store')}}" method="post">
+          <form action="{{route('Category_Store')}}" method="post">
             @csrf
             <div>
               <div class="col">

@@ -20,14 +20,14 @@ class CategoriesController extends Controller
         return view('Backend/Pages/Add_Category');
     }
 
-    public function store (Request $request){
+    public function store(Request $request){
         //dd($request->all());
         Category::create([
             'category_name'=> $request->category_name,
             'description'=> $request->description,
         ]); 
         notify()->success('Added Category Successfully');
-        return redirect(url('/Category'));        
+        return redirect()->route('Category');        
     }
 
 

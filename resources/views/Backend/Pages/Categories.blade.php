@@ -3,7 +3,7 @@
 
 <div class="row container-fluid"> <div class="contairer"> <h1><b>Category List:</b></h1>
   </div> <div class="col-md-10"></div> <div class="col-md-2">
-  <a href="{{url('/Category/form')}}" class="font_style btn btn-success" type="button">Add Category</a>
+  <a href="{{route('Add_Category')}}" class="font_style btn btn-success" type="button">Add Category</a>
 </div>
 </div>
 <br /><br />
@@ -24,7 +24,7 @@
     <tr>
       <th scope="row">{{$item->id}}</th>
       <td>{{$item->category_name}}</td>
-      <td>{{$item->discription}}</td>
+      <td>{{$item->description}}</td>
       <td>
         <a href="#" class="btn btn-success">{{$item->action}}</a>
     </td>

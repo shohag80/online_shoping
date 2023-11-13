@@ -18,7 +18,7 @@
       <div class="card card-custom pb-4">
         <div class="card-body mt-0 mx-5">
 
-          <form action="{{route('Product_Store')}}" method="post">
+          <form action="{{route('Product_Store')}}" method="post" enctype="multipart/form-data">
             @csrf
 
             @if( $errors->any())
