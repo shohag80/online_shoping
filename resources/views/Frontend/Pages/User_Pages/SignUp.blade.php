@@ -66,36 +66,40 @@
                   </div>
                   <!-- form -->
                   <form action="{{route('Do_SignUp')}}" method="post">
-                  @csrf
+                     @csrf
                      <div class="row g-3">
                         <!-- col -->
                         <div class="col-12">
                            <!-- input -->
                            <label for="formSignupfname" class="form-label visually-hidden">Full Name</label>
-                           <input type="text" name="full_name" class="form-control" id="" placeholder="Full Name" required />
-                           <div class="invalid-feedback">Please enter full name.</div>
+                           <input type="text" name="full_name" value="{{old('full_name')}}" class="form-control" id="formSignupfname" placeholder="Full Name" required />
+                           <!-- <div class="invalid-feedback">Please enter full name.</div> -->
+                           @error('full_name'){{$message}}@enderror
                         </div>
 
                         <div class="col-12">
                            <div class="form-outline">
                               <label for="formSignupfnumber" class="form-label visually-hidden">Phone Number</label>
-                              <input type="text" name="number" id="" class="form-control" placeholder="Phone Number (+880)" required />
-                              <div class="invalid-feedback">Please enter phone number.</div>
+                              <input type="text" name="number" id="formSignupfnumber" value="{{old('number')}}" class="form-control" placeholder="Phone Number (+880)" required />
+                              <!-- <div class="invalid-feedback">Please enter phone number.</div> -->
+                              @error('number'){{$message}}@enderror
                            </div>
                         </div>
 
                         <div class="col-12">
                            <!-- input -->
                            <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
-                           <input type="email" name="email" class="form-control" id="" placeholder="Email" required />
-                           <div class="invalid-feedback">Please enter email.</div>
+                           <input type="email" name="email" value="{{old('email')}}" id="formSignupEmail" class="form-control"  placeholder="Email" required />
+                           <!-- <div class="invalid-feedback">Please enter email.</div> -->
+                           @error('email'){{$message}}@enderror
                         </div>
                         <div class="col-12">
                            <div class="password-field position-relative">
                               <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
                               <div class="password-field position-relative">
-                                 <input type="password" name="password" class="form-control fakePassword" id="" placeholder="*****" required />
-                                 <div class="invalid-feedback">Please enter password.</div>
+                                 <input type="password" name="password" value="{{old('password')}}" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
+                                 <!-- <div class="invalid-feedback">Please enter password.</div> -->
+                                 @error('password'){{$message}}@enderror
                               </div>
                            </div>
                         </div>

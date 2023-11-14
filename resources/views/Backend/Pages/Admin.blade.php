@@ -13,6 +13,7 @@
                 <th scope="col">Sl No</th>
                 <th scope="col">Photo</th>
                 <th scope="col">Admin Name</th>
+                <th scope="col">Role</th>
                 <th scope="col">Phone Number</th>
                 <th scope="col">Email</th>
                 <th scope="col">Action</th>
@@ -26,6 +27,7 @@
                     <img style="height: 40px; width: 40px;" src="{{url('uploads/'.$item->photo)}}" alt="admin_photo">
                 </td>
                 <td>{{$item->name}}</td>
+                <td>{{$item->role}}</td>
                 <td>{{$item->phone}}</td>
                 <td>{{$item->email}}</td>
                 <td>

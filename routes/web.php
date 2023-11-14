@@ -38,7 +38,11 @@ Route::post('/do_signup',[UserController::class,'do_signup'])->name('Do_SignUp')
 
 
 Route::get('/signin',[UserController::class,'login'])->name('SignIn');
+Route::post('/do_signin',[UserController::class,'do_login'])->name('Do_SignIn');
+
 Route::get('/forgetpassword',[UserController::class,'forget_password'])->name('Forget_Password');
+
+Route::group(['middleware'=>'auth'],function(){});
 
 Route::get('/',[HomeController::class,'userHome'])->name('User_Home');
 Route::get('/products',[ProductsController::class,'products'])->name('All_Products');
