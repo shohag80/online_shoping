@@ -10,7 +10,7 @@
           </div>
           <div class="col-6 text-end d-none d-md-block">
             <div class="dropdown selectBox">
-              <a class="dropdown-toggle selectValue text-reset" href="javascript:void(0)" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="selectValue text-reset" href="javascript:void(0)" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="me-1">
                   <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#selectedlang)">
@@ -286,7 +286,7 @@
             <div class="">
               <ul class="navbar-nav align-items-center ">
                 <li class="nav-item dropdown w-100 w-lg-auto">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Home
                   </a>
                   <ul class="dropdown-menu">
@@ -298,7 +298,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown w-100 w-lg-auto">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Shop
                   </a>
                   <ul class="dropdown-menu">
@@ -316,7 +316,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown w-100 w-lg-auto">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Stores
                   </a>
                   <ul class="dropdown-menu">
@@ -326,7 +326,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown w-100 w-lg-auto dropdown-fullwidth">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Mega menu
                   </a>
                   <div class=" dropdown-menu pb-0">
@@ -377,7 +377,7 @@
                   </div>
                 </li>
                 <li class="nav-item dropdown w-100 w-lg-auto">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Pages
                   </a>
                   <ul class="dropdown-menu">
@@ -387,18 +387,19 @@
                     <li><a class="dropdown-item" href="./pages/about.html">About us</a></li>
                     <li><a class="dropdown-item" href="./pages/404error.html">404 Error</a></li>
                     <li><a class="dropdown-item" href="./pages/contact.html">Contact</a></li>
+                    <li><a class="dropdown-item" href="{{route('All_Products')}}">All Products</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown w-100 w-lg-auto">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Account
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./pages/signin.html">Sign in</a></li>
-                    <li><a class="dropdown-item" href="./pages/signup.html">Signup</a></li>
-                    <li><a class="dropdown-item" href="./pages/forgot-password.html">Forgot Password</a></li>
+                    <li><a class="dropdown-item" href="{{route('SignIn')}}">Sign in</a></li>
+                    <li><a class="dropdown-item" href="{{route('SignUp')}}">Signup</a></li>
+                    <li><a class="dropdown-item" href="{{route('Forget_Password')}}">Forgot Password</a></li>
                     <li class="dropdown-submenu dropend">
-                      <a class="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">
+                      <a class="dropdown-item dropdown-list-group-item" href="#">
                         My Account
                       </a>
                       <ul class="dropdown-menu">

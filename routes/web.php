@@ -16,6 +16,7 @@ use App\Http\Controllers\BackendControllers\ProductsController as BackendControl
 use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\FrontendControllers\HomeController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
+use App\Http\Controllers\FrontendControllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,10 +32,16 @@ use Illuminate\Support\Facades\Route;
 // FrontendRoutes
 
 Route::group(['prefix'=>'user'],function(){
-    
+
+Route::get('/signup',[UserController::class,'signup'])->name('SignUp');
+Route::post('/do_signup',[UserController::class,'do_signup'])->name('Do_SignUp');
+
+
+Route::get('/signin',[UserController::class,'login'])->name('SignIn');
+Route::get('/forgetpassword',[UserController::class,'forget_password'])->name('Forget_Password');
 
 Route::get('/',[HomeController::class,'userHome'])->name('User_Home');
-Route::get('/products',[ProductsController::class,'products'])->name('Products');
+Route::get('/products',[ProductsController::class,'products'])->name('All_Products');
 
 
 
