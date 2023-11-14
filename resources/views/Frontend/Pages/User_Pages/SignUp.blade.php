@@ -35,8 +35,11 @@
    <div class="border-bottom shadow-sm">
       <nav class="navbar navbar-light py-2">
          <div class="container justify-content-center justify-content-lg-between">
-            <a class="navbar-brand" href="../index.html">
-               <img src="https://freshcart.codescandy.com/assets/images/logo/freshcart-logo.svg" alt="" class="d-inline-block align-text-top" />
+            <a class="navbar-brand pt-3" href="{{route('User_Home')}}">
+               <h3><b><i>
+                        <span class="text-warning">Online</span>
+                        <span class="text-success">Shop</span>
+                     </i></b></h3>
             </a>
             <span class="navbar-text">
                Already have an account?
@@ -89,7 +92,7 @@
                         <div class="col-12">
                            <!-- input -->
                            <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
-                           <input type="email" name="email" value="{{old('email')}}" id="formSignupEmail" class="form-control"  placeholder="Email" required />
+                           <input type="email" name="email" value="{{old('email')}}" id="formSignupEmail" class="form-control" placeholder="Email" required />
                            <!-- <div class="invalid-feedback">Please enter email.</div> -->
                            @error('email'){{$message}}@enderror
                         </div>

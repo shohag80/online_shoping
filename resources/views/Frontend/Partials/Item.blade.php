@@ -1,4 +1,6 @@
-    
+@extends('Frontend.Master')
+
+
 <!-- Slider -->
 @section('slider')
 @include('Frontend.Partials.Slider')
@@ -37,4 +39,10 @@
 <!-- best_sale -->
 @section('offer')
 @include('Frontend.Partials.Offer')
+@endsection
+
+
+<!-- order Section -->
+@section('order')
+@include('Frontend.Partials.Order')
 @endsection

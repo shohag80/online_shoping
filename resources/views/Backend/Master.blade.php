@@ -9,11 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
     
     @notifyCss
-    <style type="text/css">
-        .notify{
-            z-index: 1000000;
-        }
-    </style>
+    
     
     <link href="{{url('/css/styles.css')}}" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Courgette|Lato:100,300,400,700,900|Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">

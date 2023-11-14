@@ -14,6 +14,7 @@ use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\OrderController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
 use App\Http\Controllers\BackendControllers\SuppliersController;
+use App\Http\Controllers\FrontendControllers\AccountController;
 use App\Http\Controllers\FrontendControllers\HomeController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
 use App\Http\Controllers\FrontendControllers\UserController;
@@ -31,25 +32,28 @@ use Illuminate\Support\Facades\Route;
 
 // FrontendRoutes
 
-Route::group(['prefix'=>'user'],function(){
+Route::group(['prefix'=>'user'],function(){});
 
 Route::get('/signup',[UserController::class,'signup'])->name('SignUp');
 Route::post('/do_signup',[UserController::class,'do_signup'])->name('Do_SignUp');
 
-
 Route::get('/signin',[UserController::class,'login'])->name('SignIn');
 Route::post('/do_signin',[UserController::class,'do_login'])->name('Do_SignIn');
+Route::get('/signout',[UserController::class,'logout'])->name('SignOut');
 
 Route::get('/forgetpassword',[UserController::class,'forget_password'])->name('Forget_Password');
-
-Route::group(['middleware'=>'auth'],function(){});
 
 Route::get('/',[HomeController::class,'userHome'])->name('User_Home');
 Route::get('/products',[ProductsController::class,'products'])->name('All_Products');
 
+Route::get('/order',[AccountController::class,'order'])->name('Order');
 
 
-});
+
+
+Route::group(['middleware'=>'auth'],function(){});
+
+
 
 
 

@@ -65,9 +65,16 @@ class UserController extends Controller
             notify()->success('Login Successfully');
             return redirect()->route('User_Home');
         }
-        notify()->info('Please Check You Input Data');
+        notify()->warning('Incorrect Your Email or Password!');
         return redirect()->back()->withInput();
 
+    }
+
+
+    public function logout(){
+        auth()->logout();
+        notify()->success('Logout Succesfully.');
+        return redirect()->route('User_Home');
     }
     
 

@@ -1,4 +1,3 @@
-<main>
          <!-- section -->
          <section>
             <div class="container">
@@ -10,53 +9,43 @@
                         <!-- heading -->
                         <h3 class="fs-5 mb-0">Account Setting</h3>
                         <!-- button -->
-                        <button
-                           class="btn btn-outline-gray-400 text-muted d-md-none btn-icon btn-sm ms-3"
-                           type="button"
-                           data-bs-toggle="offcanvas"
-                           data-bs-target="#offcanvasAccount"
-                           aria-controls="offcanvasAccount">
+                        <button class="btn btn-outline-gray-400 text-muted d-md-none btn-icon btn-sm ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount" aria-controls="offcanvasAccount">
                            <i class="bi bi-text-indent-left fs-3"></i>
                         </button>
                      </div>
                   </div>
                   <!-- col -->
-                  <div class="col-lg-3 col-md-4 col-12 border-end d-none d-md-block">
-                     <div class="pt-10 pe-lg-10">
+                  <div class="col-lg-3 col-md-3 col-12 border-end d-none d-md-block">
+                     <div class="pt-4">
                         <!-- nav -->
                         <ul class="nav flex-column nav-pills nav-pills-dark">
                            <!-- nav item -->
                            <li class="nav-item">
-                              <a class="nav-link active" aria-current="page" href="account-orders.html">
-                                 <i class="feather-icon icon-shopping-bag me-2"></i>
+                              <a class="nav-link active" aria-current="page" href="{{route('Order')}}">
                                  Your Orders
                               </a>
                            </li>
                            <!-- nav item -->
                            <li class="nav-item">
                               <a class="nav-link" href="account-settings.html">
-                                 <i class="feather-icon icon-settings me-2"></i>
                                  Settings
                               </a>
                            </li>
                            <!-- nav item -->
                            <li class="nav-item">
                               <a class="nav-link" href="account-address.html">
-                                 <i class="feather-icon icon-map-pin me-2"></i>
                                  Address
                               </a>
                            </li>
                            <!-- nav item -->
                            <li class="nav-item">
                               <a class="nav-link" href="account-payment-method.html">
-                                 <i class="feather-icon icon-credit-card me-2"></i>
                                  Payment Method
                               </a>
                            </li>
                            <!-- nav item -->
                            <li class="nav-item">
                               <a class="nav-link" href="account-notification.html">
-                                 <i class="feather-icon icon-bell me-2"></i>
                                  Notification
                               </a>
                            </li>
@@ -66,26 +55,25 @@
                            </li>
                            <!-- nav item -->
                            <li class="nav-item">
-                              <a class="nav-link" href="../index.html">
-                                 <i class="feather-icon icon-log-out me-2"></i>
+                              <a class="nav-link" href="{{route('SignOut')}}">
                                  Log out
                               </a>
                            </li>
                         </ul>
                      </div>
                   </div>
-                  <div class="col-lg-9 col-md-8 col-12">
-                     <div class="py-6 p-md-6 p-lg-10">
+                  <div class="col-lg-9 col-md-9 col-12">
+                     <div class="p-md-1 p-lg-4">
                         <!-- heading -->
                         <h2 class="mb-6">Your Orders</h2>
 
                         <div class="table-responsive-xxl border-0">
                            <!-- Table -->
-                           <table class="table mb-0 text-nowrap table-centered">
+                           <table class="table mb-0 table-centered">
                               <!-- Table Head -->
                               <thead class="bg-light">
                                  <tr>
-                                    <th>&nbsp;</th>
+                                    <th>Photo</th>
                                     <th>Product</th>
                                     <th>Order</th>
                                     <th>Date</th>
@@ -244,4 +232,3 @@
                </div>
             </div>
          </section>
-      </main>
