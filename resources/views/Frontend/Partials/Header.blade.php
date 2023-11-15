@@ -83,11 +83,11 @@
     <div class="container">
       <div class="row w-100 align-items-center gx-lg-2 gx-0">
         <div class="col-xxl-2 col-lg-3">
-          <a class="navbar-brand d-none d-lg-block" href="">
+          <a class="navbar-brand d-none d-lg-block" href="{{route('User_Home')}}">
             <h3><b><i>
                   <span class="text-warning">Online</span>
                   <span class="text-success">Shop</span>
-            </i></b></h3>
+                </i></b></h3>
           </a>
           <div class="d-flex justify-content-between w-100 d-lg-none">
             <a class="navbar-brand" href="">
@@ -176,8 +176,9 @@
                 </span>
               </a>
             </div>
-            <div class="list-inline-item me-5">
 
+            @guest
+            <div class="list-inline-item me-5">
               <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -185,8 +186,21 @@
                 </svg>
               </a>
             </div>
-            <div class="list-inline-item">
+            @endguest
 
+            @auth
+            <div class="list-inline-item me-5">
+              <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </a>
+            </div>
+            @endauth
+
+
+            <div class="list-inline-item">
               <a class="text-muted position-relative " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasRight">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -464,6 +478,7 @@
 </div>
 
 <!-- Modal -->
+@guest
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content p-4">
@@ -473,58 +488,58 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="{{route('Do_SignUp')}}" method="post">
-                     @csrf
-                     <div class="row g-3">
-                        <!-- col -->
-                        <div class="col-12">
-                           <!-- input -->
-                           <label for="formSignupfname" class="form-label visually-hidden">Full Name</label>
-                           <input type="text" name="full_name" value="{{old('full_name')}}" class="form-control" id="formSignupfname" placeholder="Full Name" required />
-                           <!-- <div class="invalid-feedback">Please enter full name.</div> -->
-                           @error('full_name'){{$message}}@enderror
-                        </div>
+        <form action="{{route('Do_SignUp')}}" method="post">
+          @csrf
+          <div class="row g-3">
+            <!-- col -->
+            <div class="col-12">
+              <!-- input -->
+              <label for="formSignupfname" class="form-label visually-hidden">Full Name</label>
+              <input type="text" name="full_name" value="{{old('full_name')}}" class="form-control" id="formSignupfname" placeholder="Full Name" required />
+              <!-- <div class="invalid-feedback">Please enter full name.</div> -->
+              @error('full_name'){{$message}}@enderror
+            </div>
 
-                        <div class="col-12">
-                           <div class="form-outline">
-                              <label for="formSignupfnumber" class="form-label visually-hidden">Phone Number</label>
-                              <input type="text" name="number" id="formSignupfnumber" value="{{old('number')}}" class="form-control" placeholder="Phone Number (+880)" required />
-                              <!-- <div class="invalid-feedback">Please enter phone number.</div> -->
-                              @error('number'){{$message}}@enderror
-                           </div>
-                        </div>
+            <div class="col-12">
+              <div class="form-outline">
+                <label for="formSignupfnumber" class="form-label visually-hidden">Phone Number</label>
+                <input type="text" name="number" id="formSignupfnumber" value="{{old('number')}}" class="form-control" placeholder="Phone Number (+880)" required />
+                <!-- <div class="invalid-feedback">Please enter phone number.</div> -->
+                @error('number'){{$message}}@enderror
+              </div>
+            </div>
 
-                        <div class="col-12">
-                           <!-- input -->
-                           <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
-                           <input type="email" name="email" value="{{old('email')}}" id="formSignupEmail" class="form-control" placeholder="Email" required />
-                           <!-- <div class="invalid-feedback">Please enter email.</div> -->
-                           @error('email'){{$message}}@enderror
-                        </div>
-                        <div class="col-12">
-                           <div class="password-field position-relative">
-                              <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
-                              <div class="password-field position-relative">
-                                 <input type="password" name="password" value="{{old('password')}}" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
-                                 <!-- <div class="invalid-feedback">Please enter password.</div> -->
-                                 @error('password'){{$message}}@enderror
-                              </div>
-                           </div>
-                        </div>
-                        <!-- btn -->
-                        <div class="col-12 d-grid"><button type="submit" class="btn btn-primary">Register</button></div>
+            <div class="col-12">
+              <!-- input -->
+              <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
+              <input type="email" name="email" value="{{old('email')}}" id="formSignupEmail" class="form-control" placeholder="Email" required />
+              <!-- <div class="invalid-feedback">Please enter email.</div> -->
+              @error('email'){{$message}}@enderror
+            </div>
+            <div class="col-12">
+              <div class="password-field position-relative">
+                <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
+                <div class="password-field position-relative">
+                  <input type="password" name="password" value="{{old('password')}}" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
+                  <!-- <div class="invalid-feedback">Please enter password.</div> -->
+                  @error('password'){{$message}}@enderror
+                </div>
+              </div>
+            </div>
+            <!-- btn -->
+            <div class="col-12 d-grid"><button type="submit" class="btn btn-primary">Register</button></div>
 
-                        <!-- text -->
-                        <p>
-                           <small>
-                              By continuing, you agree to our
-                              <a href="#!">Terms of Service</a>
-                              &
-                              <a href="#!">Privacy Policy</a>
-                           </small>
-                        </p>
-                     </div>
-                  </form>
+            <!-- text -->
+            <p>
+              <small>
+                By continuing, you agree to our
+                <a href="#!">Terms of Service</a>
+                &
+                <a href="#!">Privacy Policy</a>
+              </small>
+            </p>
+          </div>
+        </form>
       </div>
       <div class="modal-footer border-0 justify-content-center">
 
@@ -533,6 +548,17 @@
     </div>
   </div>
 </div>
+@endguest
+
+@auth
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="container modal-content">
+      @include('Frontend.Partials.Order')
+    </div>
+  </div>
+</div>
+@endauth
 
 
 

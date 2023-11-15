@@ -8,7 +8,7 @@
   <meta content="Codescandy" name="author">
 
   <title>Welcome to Online Shoping</title> 
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link href="https://freshcart.codescandy.com/assets/libs/slick-carousel/slick/slick.css" rel="stylesheet"/>
   <link href="https://freshcart.codescandy.com/assets/libs/slick-carousel/slick/slick-theme.css" rel="stylesheet"/>
   <link href="https://freshcart.codescandy.com/assets/libs/tiny-slider/dist/tiny-slider.css" rel="stylesheet"/>
@@ -26,22 +26,11 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-M8S4MT3EYG');
-  </script>
 </head>
 
 
 
 <body>
-
   <!-- Header -->
   @include('Frontend.Partials.Header')
 
