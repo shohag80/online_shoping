@@ -268,13 +268,13 @@
             <div class="collapse mt-2" id="collapseExample">
               <div class="card card-body">
                 <ul class="mb-0 list-unstyled">
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Dairy, Bread & Eggs</a></li>
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Snacks & Munchies</a></li>
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Fruits & Vegetables</a></li>
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Cold Drinks & Juices</a></li>
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Breakfast & Instant Food</a></li>
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Bakery & Biscuits</a></li>
-                  <li><a class="dropdown-item" href="./pages/shop-grid.html">Chicken, Meat & Fish</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Dairy, Bread & Eggs</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Snacks & Munchies</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Fruits & Vegetables</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Cold Drinks & Juices</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Breakfast & Instant Food</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Bakery & Biscuits</a></li>
+                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Chicken, Meat & Fish</a></li>
                 </ul>
               </div>
             </div>
@@ -290,13 +290,13 @@
                 </svg></span> All Departments
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Dairy, Bread & Eggs</a></li>
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Snacks & Munchies</a></li>
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Fruits & Vegetables</a></li>
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Cold Drinks & Juices</a></li>
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Breakfast & Instant Food</a></li>
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Bakery & Biscuits</a></li>
-              <li><a class="dropdown-item" href="./pages/shop-grid.html">Chicken, Meat & Fish</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Dairy, Bread & Eggs</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Snacks & Munchies</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Fruits & Vegetables</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Cold Drinks & Juices</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Breakfast & Instant Food</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Bakery & Biscuits</a></li>
+              <li><a class="dropdown-item" href="{{route('Dairy')}}">Chicken, Meat & Fish</a></li>
             </ul>
           </div>
           <div class="">

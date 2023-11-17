@@ -48,6 +48,28 @@
 @endsection
 
 
+<!-- Page Addressbar -->
+<div class="mt-4">
+            <div class="container">
+               <!-- row -->
+               <div class="row">
+                  <!-- col -->
+                  <div class="col-12">
+                     <!-- breadcrumb -->
+                     <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                           <li class="breadcrumb-item"><a href="#!">Home</a></li>
+                           <li class="breadcrumb-item"><a href="#!">Shop</a></li>
+                           <li class="breadcrumb-item active" aria-current="page">Snacks & Munchies</li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         
 <!-- Single Product view -->
 
 <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
@@ -127,6 +149,8 @@
                                  <i class="bi bi-star-half"></i>
                               </small>
                               <a href="#" class="ms-2">(30 reviews)</a>
+
+                              
                            </div>
                            <div class="fs-4">
                               <span class="fw-bold text-dark">$32</span>

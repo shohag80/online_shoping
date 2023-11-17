@@ -34,6 +34,10 @@
 
 @endsection
 
+@section('product')
 
+@include('Frontend.Pages.Product.list')
+
+@endsection
 
 

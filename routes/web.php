@@ -15,7 +15,9 @@ use App\Http\Controllers\BackendControllers\OrderController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
 use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\FrontendControllers\AccountController;
+use App\Http\Controllers\FrontendControllers\DepartmentController;
 use App\Http\Controllers\FrontendControllers\HomeController;
+use App\Http\Controllers\FrontendControllers\MasterController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
 use App\Http\Controllers\FrontendControllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // FrontendRoutes
-
+   
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
@@ -46,22 +48,13 @@ Route::post('/do_signin', [UserController::class, 'do_login'])->name('Do_SignIn'
 Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name('Forget_Password');
 
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
+
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
-Route::get('/product/{id}', [ProductsController::class, 'product'])->name('Single_Products');
+Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
 Route::get('/order', [AccountController::class, 'order'])->name('Order');
 
-
-
-
-
-Route::group(['middleware' => 'auth'], function () {
-});
-
-
-
-
-
+Route::get('/department', [DepartmentController::class, 'dairy'])->name('Dairy');
 
 
 

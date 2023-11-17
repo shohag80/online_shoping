@@ -36,6 +36,7 @@
 
 
 
+
   <main>
     @yield('login')
     @yield('slider')
@@ -45,6 +46,7 @@
     @yield('best_sale')
     @yield('offer')
     @yield('order')
+    @yield('department')
   </main>
 
 

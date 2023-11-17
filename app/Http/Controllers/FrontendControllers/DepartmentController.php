@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DepartmentController extends Controller
 {
-    public function userHome(){
+    public function dairy(){
+        //dd('Hello Dairy');
         $products=Product::all();
-        //dd('Hello Frontend');
-        return view('Frontend.Pages.Home.home',compact('products'));
+        return view('Frontend.Pages.All_Department.Dairy',compact('products'));
     }
 }
