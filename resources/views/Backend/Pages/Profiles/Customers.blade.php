@@ -9,7 +9,7 @@
             <h4>Customer</h4>
         </div>
         <div class="text-end col-md-6 col-sm-8">
-            <a href="" class="btn btn-outline-primary">Add Filter</a> |
+            <a href="" class="btn btn-outline-primary">Filter</a> |
             <a href="" class="btn btn-outline-success">Add Customer</a> |
             <a href="" class="btn btn-outline-info">Export</a>
         </div>

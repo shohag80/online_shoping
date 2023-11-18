@@ -2,16 +2,20 @@
 <html class="no-js" lang="en">
 
 <head>
+    @notifyCss
+    <style>
+        .notifyCss {
+            margin-top: 20%;
+            z-index: 1000000;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Welcome to Online Shoping</title>
     <link rel="canonical" href="https://fancypizza-preview-com.3dcartstores.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
-    
-    @notifyCss
-    
-    
-    <link href="{{url('/css/styles.css')}}" rel="stylesheet"/>
+
+    <link href="{{url('/css/styles.css')}}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Courgette|Lato:100,300,400,700,900|Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/bootstrap/css/bootstrap.css?vcart=13.3.0" type="text/css" />
     <link rel="StyleSheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/css/core.css?vcart=13.3.0" type="text/css" />
@@ -23,7 +27,7 @@
 
 <body class="home-page noleftbar norightbar qv-enabled not-logged-in" data-currency="$" data-decimal="2">
 
-<x-notify::notify/>
+    <x-notify::notify />
 
     @include('Backend.Partials.Header_Top')
 
@@ -32,10 +36,10 @@
 
 
     <div class="container" ;>
-        
-        
+
+
         @yield('Container')
-        
+
 
     </div>
 

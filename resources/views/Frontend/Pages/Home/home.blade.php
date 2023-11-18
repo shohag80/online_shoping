@@ -41,3 +41,10 @@
 @endsection
 
 
+@section('category')
+
+@include('Frontend.Partials.Category')
+
+@endsection
+
+

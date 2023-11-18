@@ -29,7 +29,6 @@
 </head>
 
 
-
 <body>
   <!-- Header -->
   @include('Frontend.Partials.Header')

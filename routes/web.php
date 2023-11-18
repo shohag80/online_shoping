@@ -17,7 +17,6 @@ use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\FrontendControllers\AccountController;
 use App\Http\Controllers\FrontendControllers\DepartmentController;
 use App\Http\Controllers\FrontendControllers\HomeController;
-use App\Http\Controllers\FrontendControllers\MasterController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
 use App\Http\Controllers\FrontendControllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +34,6 @@ use Illuminate\Support\Facades\Route;
 // FrontendRoutes
    
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
 });
 

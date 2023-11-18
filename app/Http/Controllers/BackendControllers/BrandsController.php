@@ -10,7 +10,7 @@ class BrandsController extends Controller
 {
     public function brands(){
         //dd('Hello Backend Brands');
-        $BrandData=Brand::paginate(3);
+        $BrandData=Brand::paginate(10);
         return view('Backend/Pages/Brands', compact('BrandData'));
     }
 

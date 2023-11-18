@@ -13,7 +13,7 @@
           <div class="item"> <a href="../pages/shop-grid.html" class="text-decoration-none text-inherit">
               <div class="card card-product mb-lg-4">
                 <div class="card-body text-center py-8">
-                  <img src="assets/images/category/category-dairy-bread-eggs.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
+                  <img src="https://img.freepik.com/premium-psd/fresh-vegetable-banner-template_88281-5245.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid">
                   <div class="text-truncate">Dairy, Bread & Eggs</div>
                 </div>
               </div>

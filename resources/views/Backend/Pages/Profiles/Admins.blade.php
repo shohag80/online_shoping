@@ -9,7 +9,7 @@
             <h4>Admin</h4>
         </div>
         <div class="text-end col-md-6 col-sm-8">
-            <a href="" class="btn btn-outline-primary">Add Filter</a> |
+            <a href="" class="btn btn-outline-primary">Filter</a> |
             <a href="" class="btn btn-outline-success">Add Admin</a> |
             <a href="" class="btn btn-outline-info">Export</a>
         </div>
@@ -28,17 +28,25 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">JOIN</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">ACTION</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Md. Shohag Hossain</td>
-                    <td>01/01/2024</td>
+                    <td>
+                    <img style="height: 40px; width: 40px;" src="#" alt="admin_photo">
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>
                         <a href="" class="btn btn-primary btn-sm">Active</a>
                     </td>
@@ -48,7 +56,6 @@
                         <a href="" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
-
             </tbody>
         </table>
     </div>

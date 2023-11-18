@@ -10,7 +10,7 @@ class CategoriesController extends Controller
 {
     public function category(){
         //dd('Hello Backend Category');
-        $Categories=Category::paginate(3);
+        $Categories=Category::paginate(10);
         return view('Backend/Pages/Categories', compact('Categories'));
         
     }
