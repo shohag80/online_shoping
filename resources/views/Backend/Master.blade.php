@@ -5,7 +5,8 @@
     @notifyCss
     <style>
         .notifyCss {
-            margin-top: 20%;
+            position: absolute;
+            top: 30px;
             z-index: 1000000;
         }
     </style>

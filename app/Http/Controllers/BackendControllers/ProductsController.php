@@ -18,6 +18,65 @@ class ProductsController extends Controller
         //dd($productdata);
         return view('Backend/Pages/Products', compact('productdata'));
     }
+    public function edit($id)
+    {
+        //dd($id);
+        $editProduct = Product::find($id);
+        $category = Category::all();
+        $brand = Brand::all();
+        return view('Backend.Pages.Edit_Product', compact('editProduct', 'category', 'brand'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $editProduct = Product::find($id);
+        //dd($editProduct);
+        $validator=Validator::make($request->all(),[
+            'id'=>'required',
+            'category_id'=>'required',
+            'brand_id'=>'required',
+            'product_name'=>'required',
+            'product_price'=>'required'
+        ]);
+
+        if($validator->fails()){
+            notify()->error('Please Check Your Required Input Field.');
+            return redirect()->back();
+        }
+        
+        if ($editProduct) {
+            $photo_name = $editProduct->photo;
+            if ($request->hasFile('product_image')) {
+                $photo = $request->file('product_image');
+                $photo_name = date('Ymdhis') . '.' . $photo->getClientOriginalExtension();
+                $photo->storeAs('/uploads', $photo_name);
+                // echo($photo_name);
+            }
+
+            $editProduct->update([
+                'id' => $request->id,
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
+                'product_name' => $request->product_name,
+                'price' => $request->product_price,
+                'discription' => $request->discription,
+                'photo' => $photo_name,
+            ]);
+        }
+        notify()->success('Product Update Successfully.');
+        return redirect()->route('Products');
+    }
+
+    public function delete($id)
+    {
+        //dd($id);
+        $editProduct = Product::find($id);
+        if ($editProduct) {
+            $editProduct->delete();
+            notify()->success('Product Deleted Successfully.');
+            return redirect()->back();
+        }
+    }
 
     public function form()
     {
@@ -43,11 +102,11 @@ class ProductsController extends Controller
         }
 
 
-        $photo_name=null;
-        if($request->hasFile('product_image')){
-            $photo=$request->file('product_image');
-            $photo_name=date('Ymdhis').'.'.$photo->getClientOriginalExtension();
-            $photo->storeAs('/uploads',$photo_name);
+        $photo_name = null;
+        if ($request->hasFile('product_image')) {
+            $photo = $request->file('product_image');
+            $photo_name = date('Ymdhis') . '.' . $photo->getClientOriginalExtension();
+            $photo->storeAs('/uploads', $photo_name);
             // echo($photo_name);
         }
 

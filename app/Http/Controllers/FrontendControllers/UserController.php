@@ -36,7 +36,7 @@ class UserController extends Controller
        ]);
        
        notify()->success('Your registration is successfully.');
-       return redirect()->route('SignIn');
+       return redirect()->route('SignIn');  
 
     }
     

@@ -62,7 +62,7 @@
 
 
 <!-- Single Product View -->
-
+@foreach($products as $item)
 <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
          <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
@@ -211,6 +211,7 @@
             </div>
          </div>
       </div>
+@endforeach
 
 
 

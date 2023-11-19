@@ -32,6 +32,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // FrontendRoutes
+
+
    
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
@@ -48,11 +50,20 @@ Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name(
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
 
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
+Route::get('/product/delete/{id}',[BackendControllersProductsController::class,'delete'])->name('Delete_Product');
+Route::get('/product/edit/{id}',[BackendControllersProductsController::class,'edit'])->name('Edit_Product');
+Route::put('/product/update/{id}',[BackendControllersProductsController::class,'update'])->name('Update_Product');
+
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
 Route::get('/order', [AccountController::class, 'order'])->name('Order');
 
 Route::get('/department', [DepartmentController::class, 'dairy'])->name('Dairy');
+
+
+
+
+
 
 
 
