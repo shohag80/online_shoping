@@ -151,7 +151,7 @@
 
           </form>
         </div>
-        <div class="col-md-2 col-xxl-3 d-none d-lg-block">
+        <div class="col-md-1 col-xxl-3 d-none d-lg-block">
           <!-- Button trigger modal -->
           <button type="button" class="btn  btn-outline-gray-800 text-muted" data-bs-toggle="modal" data-bs-target="#locationModal">
             Location
@@ -159,7 +159,7 @@
 
 
         </div>
-        <div class="col-md-2 col-xxl-2 text-end d-none d-lg-block">
+        <div class="col-md-3 col-xxl-2 text-center d-none d-lg-block">
 
           <div class="list-inline">
             <div class="list-inline-item me-5">
@@ -176,31 +176,7 @@
                 </span>
               </a>
             </div>
-
-            @guest
             <div class="list-inline-item me-5">
-              <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </a>
-            </div>
-            @endguest
-
-            @auth
-            <div class="list-inline-item me-5">
-              <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </a>
-            </div>
-            @endauth
-
-
-            <div class="list-inline-item">
               <a class="text-muted position-relative " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasRight">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -215,6 +191,27 @@
 
             </div>
 
+            @guest
+            <div class="list-inline-item me-5">
+              <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </a>
+            </div>
+            @endguest
+
+            @auth
+            <div class="list-inline-item">
+              <a href="#!" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg> {{auth()->user()->name}}
+              </a>
+            </div>
+            @endauth
           </div>
         </div>
       </div>
@@ -228,7 +225,6 @@
 
   <nav class="navbar navbar-expand-lg navbar-light navbar-default py-0 pb-lg-4 " aria-label="Offcanvas navbar large">
     <div class="container">
-
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar-default" aria-labelledby="navbar-defaultLabel">
         <div class="offcanvas-header pb-1">
@@ -543,7 +539,7 @@
       </div>
       <div class="modal-footer border-0 justify-content-center">
 
-        Already have an account? <a href="#">Sign in</a>
+        Already have an account? <a href="{{route('SignIn')}}">Sign in</a>
       </div>
     </div>
   </div>
@@ -554,9 +550,63 @@
 <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="container modal-content">
-      @include('Frontend.Partials.Order')
+      <div class="container">
+
+        <div class="row mt-5 p-5">
+          <div class="col-11 text-center rounded-5">
+            <img height="150" width="150" style="border-radius: 50%;" src="https://thumbs.dreamstime.com/b/demo-computer-key-to-download-version-software-trial-64543995.jpg" alt="">
+            <div class="mt-2">
+              <input type="button" class="btn btn-sm btn-primary" value="Change" />
+              <input type="file" style="display: none;" id="profilePicture" name="file" />
+            </div>
+          </div>
+          <button type="button" class="co-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-header border-primary">
+          <h5 class="modal-title fs-3 fw-bold" id="userModalLabel">{{auth()->user()->name}}</h5>
+        </div>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row g-3">
+          <!-- col -->
+          <div class="col-12">
+            <div class="row">
+              <div class="col-2">Role</div>
+              <div class="col-1">:</div>
+              <div class="col-8">{{auth()->user()->role}}</div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row">
+              <div class="col-2">Email</div>
+              <div class="col-1">:</div>
+              <div class="col-8">{{auth()->user()->email}}</div>
+            </div>
+          </div>
+
+          <div class="col-12 pb-5">
+            <div class="row">
+              <div class="col-2">Number</div>
+              <div class="col-1">:</div>
+              <div class="col-8">{{auth()->user()->phone}}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button type="button" class="btn btn-warning m-5">
+        <a class="nav-link" href="{{route('SignOut')}}">
+          Log out
+        </a>
+      </button>
     </div>
   </div>
+</div>
 </div>
 @endauth
 

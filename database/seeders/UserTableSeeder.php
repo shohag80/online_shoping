@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -13,7 +12,7 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        Admin::create([
             'name'=>'Md. Shohag Hosssain',
             'role'=>'Admin',
             'phone'=>'01975134225',

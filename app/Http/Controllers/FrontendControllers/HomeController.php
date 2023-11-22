@@ -13,4 +13,6 @@ class HomeController extends Controller
         //dd('Hello Frontend');
         return view('Frontend.Pages.Home.home',compact('products'));
     }
+
+    
 }

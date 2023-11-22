@@ -34,8 +34,8 @@ use Illuminate\Support\Facades\Route;
 // FrontendRoutes
 
 
-   
-Route::group(['middleware' => 'auth'], function () {
+
+Route::group(['middleware' => 'auth'], function () { 
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
 });
 
@@ -50,9 +50,7 @@ Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name(
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
 
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
-Route::get('/product/delete/{id}',[BackendControllersProductsController::class,'delete'])->name('Delete_Product');
-Route::get('/product/edit/{id}',[BackendControllersProductsController::class,'edit'])->name('Edit_Product');
-Route::put('/product/update/{id}',[BackendControllersProductsController::class,'update'])->name('Update_Product');
+
 
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
@@ -74,9 +72,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('login', [BackendControllersLoginController::class, 'login'])->name('Login');
     Route::post('login/dologin', [BackendControllersLoginController::class, 'loginForm'])->name('Do_Login');
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'adminchecker'], function () {
 
-        Route::get('/user_list', [AdminControllers::class, 'admin'])->name('Admin');
+        Route::get('/users', [AdminControllers::class, 'admin'])->name('Admin');
         Route::get('/user/form', [AdminControllers::class, 'form'])->name('Admin_Form');
         Route::post('/user/form/store', [AdminControllers::class, 'store'])->name('Admin_Store');
 
@@ -91,6 +89,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/brands/from/store', [BackendControllersBrandsController::class, 'brand_store'])->name('Brand_Store');
 
         Route::get('/products', [BackendControllersProductsController::class, 'products'])->name('Products');
+        Route::get('/product/delete/{id}', [BackendControllersProductsController::class, 'delete'])->name('Delete_Product');
+        Route::get('/product/edit/{id}', [BackendControllersProductsController::class, 'edit'])->name('Edit_Product');
+        Route::put('/product/update/{id}', [BackendControllersProductsController::class, 'update'])->name('Update_Product');
+        Route::get('/product/view/{id}', [BackendControllersProductsController::class, 'product'])->name('Product_view');
         Route::get('/Product/form', [BackendControllersProductsController::class, 'form'])->name('Product_From');
         Route::post('/product/store', [BackendControllersProductsController::class, 'form_data_store'])->name('Product_Store');
 

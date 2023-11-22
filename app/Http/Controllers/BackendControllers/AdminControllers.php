@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +16,7 @@ class AdminControllers extends Controller
 
     public function admin(){
         // dd('Hello admin');
-        $admin_data=User::all();
+        $admin_data=Admin::all();
         return view('Backend.Pages.Admin',compact('admin_data'));
     }
     
@@ -49,7 +49,7 @@ class AdminControllers extends Controller
         }
 
 
-        User::create([
+        Admin::create([
             'name'=>$request->name,
             'role'=>$request->role,
             'phone'=>$request->phone,

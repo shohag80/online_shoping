@@ -18,6 +18,13 @@ class ProductsController extends Controller
         //dd($productdata);
         return view('Backend/Pages/Products', compact('productdata'));
     }
+
+    public function product($id){
+        $product_view=Product::find($id);
+        //dd($product_view);
+        return view('Backend.Pages.ProductView',compact('product_view'));
+    }
+
     public function edit($id)
     {
         //dd($id);

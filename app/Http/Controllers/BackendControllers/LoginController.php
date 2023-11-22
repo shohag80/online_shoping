@@ -13,6 +13,7 @@ class LoginController extends Controller
         // dd('Hello Login');
         return view('Backend/Pages/Login');
     }
+
     public function loginForm(Request $request)
     {
         // dd($request);
@@ -25,11 +26,9 @@ class LoginController extends Controller
             return redirect()->back()->withInput()->withErrors($validator);
         }
 
-
-
         $credentials = $request->only('email', 'password');
 
-        $login = auth()->attempt($credentials);
+        $login = auth()->guard('admin')->attempt($credentials);
 
         if ($login) {
             notify()->success('Login Successfully.');

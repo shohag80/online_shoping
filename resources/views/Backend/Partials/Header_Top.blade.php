@@ -19,7 +19,7 @@
                     <div class="useraccount clearfix">
                         <ul class="clearfix">
 
-                            <li><span style="color:#fff;">{{auth()->user()->name}} |</span><a href="{{route('Logout')}}">Logout</a><span style="color:#fff;">|</span></li>
+                            <li><span style="color:#fff;">{{auth()->guard('admin')->user()->name}} |</span><a href="{{route('Logout')}}">Logout</a><span style="color:#fff;">|</span></li>
                             <li><a href="{{route('Admin_Form')}}">Register</a></li>
 
                         </ul>

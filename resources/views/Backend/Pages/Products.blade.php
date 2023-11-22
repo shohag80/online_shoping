@@ -30,7 +30,7 @@
       <tr>
         <td>{{$item->id}}</td>
         <td>
-          <img style="min-height: 40px; max-height: 41px; min-width:40px; max-width:41px;" src="{{url('uploads/',$item->photo)}}" alt="">
+          <img height="60px" width="60px" src="{{url('uploads/',$item->photo)}}" alt="">
         </td>
         <td>{{$item->category->category_name}}</td>
         <td>{{$item->brand->brand_name}}</td>
@@ -39,7 +39,7 @@
         <td>{{$item->discription}}</td>
         <td>{{$item->status}}</td>
         <td>
-          <a type="button" href="{{route('Single_Product',$item->id)}}" class="btn btn-info rounded">view</a>
+          <a type="button" href="{{route('Product_view',$item->id)}}" class="btn btn-info rounded">View</a>
           <a type="button" href="{{route('Edit_Product',$item->id)}}" class="btn btn-success rounded">Update</a>
           <a type="button" href="{{route('Delete_Product',$item->id)}}" class="btn btn-danger rounded">Delete</a>
         </td>

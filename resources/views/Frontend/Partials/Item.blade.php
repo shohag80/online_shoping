@@ -222,3 +222,5 @@
             </div>
          </div>
       </div>
+
+      <a href="{{route('Profile')}}">{{auth()->user()->role}}</a>
