@@ -44,7 +44,7 @@
     @yield('product')
     @yield('best_sale')
     @yield('offer')
-    @yield('order')
+    @yield('my_account')
     @yield('department')
   </main>
 

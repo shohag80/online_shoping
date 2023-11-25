@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['middleware' => 'auth'], function () { 
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
 });
 
@@ -51,10 +51,15 @@ Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
 
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
 
-
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
-Route::get('/order', [AccountController::class, 'order'])->name('Order');
+Route::group(['prefix' => 'account'], function () {
+    Route::get('/order', [AccountController::class, 'order'])->name('Order');
+    Route::get('/settings', [AccountController::class, 'settings'])->name('Settings');
+    Route::get('/address', [AccountController::class, 'address'])->name('Address');
+    Route::get('/payment', [AccountController::class, 'payment'])->name('Payment');
+    Route::get('/notification', [AccountController::class, 'notification'])->name('Notification');
+});
 
 Route::get('/department', [DepartmentController::class, 'dairy'])->name('Dairy');
 
@@ -68,68 +73,53 @@ Route::get('/department', [DepartmentController::class, 'dairy'])->name('Dairy')
 //BackendRoutes
 
 Route::group(['prefix' => 'admin'], function () {
-
-    Route::get('login', [BackendControllersLoginController::class, 'login'])->name('Login');
+    Route::get('/login', [BackendControllersLoginController::class, 'login'])->name('Login');
     Route::post('login/dologin', [BackendControllersLoginController::class, 'loginForm'])->name('Do_Login');
 
-    Route::group(['middleware' => 'adminchecker'], function () {
+    Route::group(['middleware' => 'AdminChecker'], function () {
+        Route::get('/MasterPro', [MasterProController::class, 'viewPro'])->name('master_pro');
 
-        Route::get('/users', [AdminControllers::class, 'admin'])->name('Admin');
-        Route::get('/user/form', [AdminControllers::class, 'form'])->name('Admin_Form');
-        Route::post('/user/form/store', [AdminControllers::class, 'store'])->name('Admin_Store');
+        Route::get('/', [MasterHomeControllers::class, 'main'])->name('Home');
 
-        Route::get('/', [BackendControllersHomeController::class, 'home'])->name('Home_Page');
+        Route::get('/profile/admins', [AdminControllers::class, 'admin'])->name('Admins');
+        Route::get('/profile/admin/form', [AdminControllers::class, 'form'])->name('Admin_Form');
+        Route::post('/profile/admin/store', [AdminControllers::class, 'store'])->name('Admin_store');
 
-        Route::get('/category', [BackendControllersCategoriesController::class, 'category'])->name('Category');
-        Route::get('/category/form', [BackendControllersCategoriesController::class, 'add_category'])->name('Add_Category');
-        Route::post('/category/form/store', [BackendControllersCategoriesController::class, 'store'])->name('Category_Store');
+        Route::get('/profile/suppliers', [SuppliersController::class, 'master_supplier'])->name('Supplier');
+        Route::get('/profile/customers', [CustomerController::class, 'list'])->name('Customers');
+        Route::get('/profile/delivery_mans', [DeliveryController::class, 'delivery_mans'])->name('delivery');
 
-        Route::get('/brands', [BackendControllersBrandsController::class, 'brands'])->name('Brand');
-        Route::get('/brands/from', [BackendControllersBrandsController::class, 'add_brand'])->name('Add_Brand');
-        Route::post('/brands/from/store', [BackendControllersBrandsController::class, 'brand_store'])->name('Brand_Store');
+        Route::get('/category/form', [BackendControllersCategoriesController::class, 'from'])->name('add_category');
+        Route::get('/category/list', [BackendControllersCategoriesController::class, 'list'])->name('category_list');
+        Route::post('/category/store', [BackendControllersCategoriesController::class, 'store'])->name('category_Store');
 
-        Route::get('/products', [BackendControllersProductsController::class, 'products'])->name('Products');
-        Route::get('/product/delete/{id}', [BackendControllersProductsController::class, 'delete'])->name('Delete_Product');
-        Route::get('/product/edit/{id}', [BackendControllersProductsController::class, 'edit'])->name('Edit_Product');
-        Route::put('/product/update/{id}', [BackendControllersProductsController::class, 'update'])->name('Update_Product');
-        Route::get('/product/view/{id}', [BackendControllersProductsController::class, 'product'])->name('Product_view');
-        Route::get('/Product/form', [BackendControllersProductsController::class, 'form'])->name('Product_From');
-        Route::post('/product/store', [BackendControllersProductsController::class, 'form_data_store'])->name('Product_Store');
+        Route::get('/brand/form', [BackendControllersBrandsController::class, 'form'])->name('add_brand');
+        Route::get('/brand/list', [BackendControllersBrandsController::class, 'list'])->name('brnad_list');
+        Route::post('/brand/store', [BackendControllersBrandsController::class, 'store'])->name('brand_store');
+
+        Route::get('/product/form', [BackendControllersProductsController::class, 'form'])->name('add_product');
+        Route::get('/product/list', [BackendControllersProductsController::class, 'list'])->name('product_list');
+        Route::post('/product/list', [BackendControllersProductsController::class, 'store'])->name('product_store');
+
+        Route::get('/product/list/{id}', [BackendControllersProductsController::class, 'delete'])->name('product_delete');
+
+
+
+
+        Route::get('/product/reviews', [BackendControllersProductsController::class, 'product_reviews'])->name('product_reviews');
+
+        Route::get('/order/recent', [OrderController::class, 'recent_order'])->name('Recent');
+        Route::get('/order/last_month', [OrderController::class, 'last_month'])->name('Last_Month');
+        Route::get('/order/all_orders', [OrderController::class, 'all_orders'])->name('All_Orders');
+
+        Route::get('/delivery/panding', [DeliveryController::class, 'panding'])->name('Delivery_Panding');
+        Route::get('/delivery/processing', [DeliveryController::class, 'processing'])->name('Delivery_Processing');
+        Route::get('/delivery/complete', [DeliveryController::class, 'complete'])->name('Delivery_Complete');
+
+        Route::get('/contact/head_office', [ContactController::class, 'head_office'])->name('Head_Office');
+        Route::get('/contact/customer_care', [ContactController::class, 'customer_care'])->name('Customer_Care');
+        Route::get('/contact/supplier_shops', [ContactController::class, 'supplier_shops'])->name('Supplier_Shops');
 
         Route::get('/logout', [BackendControllersLoginController::class, 'logout'])->name('Logout');
     });
 });
-
-
-
-
-
-Route::get('/MasterPro', [MasterProController::class, 'viewPro'])->name('master_pro');
-
-Route::get('/home', [MasterHomeControllers::class, 'main'])->name('Home');
-Route::get('/profile/admins', [AdminControllers::class, 'master_admin'])->name('Admins');
-Route::get('/profile/suppliers', [SuppliersController::class, 'master_supplier'])->name('Supplier');
-Route::get('/profile/customers', [CustomerController::class, 'customer'])->name('Customers');
-Route::get('/profile/delivery_mans', [DeliveryController::class, 'delivery_mans'])->name('delivery');
-
-Route::get('/category/add', [BackendControllersCategoriesController::class, 'add_category_pro'])->name('add_category_pro');
-Route::get('/category/list', [BackendControllersCategoriesController::class, 'category_list_pro'])->name('category_list_pro');
-
-Route::get('/brand/add', [BackendControllersBrandsController::class, 'add_brand_pro'])->name('Add_Brand_Pro');
-Route::get('/brand/all_brands', [BackendControllersBrandsController::class, 'all_brands_pro'])->name('All_Brands_Pro');
-
-Route::get('/product/add', [BackendControllersProductsController::class, 'add_product_pro'])->name('add_product_pro');
-Route::get('/product/list', [BackendControllersProductsController::class, 'product_list_pro'])->name('product_list_pro');
-Route::get('/product/reviews', [BackendControllersProductsController::class, 'product_reviews'])->name('product_reviews');
-
-Route::get('/order/recent', [OrderController::class, 'recent_order'])->name('Recent');
-Route::get('/order/last_month', [OrderController::class, 'last_month'])->name('Last_Month');
-Route::get('/order/all_orders', [OrderController::class, 'all_orders'])->name('All_Orders');
-
-Route::get('/delivery/panding', [DeliveryController::class, 'panding'])->name('Delivery_Panding');
-Route::get('/delivery/processing', [DeliveryController::class, 'processing'])->name('Delivery_Processing');
-Route::get('/delivery/complete', [DeliveryController::class, 'complete'])->name('Delivery_Complete');
-
-Route::get('/contact/head_office', [ContactController::class, 'head_office'])->name('Head_Office');
-Route::get('/contact/customer_care', [ContactController::class, 'customer_care'])->name('Customer_Care');
-Route::get('/contact/supplier_shops', [ContactController::class, 'supplier_shops'])->name('Supplier_Shops');

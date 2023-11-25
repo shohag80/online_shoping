@@ -9,24 +9,19 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminControllers extends Controller
 {
-    public function master_admin(){
-        //dd('Hello');
-        return view('Backend/Pages/Profiles/Admins');
-    }
-
     public function admin(){
         // dd('Hello admin');
         $admin_data=Admin::all();
-        return view('Backend.Pages.Admin',compact('admin_data'));
+        return view('Backend.Pages.Profiles.Admin.Admins',compact('admin_data'));
     }
     
     public function form(){
         // dd('Hello admin');
-        return view('Backend.Pages.Add_Admin');
+        return view('Backend.Pages.Profiles.Admin.Add');
     }
    
     public function store(Request $request){
-        // dd($request);
+        //dd($request);
         $valitator=Validator::make($request->all(),[
             'name'=>'required',
             'role'=>'required',
@@ -34,12 +29,10 @@ class AdminControllers extends Controller
             'email'=>'required|email',
             'password'=>'required|min:6',
         ]);
-            // dd($valitator);
         if($valitator->fails()){
             notify()->error('Please, Input your valid data.');
             return redirect()->back()->withErrors($valitator)->withInput();
         }
-
 
         $file_name=null;
         if($request->hasFile('photo')){
@@ -47,7 +40,6 @@ class AdminControllers extends Controller
             $file_name=date('Ymdhis').'.'.$file->getClientOriginalExtension();
             $file->storeAs('uploads/',$file_name);
         }
-
 
         Admin::create([
             'name'=>$request->name,
@@ -58,7 +50,7 @@ class AdminControllers extends Controller
             'photo'=>$file_name,
         ]);
 
-        return redirect()->route('Admin');
+        return redirect()->route('Admins');
         
     }
 }

@@ -6,24 +6,50 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.header_banner {
-    background-image: url('/public/asset/Header_Banner.jpg');
-}
-
+/* Body Section */
 
 body {
     background: f1fbff;
 }
 
 
+/* Header Section */
+
 .section-padding {
     padding: 100px 0px;
 }
 
+
+/* Navber section */
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carousel Section */
+
 .carousel-item {
     height: 100vh;
     min-height: 350px;
-}
+} 
 
 .carousel-caption h5 {
     font-family: 'Courier New', Courier, monospace;
@@ -50,7 +76,9 @@ body {
 }
 
 
-/* Button Design */
+
+
+/* Button Section */
 .btn-light {
     background-color: rgb(159, 48, 255);
     color: white;
@@ -67,11 +95,10 @@ body {
 
 
 
+
+
 /* Contact */
 
-.contact-btn:hover {
-    background-color: rgb(245, 21, 21);
-}
 
 
 
@@ -79,8 +106,8 @@ body {
 
 /* Profile */
 
-.profile-btn:hover {
-    color: dark;
-}
+
+
+
 
 /* Login */

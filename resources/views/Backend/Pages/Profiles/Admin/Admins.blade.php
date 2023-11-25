@@ -1,4 +1,4 @@
-@extends('Backend.MasterPro')
+@extends('Backend.Master')
 
 @section('Container')
 
@@ -6,11 +6,11 @@
     <div class="row">
 
         <div class="col-md-3 text-center bg-warning rounded-right">
-            <h4>Customer</h4>
+            <h4>Admin</h4>
         </div>
         <div class="text-end col-md-6 col-sm-8">
             <a href="" class="btn btn-outline-primary">Filter</a> |
-            <a href="" class="btn btn-outline-success">Add Customer</a> |
+            <a href="{{route('Admin_Form')}}" class="btn btn-outline-success">Add Admin</a> |
             <a href="" class="btn btn-outline-info">Export</a>
         </div>
         <div class="col-md-3">
@@ -28,27 +28,36 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">JOIN</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">ACTION</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($admin_data as $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Md. Shohag Hossain</td>
-                    <td>01/01/2024</td>
+                    <th scope="row">{{$item->id}}</th>
+                    <td>
+                        <img style="height: 40px; width: 40px;" src="{{url('uploads/',$item->photo)}}" alt="admin_photo">
+                    </td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->role}}</td>
+                    <td>{{$item->phone}}</td>
+                    <td>{{$item->email}}</td>
                     <td>
                         <a href="" class="btn btn-primary btn-sm">Active</a>
                     </td>
                     <td>
                         <a href="" class="btn btn-success btn-sm">View</a>
-                        <a href="" class="btn btn-warning btn-sm">Update</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="" class="btn btn-warning btn-sm mt-1">Update</a>
+                        <a href="" class="btn btn-danger btn-sm mt-1">Delete</a>
                     </td>
                 </tr>
-
+                @endforeach
             </tbody>
         </table>
     </div>

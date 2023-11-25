@@ -26,11 +26,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::usebootstrap();
-        View::share([
-            'user',User::all(),
-            'product',Product::all(),
-            'Category',Category::all(),
-            'brand',Brand::all(),
-        ]);
+        // View::share([
+        //     'user',User::all(),
+        //     'product',Product::all(),
+        //     'category',Category::all(),
+        //     'brand',Brand::all(),
+        // ]);
     }
 }

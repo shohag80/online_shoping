@@ -416,11 +416,10 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{{route('Order')}}">Orders</a></li>
-                      <li><a class="dropdown-item" href="./pages/account-settings.html">Settings</a></li>
-                      <li><a class="dropdown-item" href="./pages/account-address.html">Address</a></li>
-                      <li><a class="dropdown-item" href="./pages/account-payment-method.html">Payment Method</a>
-                      </li>
-                      <li><a class="dropdown-item" href="./pages/account-notification.html">Notification</a></li>
+                      <li><a class="dropdown-item" href="{{route('Settings')}}">Settings</a></li>
+                      <li><a class="dropdown-item" href="{{route('Address')}}">Address</a></li>
+                      <li><a class="dropdown-item" href="{{route('Payment')}}">Payment Method</a></li>
+                      <li><a class="dropdown-item" href="{{route('Notification')}}">Notification</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -551,16 +550,17 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="container modal-content">
       <div class="container">
-
+        <div class="row align-items-end mt-3">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class="row mt-5 p-5">
-          <div class="col-11 text-center rounded-5">
+          <div class="text-center rounded-5">
             <img height="150" width="150" style="border-radius: 50%;" src="https://thumbs.dreamstime.com/b/demo-computer-key-to-download-version-software-trial-64543995.jpg" alt="">
             <div class="mt-2">
               <input type="button" class="btn btn-sm btn-primary" value="Change" />
               <input type="file" style="display: none;" id="profilePicture" name="file" />
             </div>
           </div>
-          <button type="button" class="co-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-header border-primary">
@@ -895,26 +895,26 @@
           <div data-simplebar style="height:300px;">
             <div class="list-group list-group-flush">
 
-              <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action active">
-                <span>Alabama</span><span>Min:$20</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Alaska</span><span>Min:$30</span></a>
+                <span>Uttara</span><span>Min:$29</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Arizona</span><span>Min:$50</span></a>
+                <span>Uttar Khan</span><span>Min:$80</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>California</span><span>Min:$29</span></a>
+                <span>Uttara East</span><span>Min:$90</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Colorado</span><span>Min:$80</span></a>
+                <span>Uttara West</span><span>Min:$90</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Florida</span><span>Min:$90</span></a>
+                <span>Badda</span><span>Min:$30</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Arizona</span><span>Min:$50</span></a>
+                <span>Banani</span><span>Min:$50</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>California</span><span>Min:$29</span></a>
+                <span>Turag</span><span>Min:$29</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Colorado</span><span>Min:$80</span></a>
+                <span>Bimanbandar</span><span>Min:$80</span></a>
               <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
-                <span>Florida</span><span>Min:$90</span></a>
+                <span>Cantonment</span><span>Min:$90</span></a>
+              <a href="#" class="list-group-item d-flex justify-content-between align-items-center px-2 py-3 list-group-item-action">
+                <span>Chalkbazar</span><span>Min:$50</span></a>
             </div>
           </div>
         </div>

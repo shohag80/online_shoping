@@ -1,4 +1,4 @@
-@extends('Backend.MasterPro')
+@extends('Backend.Master')
 
 @section('Container')
 
@@ -10,7 +10,7 @@
         </div>
         <div class="text-end col-md-6 col-sm-8">
             <a href="" class="btn btn-outline-primary">Filter</a> |
-            <a href="" class="btn btn-outline-success">Add Brand</a> |
+            <a href="{{route('add_brand')}}" class="btn btn-outline-success">Add Brand</a> |
             <a href="" class="btn btn-outline-info">Export</a>
         </div>
         <div class="col-md-3">
@@ -28,27 +28,32 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Brand NAME</th>
+                    <th scope="col">image</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Description</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">ACTION</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($brand as $key=>$item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Electronics</td>
-                    <td>-</td>
+                    <th scope="row">{{$key+1}}</th>
+                    <td>
+                        <img height="50px" width="50px" src="{{url('uploads/'.$item->logo)}}" alt="">
+                    </td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->description}}</td>
                     <td>
                         <a href="" class="btn btn-primary btn-sm">Active</a>
                     </td>
-                    <td>
+                    <td class="col-3">
                         <a href="" class="btn btn-success btn-sm">View</a>
                         <a href="" class="btn btn-warning btn-sm">Update</a>
                         <a href="" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
-
+                @endforeach
             </tbody>
         </table>
     </div>

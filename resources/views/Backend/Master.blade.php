@@ -1,54 +1,37 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    @notifyCss
-    <style>
-        .notifyCss {
-            position: absolute;
-            top: 30px;
-            z-index: 1000000;
-        }
-    </style>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Welcome to Online Shoping</title>
-    <link rel="canonical" href="https://fancypizza-preview-com.3dcartstores.com" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
-
-    <link href="{{url('/css/styles.css')}}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Courgette|Lato:100,300,400,700,900|Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/bootstrap/css/bootstrap.css?vcart=13.3.0" type="text/css" />
-    <link rel="StyleSheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/css/core.css?vcart=13.3.0" type="text/css" />
-    <link rel="stylesheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/flexslider/flexslider.css?vcart=13.3.0" type="text/css" media="screen" />
-    <link href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/common-core/lib/contentbuilder/minimalist-blocks/content.min.css?vcart=13.3.0" rel="stylesheet" type="text/css" />
-    <link rel="StyleSheet" href="https://fancypizza-preview-com.3dcartstores.com/assets/templates/fancypizza-core/css/default.css?vcart=13.3.0" type="text/css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Online Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="home-page noleftbar norightbar qv-enabled not-logged-in" data-currency="$" data-decimal="2">
-
-    <x-notify::notify />
-
-    @include('Backend.Partials.Header_Top')
-
+<body>
 
     @include('Backend.Partials.Header')
 
 
-    <div class="container" ;>
+    @yield('Slider_Pro')
 
 
+    <!-- Content -->
+
+    <div class="container">
         @yield('Container')
-
-
     </div>
 
-    @include('Backend.Partials.footer')
+
+    <!-- Footer -->
+    @include('Backend.Partials.Footer')
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    @notifyJs
+
 </body>
 
 </html>

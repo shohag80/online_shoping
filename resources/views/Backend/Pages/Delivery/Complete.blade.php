@@ -1,4 +1,4 @@
-@extends('Backend.MasterPro')
+@extends('Backend.Master')
 
 @section('Container')
 

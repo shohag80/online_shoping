@@ -32,7 +32,7 @@ class LoginController extends Controller
 
         if ($login) {
             notify()->success('Login Successfully.');
-            return redirect()->route('Home_Page');
+            return redirect()->route('Home');
         }
         notify()->warning('Invalid Your User or Password');
         return redirect()->back()->withInput();

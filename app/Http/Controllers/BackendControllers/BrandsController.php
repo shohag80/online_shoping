@@ -5,37 +5,45 @@ namespace App\Http\Controllers\BackendControllers;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BrandsController extends Controller
 {
-    public function brands(){
+    public function form(){
+        //dd('Hello Add Brand ');
+        return view('Backend.Pages.Brands.Add');
+    }
+
+    public function list(){
         //dd('Hello Backend Brands');
-        $BrandData=Brand::paginate(10);
-        return view('Backend/Pages/Brands', compact('BrandData'));
+        $brand=Brand::all();
+        return view('Backend.Pages.Brands.All_Brand',compact('brand'));
     }
 
-    public function add_brand(){
-        //dd('Hello Add Brand ');
-        return view('Backend/Pages/Add_Brand');
-    }
+    public function store(Request $request){
+        //dd($request);
+        $validator=Validator::make($request->all(),[
+            'name'=>'required',
+            'photo'=>'image|max:1024',
+        ]);        
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
-    public function brand_store(Request $request){
-        //dd($request->all());
+        $fileName=null;
+        if($request->hasFile('photo')){
+            $photo=$request->file('photo');
+            $fileName=date('YmdHis').'.'.$photo->getClientOriginalExtension();
+            $photo->storeAs('uploads/',$fileName);
+        }
+
         Brand::create([
-            'brand_name'=>$request->brand_name,
-            'discription'=>$request->discription,
+            'name'=>$request->name,
+            'logo'=>$fileName,
+            'description'=>$request->description,
         ]);
-        notify()->success('Added Brand Successfully');
-        return redirect()->route('Brand');
-    }
 
-    public function add_brand_pro(){
-        //dd('Hello Add Brand ');
-        return view('Backend/Pages/Brands/Add');
-    }
-    
-    public function all_brands_pro(){
-        return view('Backend/Pages/Brands/All_Brand');
+        return redirect()->route('brnad_list');
     }
 
 }

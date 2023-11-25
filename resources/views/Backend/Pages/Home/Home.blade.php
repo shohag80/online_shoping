@@ -1,4 +1,4 @@
-@extends('Backend.MasterPro')
+@extends('Backend.Master')
 
 @section('Slider_Pro')
 

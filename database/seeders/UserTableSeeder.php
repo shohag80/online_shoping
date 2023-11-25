@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder
         Admin::create([
             'name'=>'Md. Shohag Hosssain',
             'role'=>'Admin',
-            'phone'=>'01975134225',
+            'phone'=>'+8801975134225',
             'email'=>'mdshohaghossain8080@gmail.com',
             'password'=>bcrypt('019751342256'),
             'photo'=>'Admin_Photo.jpg',

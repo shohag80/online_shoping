@@ -19,6 +19,6 @@ class AdminChecker
             return $next($request);
         }
         notify()->error('Invalid Your Email or Password.');
-        return redirect()->back();
+        return redirect()->route('Login');
     }
 }
