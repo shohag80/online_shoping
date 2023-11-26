@@ -13,8 +13,8 @@
                     <div class="row gx-4 gx-lg-5 align-items-center">
                         <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{url('/uploads/'.$single_product->photo)}}" alt="..." /></div>
                         <div class="col-md-6">
-                            <div class="small mb-1">{{$single_product->brand->brand_name    }}</div>
-                            <h1 class="display-5 fw-bolder">{{$single_product->product_name}}</h1>
+                            <div class="small mb-1">{{$single_product->brand->name}}</div>
+                            <h1 class="display-5 fw-bolder">{{$single_product->name}}</h1>
                             <div class="fs-5 mb-5">
                                 <!-- <span class="text-decoration-line-through">$45.00</span> -->
                                 <span>BDT-{{$single_product->price}}/-</span>

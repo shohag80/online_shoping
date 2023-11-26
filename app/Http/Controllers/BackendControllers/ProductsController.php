@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -23,6 +24,7 @@ class ProductsController extends Controller
         $product = Product::with(['brand', 'category'])->paginate(31);
         return view('Backend.Pages.Products.Product_list', compact('product'));
     }
+
 
     public function delete($id)
     {

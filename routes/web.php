@@ -7,7 +7,6 @@ use App\Http\Controllers\BackendControllers\CategoriesController as BackendContr
 use App\Http\Controllers\BackendControllers\ContactController;
 use App\Http\Controllers\BackendControllers\CustomerController;
 use App\Http\Controllers\BackendControllers\DeliveryController;
-use App\Http\Controllers\BackendControllers\HomeController as BackendControllersHomeController;
 use App\Http\Controllers\BackendControllers\LoginController as BackendControllersLoginController;
 use App\Http\Controllers\BackendControllers\MasterHomeControllers;
 use App\Http\Controllers\BackendControllers\MasterProController;
@@ -50,7 +49,6 @@ Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name(
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
 
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
-
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
 Route::group(['prefix' => 'account'], function () {
@@ -82,6 +80,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', [MasterHomeControllers::class, 'main'])->name('Home');
 
         Route::get('/profile/admins', [AdminControllers::class, 'admin'])->name('Admins');
+        Route::get('/profile/admin/delete/{id}', [AdminControllers::class, 'delete'])->name('Admin_Delete');
+        Route::get('/profile/admin/update/{id}', [AdminControllers::class, 'update'])->name('Admin_Update');
+        Route::put('/profile/admin/update/store/{id}', [AdminControllers::class, 'update_store'])->name('Admin_Update_Store');
         Route::get('/profile/admin/form', [AdminControllers::class, 'form'])->name('Admin_Form');
         Route::post('/profile/admin/store', [AdminControllers::class, 'store'])->name('Admin_store');
 
@@ -100,8 +101,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/form', [BackendControllersProductsController::class, 'form'])->name('add_product');
         Route::get('/product/list', [BackendControllersProductsController::class, 'list'])->name('product_list');
         Route::post('/product/list', [BackendControllersProductsController::class, 'store'])->name('product_store');
-
         Route::get('/product/list/{id}', [BackendControllersProductsController::class, 'delete'])->name('product_delete');
+
 
 
 

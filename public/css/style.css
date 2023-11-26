@@ -22,7 +22,7 @@ body {
 
 /* Navber section */
 .dropdown:hover>.dropdown-menu {
-    display: block;
+    display: block; 
   }
   
   .dropdown>.dropdown-toggle:active {

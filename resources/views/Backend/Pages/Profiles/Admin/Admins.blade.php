@@ -31,16 +31,16 @@
                     <th scope="col">Photo</th>
                     <th scope="col">Name</th>
                     <th scope="col">Role</th>
-                    <th scope="col">Phone Number</th>
+                    <th scope="col">Contact</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($admin_data as $item)
+                @foreach($admin_data as $key=>$item)
                 <tr>
-                    <th scope="row">{{$item->id}}</th>
+                    <th scope="row">{{$key+1}}</th>
                     <td>
                         <img style="height: 40px; width: 40px;" src="{{url('uploads/',$item->photo)}}" alt="admin_photo">
                     </td>
@@ -53,8 +53,8 @@
                     </td>
                     <td>
                         <a href="" class="btn btn-success btn-sm">View</a>
-                        <a href="" class="btn btn-warning btn-sm mt-1">Update</a>
-                        <a href="" class="btn btn-danger btn-sm mt-1">Delete</a>
+                        <a href="{{route('Admin_Update',$item->id)}}" class="btn btn-warning btn-sm mt-1">Update</a>
+                        <a href="{{route('Admin_Delete',$item->id)}}" class="btn btn-danger btn-sm mt-1">Delete</a>
                     </td>
                 </tr>
                 @endforeach

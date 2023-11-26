@@ -555,10 +555,10 @@
         </div>
         <div class="row mt-5 p-5">
           <div class="text-center rounded-5">
-            <img height="150" width="150" style="border-radius: 50%;" src="https://thumbs.dreamstime.com/b/demo-computer-key-to-download-version-software-trial-64543995.jpg" alt="">
+            <img height="150" width="150" style="border-radius: 50%;" src="{{url('uploads/',auth()->guard()->user()->photo)}}" alt="">
             <div class="mt-2">
               <input type="button" class="btn btn-sm btn-primary" value="Change" />
-              <input type="file" style="display: none;" id="profilePicture" name="file" />
+              <input type="file" style="display: none;" name="photo" />
             </div>
           </div>
         </div>

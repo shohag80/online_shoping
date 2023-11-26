@@ -41,7 +41,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="row">
                         <div class="text-center rounded-5">
-                            <img height="150" width="150" src="{{auth()->guard('admin')->user()->photo}}" alt="">
+                            <img style="border-radius: 50%;" height="150" width="150" src="{{ url('uploads/'.auth()->guard('admin')->user()->photo) }}" alt="">
                             <div class="mt-2">
                                 <input type="button" class="btn btn-sm btn-primary" value="Change" terget="profilePicture" />
                                 <input type="file" style="display: none;" id="profilePicture" name="file" />
