@@ -7,19 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta content="Codescandy" name="author">
 
-  <title>Welcome to Online Shoping</title> 
+  <title>Welcome to Online Shoping</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link href="https://freshcart.codescandy.com/assets/libs/slick-carousel/slick/slick.css" rel="stylesheet"/>
-  <link href="https://freshcart.codescandy.com/assets/libs/slick-carousel/slick/slick-theme.css" rel="stylesheet"/>
-  <link href="https://freshcart.codescandy.com/assets/libs/tiny-slider/dist/tiny-slider.css" rel="stylesheet"/>
+  <link href="https://freshcart.codescandy.com/assets/libs/slick-carousel/slick/slick.css" rel="stylesheet" />
+  <link href="https://freshcart.codescandy.com/assets/libs/slick-carousel/slick/slick-theme.css" rel="stylesheet" />
+  <link href="https://freshcart.codescandy.com/assets/libs/tiny-slider/dist/tiny-slider.css" rel="stylesheet" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/x-icon" href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico"/>
+  <link rel="shortcut icon" type="image/x-icon" href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico" />
 
   <!-- Libs CSS -->
-  <link href="https://freshcart.codescandy.com/assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet"/>
-  <link href="https://freshcart.codescandy.com/assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet"/>
-  <link href="https://freshcart.codescandy.com/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet"/>
+  <link href="https://freshcart.codescandy.com/assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://freshcart.codescandy.com/assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
+  <link href="https://freshcart.codescandy.com/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
 
   <!-- Theme CSS -->
   <link rel="stylesheet" href="https://freshcart.codescandy.com/assets/css/theme.min.css">

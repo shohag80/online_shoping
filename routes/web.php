@@ -16,6 +16,7 @@ use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\FrontendControllers\AccountController;
 use App\Http\Controllers\FrontendControllers\DepartmentController;
 use App\Http\Controllers\FrontendControllers\HomeController;
+use App\Http\Controllers\FrontendControllers\OrderController as FrontendControllersOrderController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
 use App\Http\Controllers\FrontendControllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
+    Route::get('product/buy_now/{id}',[FrontendControllersOrderController::class,'product_buy'])->name('Product_Buy');
+    Route::get('product/cancel_order/{id}',[FrontendControllersOrderController::class,'cancel_product'])->name('Cancel_Product');
 });
 
 Route::get('/signup', [UserController::class, 'signup'])->name('SignUp');
@@ -49,6 +52,8 @@ Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name(
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
 
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
+Route::get('/product/cart',[FrontendControllersOrderController::class,'cart'])->name('Cart');
+Route::get('/product/add_to_cart/{id}',[FrontendControllersOrderController::class,'add_to_cart'])->name('Add_to_Cart');
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
 Route::group(['prefix' => 'account'], function () {
