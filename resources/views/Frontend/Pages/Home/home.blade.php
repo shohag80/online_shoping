@@ -34,17 +34,17 @@
 
 @endsection
 
+@section('category')
+
+@include('Frontend.Pages.Category.list')
+
+@endsection
+
 @section('product')
 
 @include('Frontend.Pages.Product.list')
 
 @endsection
 
-
-@section('category')
-
-@include('Frontend.Partials.Category')
-
-@endsection
 
 

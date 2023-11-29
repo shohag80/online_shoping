@@ -14,6 +14,7 @@ use App\Http\Controllers\BackendControllers\OrderController;
 use App\Http\Controllers\BackendControllers\ProductsController as BackendControllersProductsController;
 use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\FrontendControllers\AccountController;
+use App\Http\Controllers\FrontendControllers\CategoriesController;
 use App\Http\Controllers\FrontendControllers\DepartmentController;
 use App\Http\Controllers\FrontendControllers\HomeController;
 use App\Http\Controllers\FrontendControllers\OrderController as FrontendControllersOrderController;
@@ -37,8 +38,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
-    Route::get('product/buy_now/{id}',[FrontendControllersOrderController::class,'product_buy'])->name('Product_Buy');
-    Route::get('product/cancel_order/{id}',[FrontendControllersOrderController::class,'cancel_product'])->name('Cancel_Product');
+    Route::get('product/buy_now/{id}', [FrontendControllersOrderController::class, 'product_buy'])->name('Product_Buy');
+    Route::get('product/cancel_order/{id}', [FrontendControllersOrderController::class, 'cancel_product'])->name('Cancel_Product');
 });
 
 Route::get('/signup', [UserController::class, 'signup'])->name('SignUp');
@@ -51,12 +52,15 @@ Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name(
 
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
 
+Route::get('/catetories', [CategoriesController::class, 'categories'])->name('All_Category');
+
 Route::get('/products', [ProductsController::class, 'products'])->name('All_Products');
-Route::get('/product/cart',[FrontendControllersOrderController::class,'cart'])->name('Cart');
-Route::get('/product/add_to_cart/{id}',[FrontendControllersOrderController::class,'add_to_cart'])->name('Add_to_Cart');
+Route::get('/product/add_to_cart/{id}', [FrontendControllersOrderController::class, 'add_to_cart'])->name('Add_to_Cart');
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
 Route::group(['prefix' => 'account'], function () {
+    Route::get('/product/cart', [FrontendControllersOrderController::class, 'cart'])->name('Cart');
+    Route::get('/product/cart/remove', [FrontendControllersOrderController::class, 'cart_remove'])->name('Cart_remove');
     Route::get('/order', [AccountController::class, 'order'])->name('Order');
     Route::get('/settings', [AccountController::class, 'settings'])->name('Settings');
     Route::get('/address', [AccountController::class, 'address'])->name('Address');
@@ -97,6 +101,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/category/form', [BackendControllersCategoriesController::class, 'from'])->name('add_category');
         Route::get('/category/list', [BackendControllersCategoriesController::class, 'list'])->name('category_list');
+        Route::get('/category/delete/{id}', [BackendControllersCategoriesController::class, 'delete'])->name('category_delete');
         Route::post('/category/store', [BackendControllersCategoriesController::class, 'store'])->name('category_Store');
 
         Route::get('/brand/form', [BackendControllersBrandsController::class, 'form'])->name('add_brand');

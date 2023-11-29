@@ -24,6 +24,12 @@
                     <ul class="nav flex-column nav-pills nav-pills-dark">
                         <!-- nav item -->
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{route('Cart')}}">
+                                Cart Items
+                            </a>
+                        </li>
+                        <!-- nav item -->
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{route('Order')}}">
                                 Your Orders
                             </a>

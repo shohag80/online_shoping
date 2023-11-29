@@ -419,6 +419,7 @@
                       My Account
                     </a>
                     <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{route('Cart')}}">Cart</a></li>
                       <li><a class="dropdown-item" href="{{route('Order')}}">Orders</a></li>
                       <li><a class="dropdown-item" href="{{route('Settings')}}">Settings</a></li>
                       <li><a class="dropdown-item" href="{{route('Address')}}">Address</a></li>

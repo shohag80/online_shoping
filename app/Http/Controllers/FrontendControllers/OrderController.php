@@ -20,46 +20,46 @@ class OrderController extends Controller
     {
         $product = Product::find($product_id);
         // dd($product);
-        $cart = session()->get('virtual_cart');
-        if ($cart) {
-            if (array_key_exists($product_id, $cart)) {
-                $cart[$product_id]['quantity'] = $cart[$product_id]['quantity'] + 1;
-                $cart[$product_id]['subtotal'] = $cart[$product_id]['price'] * $cart[$product_id]['quantity'];
+        $cart=session()->get('virtual_cart');
 
-                notify()->success('Quantity Update.');
-                session()->put('virtual_cart', $cart);
+        if(!$cart){
+            $new_cart[$product_id]=[
+                'photo'=>$product->photo,
+                'name'=>$product->name,
+                'quantity'=>1,
+                'price'=>$product->price,
+                'subtotal'=>1*$product->price,
+            ];
+            session()->put('virtual_cart',$new_cart);
+            notify()->success('New product added cart.');
+            return redirect()->back();
+        }else{
+            if(array_key_exists($product_id,$cart)){
+                $cart[$product_id]['quantity']=$cart[$product_id]['quantity']+1;
+                $cart[$product_id]['subtotal']=$cart[$product_id]['price']*$cart[$product_id]['quantity'];
+                session()->put('virtual_cart',$cart);
                 return redirect()->back();
-            } else {
-                $cart[$product_id] = [
-                    'id' => $product_id,
-                    'photo' => $product->photo,
-                    'name' => $product->name,
-                    'quantity' => 1,
-                    'price' => $product->price,
-                    'subtotal' => 1 * $product->price,
+            }else{
+                $cart[$product_id]=[
+                    'photo'=>$product->photo,
+                    'name'=>$product->name,
+                    'quantity'=>1,
+                    'price'=>$product->price,
+                    'subtotal'=>1*$product->price,
                 ];
-
-                notify()->success('Added to new card.');
-                session()->put('virtual_cart', $cart);
+                session()->put('virtual_cart',$cart);
+                notify()->success('New product added cart.');
                 return redirect()->back();
             };
-        } else {
-            $new_cart[$product_id] = [
-                'id' => $product_id,
-                'photo' => $product->photo,
-                'name' => $product->name,
-                'quantity' => 1,
-                'price' => $product->price,
-                'subtotal' => 1 * $product->price,
-            ];
-
-            notify()->success('First Added to new card.');
-            session()->put('virtual_cart', $new_cart);
-            return redirect()->back();
         };
+
         return view('Frontend.Pages.Account.Cart');
     }
 
+    public function cart_remove(){
+        session()->forget('virtual_cart');
+        return redirect()->back();   
+    }
 
     public function product_buy($product_id)
     {

@@ -20,6 +20,14 @@ class CategoriesController extends Controller
         return view('Backend/Pages/Categories/Category_List',compact('category'));
     }
 
+    public function delete($id){
+        $category=Category::find($id);
+        if($category){
+            $category->delete();
+        }
+        return redirect()->back();
+    }
+
     public function store(Request $request){
         //dd($request);
         $validator=Validator::make($request->all(),[

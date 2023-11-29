@@ -36,20 +36,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($category as $item)
+                @foreach($category as $key=>$item)
                 <tr>
-                    <th scope="row">{{$item->id}}</th>
+                    <th scope="row">{{$key+1}}</th>
                     <td>
                         <img height="50px" width="50px" src="{{url('uploads/',$item->photo)}}" alt="photo">
                     </td>
                     <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">Active</a>
+                        <a href="" class="btn btn-outline-primary btn-sm">Active</a>
                     </td>
-                    <td class="col-2">
+                    <td class="col-3">
+                        <a href="" class="btn btn-primary btn-sm">View</a>
                         <a href="" class="btn btn-warning btn-sm">Update</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{{route('category_delete',$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 @endforeach

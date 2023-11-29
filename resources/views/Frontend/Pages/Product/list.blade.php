@@ -12,7 +12,7 @@
 
 
          @foreach($products as $item)
-         <div style="float: left;" class="col-md-3 mt-2">
+         <div style="float: left;" class="col-md-3 mt-2 mb-2">
             <div class="card card-product">
                <div class="card-body">
 
@@ -20,7 +20,7 @@
                      <div class=" position-absolute top-0 start-0">
                         <span class="badge bg-success">New</span>
                      </div>
-                     <a href="{{route('Single_Product',$item->id)}}"> <img src="{{url('uploads/',$item->photo)}}" alt="image" class="mb-3 img-fluid"></a>
+                     <a href="{{route('Single_Product',$item->id)}}"> <img src="{{url('uploads/',$item->photo)}}" height="200" width="200" alt="image"></a>
                      <div class="card-product-action">
                         <a href="" class="btn-action" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye" data-bs-toggle="tooltip" data-bs-html="true" title="Quick View"></i></a>
                         <a href="#!" class="btn-action" data-bs-toggle="tooltip" data-bs-html="true" title="Wishlist"><i class="bi bi-heart"></i></a>
