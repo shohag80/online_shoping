@@ -26,7 +26,6 @@
     <div class="container bg-body-tertiary p-2">
         <table class="table table-hover text-center">
             <thead>
-                @foreach($customer_data as $item)
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">NAME</th>
@@ -37,6 +36,7 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($customer_data as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->name}}</td>

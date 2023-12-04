@@ -62,6 +62,8 @@ Route::get('/single_products/{id}', [ProductsController::class, 'product'])->nam
 Route::group(['prefix' => 'account'], function () {
     Route::get('/product/cart', [FrontendControllersOrderController::class, 'cart'])->name('Cart');
     Route::get('/product/cart/remove', [FrontendControllersOrderController::class, 'cart_remove'])->name('Cart_remove');
+    Route::get('/product/cart/single_product_remove/{id}', [FrontendControllersOrderController::class, 'single_cart_remove'])->name('Remove_Cart_Single_Product');
+    Route::get('/product/cart/quantity_decrease/{id}', [FrontendControllersOrderController::class, 'quantity_decrease'])->name('Cart_Item_Quantity_Decrease');
     Route::get('/order', [AccountController::class, 'order'])->name('Order');
     Route::get('/settings', [AccountController::class, 'settings'])->name('Settings');
     Route::get('/address', [AccountController::class, 'address'])->name('Address');

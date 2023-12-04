@@ -32,7 +32,7 @@
 
                   <div class="text-small mb-1"><a href="#!" class="text-decoration-none text-muted"><small>{{$item->brand->brand_name}}</small></a>
                   </div>
-                  <h2 class="fs-6"><a href="" class="text-inherit text-decoration-none">{{$item->product_name}}</a></h2>
+                  <h2 class="fs-6"><a href="" class="text-inherit text-decoration-none">{{$item->name}}</a></h2>
                   <div>
 
                      <small class="text-warning"> <i class="bi bi-star-fill"></i>
