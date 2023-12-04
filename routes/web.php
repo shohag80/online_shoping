@@ -51,6 +51,7 @@ Route::post('/do_signin', [UserController::class, 'do_login'])->name('Do_SignIn'
 Route::get('/forgetpassword', [UserController::class, 'forget_password'])->name('Forget_Password');
 
 Route::get('/', [HomeController::class, 'userHome'])->name('User_Home');
+Route::get('/search', [HomeController::class, 'search'])->name('Search');
 
 Route::get('/catetories', [CategoriesController::class, 'categories'])->name('All_Category');
 

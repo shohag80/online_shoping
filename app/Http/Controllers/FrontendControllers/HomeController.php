@@ -17,5 +17,18 @@ class HomeController extends Controller
         return view('Frontend.Pages.Home.home',compact('products','category'));
     }
 
+    public function search(Request $request){
+        //dd($request->all());
+        if($request->search){
+            $products=Product::where('name','LIKE','%'.$request->search.'%')->get();
+            $category=Category::where('name','LIKE','%'.$request->search.'%')->get();
+        }else{
+            $products=Product::all();
+            $category=Category::all();
+        };
+
+        return view('Frontend.Pages.Home.home',compact('products','category'));
+    }
+
     
 }
