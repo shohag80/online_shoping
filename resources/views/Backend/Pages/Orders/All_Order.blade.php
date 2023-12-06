@@ -27,34 +27,33 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Mobile No</th>
+                    <th scope="col">Customer ID</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Area</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Total Price</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Payment</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($orders as $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Md. Shohag Hossain</td>
-                    <td>01975134225</td>
-                    <td>01/01/2024</td>
-                    <td>Dhaka</td>
-                    <td>5</td>
-                    <td>.BDT</td>
+                    <th scope="row">{{$item->id}}</th>
+                    <td>{{$item->user_id}}</td>
+                    <td>{{$item->created_at}}</td>
+                    <td>{{$item->total_price}}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm rounded-5">Complete</a>
+                        @if($item->status=='pending')<a href="{{route('Order_Comfirm',$item->id)}}" class="badge bg-danger">{{$item->status}}</a>@endif
+                        @if($item->status=='confirm')<span class="badge bg-success">{{$item->status}}</span>@endif
+                        @if($item->status=='cancel')<span class="badge bg-danger">{{$item->status}}</span>@endif
                     </td>
+                    <td><a href="" class="text-dark btn-sm rounded-5">{{$item->payment_method}}</a></td>
                     <td>
-                        <a href="" class="btn btn-success btn-sm">View</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="" class="btn badge btn-success btn-sm">View</a>
+                        <a href="" class="btn badge btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
-
+                @endforeach
             </tbody>
         </table>
     </div>

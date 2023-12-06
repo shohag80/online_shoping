@@ -12,14 +12,11 @@
             <!-- Table Head -->
             <thead class="bg-light">
                 <tr>
-                    <th>Product</th>
-                    <th>Order</th>
-                    <th>Date</th>
-                    <th>Items</th>
-                    <th>Status</th>
-                    <th>Amount</th>
-
-                    <th></th>
+                    <th class="align-middle">Order ID</th>
+                    <th class="align-middle">Date</th>
+                    <th class="align-middle">Status</th>
+                    <th class="align-middle">Amount</th>
+                    <th class="align-middle">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,24 +24,18 @@
                 @foreach($order as $item)
                 <tr>
                     <td class="align-middle border-top-0">
-                        <a href="#" class="fw-semibold text-inherit">
-                            <h6 class="mb-0">{{$item->product_id}}</h6>
-                        </a>
-                        <span><small class="text-muted">400g</small></span>
-                    </td>
-                    <td class="align-middle border-top-0">
                         <a href="#" class="text-inherit">{{$item->id}}</a>
                     </td>
                     <td class="align-middle border-top-0">{{$item->created_at}}</td>
-                    <td class="align-middle border-top-0">1</td>
                     <td class="align-middle border-top-0">
-                        <span class="badge bg-primary">{{$item->status}}</span>
+                        @if($item->status=='pending')<span class="badge bg-danger">{{$item->status}}</span>@endif
+                        @if($item->status=='confirm')<span class="badge bg-success">{{$item->status}}</span>@endif
+                        @if($item->status=='cancel')<span class="badge bg-danger">{{$item->status}}</span>@endif
                     </td>
-                    <td class="align-middle border-top-0">$15.00</td>
-                    <td class="text-muted align-middle border-top-0">
-                        @if($item->status=='pending')
-                        <a href="{{route('Cancel_Product',$item->id)}}" class="btn btn-sm btn-danger">Cancel</a>
-                        @endif
+                    <td class="align-middle border-top-0">{{$item->total_price}}</td>
+                    <td class="align-middle border-top-0">
+                        <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
+                        @if($item->status=='pending')<a href="{{route('Order_Cancel',$item->id)}}" class="btn btn-sm badge btn-danger">Cancel</a>@endif
                     </td>
                 </tr>
                 @endforeach

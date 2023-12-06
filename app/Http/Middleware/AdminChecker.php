@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AdminChecker
-{
+{ 
     /**
      * Handle an incoming request.
      *

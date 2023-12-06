@@ -124,6 +124,8 @@
                                 </div>
                                 @if(session()->get('virtual_cart'))
                                 <span>৳ {{$subtotal=array_sum(array_column(session()->get('virtual_cart'),'subtotal'))}}</span>
+                                @else
+                                <span class="fw-bold">৳ 00</span>
                                 @endif
                             </li>
 
@@ -132,7 +134,11 @@
                                 <div class="me-auto">
                                     <div>Service Fee</div>
                                 </div>
+                                @if(session()->get('virtual_cart'))
                                 <span>৳ 70</span>
+                                @else
+                                <span class="fw-bold">৳ 00</span>
+                                @endif
                             </li>
                             <!-- list group item -->
                             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -141,13 +147,15 @@
                                 </div>
                                 @if(session()->get('virtual_cart'))
                                 <span class="fw-bold">৳ {{$subtotal+70}}</span>
+                                @else
+                                <span class="fw-bold">৳ 00</span>
                                 @endif
                             </li>
                         </ul>
                     </div>
                     <div class="d-grid mb-1 mt-4">
                         <!-- btn -->
-                        <a href="" class="btn btn-primary btn-lg text-center" type="submit">
+                        <a href="{{route('Checkout')}}" class="btn btn-primary btn-lg text-center" type="submit">
                         Checkout
                         </a>
                     </div>
@@ -160,21 +168,6 @@
                             <a href="#!">Privacy Policy.</a>
                         </small>
                     </p>
-
-                    <!-- heading -->
-                    <div class="mt-8">
-                        <h2 class="h5 mb-3">Add Promo or Gift Card</h2>
-                        <form>
-                            <div class="mb-2">
-                                <!-- input -->
-                                <label for="giftcard" class="form-label sr-only">Email address</label>
-                                <input type="text" class="form-control" id="giftcard" placeholder="Promo or Gift Card">
-                            </div>
-                            <!-- btn -->
-                            <div class="d-grid"><button type="submit" class="btn btn-outline-dark mb-1">Redeem</button></div>
-                            <p class="text-muted mb-0"><small>Terms &amp; Conditions apply</small></p>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

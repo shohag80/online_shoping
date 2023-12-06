@@ -38,8 +38,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/signout', [UserController::class, 'logout'])->name('SignOut');
-    Route::get('product/buy_now/{id}', [FrontendControllersOrderController::class, 'product_buy'])->name('Product_Buy');
-    Route::get('product/cancel_order/{id}', [FrontendControllersOrderController::class, 'cancel_product'])->name('Cancel_Product');
+    Route::get('/product/buy_now/{id}', [FrontendControllersOrderController::class, 'product_buy'])->name('Product_Buy');
+    Route::get('/product/cancel_order/{id}', [FrontendControllersOrderController::class, 'cancel_product'])->name('Cancel_Product');
+    Route::get('/cart/checkout', [FrontendControllersOrderController::class, 'checkout'])->name('Checkout');
+    Route::post('/cart/continue_order', [AccountController::class, 'continue_order'])->name('Continue_Order');
+    Route::get('/account/order/details/{order_id}', [FrontendControllersOrderController::class, 'order_details'])->name('Order_Details');
+    Route::get('/order/cancel/{order_id}', [OrderController::class, 'order_cancel'])->name('Order_Cancel');
 });
 
 Route::get('/signup', [UserController::class, 'signup'])->name('SignUp');
@@ -60,10 +64,11 @@ Route::get('/product/add_to_cart/{id}', [FrontendControllersOrderController::cla
 Route::get('/single_products/{id}', [ProductsController::class, 'product'])->name('Single_Product');
 
 Route::group(['prefix' => 'account'], function () {
-    Route::get('/product/cart', [FrontendControllersOrderController::class, 'cart'])->name('Cart');
-    Route::get('/product/cart/remove', [FrontendControllersOrderController::class, 'cart_remove'])->name('Cart_remove');
-    Route::get('/product/cart/single_product_remove/{id}', [FrontendControllersOrderController::class, 'single_cart_remove'])->name('Remove_Cart_Single_Product');
-    Route::get('/product/cart/quantity_decrease/{id}', [FrontendControllersOrderController::class, 'quantity_decrease'])->name('Cart_Item_Quantity_Decrease');
+    Route::get('/cart', [FrontendControllersOrderController::class, 'cart'])->name('Cart');
+    Route::get('/cart/remove', [FrontendControllersOrderController::class, 'cart_remove'])->name('Cart_remove');
+    Route::get('/cart/single_product_remove/{id}', [FrontendControllersOrderController::class, 'single_cart_remove'])->name('Remove_Cart_Single_Product');
+    Route::get('/cart/quantity_decrease/{id}', [FrontendControllersOrderController::class, 'quantity_decrease'])->name('Cart_Item_Quantity_Decrease');
+    
     Route::get('/order', [AccountController::class, 'order'])->name('Order');
     Route::get('/settings', [AccountController::class, 'settings'])->name('Settings');
     Route::get('/address', [AccountController::class, 'address'])->name('Address');
@@ -125,6 +130,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/order/recent', [OrderController::class, 'recent_order'])->name('Recent');
         Route::get('/order/last_month', [OrderController::class, 'last_month'])->name('Last_Month');
         Route::get('/order/all_orders', [OrderController::class, 'all_orders'])->name('All_Orders');
+        Route::get('/order/confirm/{order_id}', [OrderController::class, 'order_comfirm'])->name('Order_Comfirm');
 
         Route::get('/delivery/panding', [DeliveryController::class, 'panding'])->name('Delivery_Panding');
         Route::get('/delivery/processing', [DeliveryController::class, 'processing'])->name('Delivery_Processing');
