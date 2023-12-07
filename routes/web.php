@@ -120,17 +120,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/list', [BackendControllersProductsController::class, 'list'])->name('product_list');
         Route::post('/product/list', [BackendControllersProductsController::class, 'store'])->name('product_store');
         Route::get('/product/list/{id}', [BackendControllersProductsController::class, 'delete'])->name('product_delete');
-
-
-
-
-
         Route::get('/product/reviews', [BackendControllersProductsController::class, 'product_reviews'])->name('product_reviews');
+
+
+
+
+
 
         Route::get('/order/recent', [OrderController::class, 'recent_order'])->name('Recent');
         Route::get('/order/last_month', [OrderController::class, 'last_month'])->name('Last_Month');
         Route::get('/order/all_orders', [OrderController::class, 'all_orders'])->name('All_Orders');
         Route::get('/order/confirm/{order_id}', [OrderController::class, 'order_comfirm'])->name('Order_Comfirm');
+        Route::get('/order/details/{order_id}', [OrderController::class, 'order_details'])->name('Admin_Order_Details');
 
         Route::get('/delivery/panding', [DeliveryController::class, 'panding'])->name('Delivery_Panding');
         Route::get('/delivery/processing', [DeliveryController::class, 'processing'])->name('Delivery_Processing');

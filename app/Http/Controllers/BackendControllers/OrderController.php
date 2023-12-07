@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Order_Details;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -27,6 +28,12 @@ class OrderController extends Controller
             'status'=>'confirm',
         ]);
         return redirect()->route('All_Orders');
+    }
+
+    public function order_details($order_id){
+        $order=Order::find($order_id);
+        $order_details=Order_Details::with('product')->where('order_id',$order_id)->get();
+        return view('Backend.Pages.Orders.Order_details',compact('order','order_details'));
     }
 
     public function order_cancel($order_id){

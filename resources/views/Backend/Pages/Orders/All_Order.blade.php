@@ -49,7 +49,7 @@
                     </td>
                     <td><a href="" class="text-dark btn-sm rounded-5">{{$item->payment_method}}</a></td>
                     <td>
-                        <a href="" class="btn badge btn-success btn-sm">View</a>
+                        <a href="{{route('Admin_Order_Details',$item->id)}}" class="btn badge btn-success btn-sm">View</a>
                         <a href="" class="btn badge btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>

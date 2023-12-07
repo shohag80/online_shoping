@@ -96,7 +96,8 @@ class OrderController extends Controller
     public function order_details($order_id){
         // dd('Hello Order Details');
         $order=Order::find($order_id);
-        $order_details=Order_Details::all();
+        $order_details=Order_Details::with('product')->where('order_id',$order_id)->get();
+        //dd($order_details);
         return view('Frontend.Pages.Account.Order.Order_Details',compact('order','order_details'));
     }
 

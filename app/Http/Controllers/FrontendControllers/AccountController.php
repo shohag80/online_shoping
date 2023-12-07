@@ -12,7 +12,7 @@ class AccountController extends Controller
 
     public function order()
     {
-        $order = order::all();
+        $order = order::where('user_id',auth()->user()->id)->get();
         return view('Frontend.Pages.Account.Order.order', compact('order'));
     }
 

@@ -1,4 +1,3 @@
-
 * {
     margin: 0px;
     padding: 0px;
@@ -21,14 +20,6 @@ body {
 
 
 /* Navber section */
-.dropdown:hover>.dropdown-menu {
-    display: block; 
-  }
-  
-  .dropdown>.dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-      pointer-events: none;
-  }
 
 
 
@@ -49,7 +40,7 @@ body {
 .carousel-item {
     height: 100vh;
     min-height: 350px;
-} 
+}
 
 .carousel-caption h5 {
     font-family: 'Courier New', Courier, monospace;

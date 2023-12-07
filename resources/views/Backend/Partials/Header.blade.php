@@ -1,4 +1,14 @@
 <!-- Header -->
+<style>
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+</style>
 <section>
     <div class="container-fluid bg-light stickey_header">
         <div class="row bg-info">
@@ -102,58 +112,65 @@
             <div class="col-md-12 text-center bg-warning p-2">
                 <div class="btn-group text-white">
                     <a class="btn mr-md-2" href="{{route('Home')}}">Home</a>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Profile
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item profile-btn" href="{{route('Admins')}}">Admin</a></li>
-                        <li><a class="dropdown-item profile-btn" href="{{route('Supplier')}}">Supplier</a></li>
-                        <li><a class="dropdown-item profile-btn" href="{{route('Customers')}}">Customer</a></li>
-                        <li><a class="dropdown-item profile-btn" href="{{route('delivery')}}">Delivery Man</a></li>
-                    </ul>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">Category</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('add_category')}}">Add Category</a></li>
-                        <li><a class="dropdown-item" href="{{route('category_list')}}">All Category</a></li>
-                    </ul>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">Brand</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('add_brand')}}">Add</a></li>
-                        <li><a class="dropdown-item" href="{{route('brnad_list')}}">All Brand</a></li>
-                    </ul>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">Product</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('add_product')}}">Add</a></li>
-                        <li><a class="dropdown-item" href="{{route('product_list')}}">All Product</a></li>
-                        <li><a class="dropdown-item" href="{{route('product_reviews')}}">Reviews</a></li>
-                    </ul>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">Orders</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('Recent')}}">Recent</a></li>
-                        <li><a class="dropdown-item" href="{{route('Last_Month')}}">Last Month</a></li>
-                        <li><a class="dropdown-item" href="{{route('All_Orders')}}">All Orders</a></li>
-                    </ul>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">Delivery</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('Delivery_Panding')}}">Panding</a></li>
-                        <li><a class="dropdown-item" href="{{route('Delivery_Processing')}}">Processing</a></li>
-                        <li><a class="dropdown-item" href="{{route('Delivery_Complete')}}">Complete</a></li>
-                    </ul>
-                    <button type="button" class="btn dropdown-toggle mr-md-2" data-bs-toggle="dropdown" aria-expanded="false">Contacts</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item contact-btn" href="{{route('Head_Office')}}">Head Office</a></li>
-                        <li><a class="dropdown-item contact-btn" href="{{route('Customer_Care')}}">Customer Care</a></li>
-                        <li><a class="dropdown-item contact-btn" href="{{route('Supplier_Shops')}}">Suppliers Shops</a></li>
-                    </ul>
+
 
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-                            Dropdown button
+                            Profile
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item profile-btn" href="{{route('Admins')}}">Admin</a></li>
+                            <li><a class="dropdown-item profile-btn" href="{{route('Supplier')}}">Supplier</a></li>
+                            <li><a class="dropdown-item profile-btn" href="{{route('Customers')}}">Customer</a></li>
+                            <li><a class="dropdown-item profile-btn" href="{{route('delivery')}}">Delivery Man</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Category</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{route('add_category')}}">Add Category</a></li>
+                            <li><a class="dropdown-item" href="{{route('category_list')}}">All Category</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Brand</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{route('add_brand')}}">Add</a></li>
+                            <li><a class="dropdown-item" href="{{route('brnad_list')}}">All Brand</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Product</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{route('add_product')}}">Add</a></li>
+                            <li><a class="dropdown-item" href="{{route('product_list')}}">All Product</a></li>
+                            <li><a class="dropdown-item" href="{{route('product_reviews')}}">Reviews</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Orders</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{route('Recent')}}">Recent</a></li>
+                            <li><a class="dropdown-item" href="{{route('Last_Month')}}">Last Month</a></li>
+                            <li><a class="dropdown-item" href="{{route('All_Orders')}}">All Orders</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Delivery</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{route('Delivery_Panding')}}">Panding</a></li>
+                            <li><a class="dropdown-item" href="{{route('Delivery_Processing')}}">Processing</a></li>
+                            <li><a class="dropdown-item" href="{{route('Delivery_Complete')}}">Complete</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Contacts</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item contact-btn" href="{{route('Head_Office')}}">Head Office</a></li>
+                            <li><a class="dropdown-item contact-btn" href="{{route('Customer_Care')}}">Customer Care</a></li>
+                            <li><a class="dropdown-item contact-btn" href="{{route('Supplier_Shops')}}">Suppliers Shops</a></li>
                         </ul>
                     </div>
 

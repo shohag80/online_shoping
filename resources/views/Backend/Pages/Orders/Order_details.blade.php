@@ -1,6 +1,6 @@
-@extends('Frontend.Partials.Account')
+@extends('Backend.Master')
 
-@section('content')
+@section('Container')
 
 <style>
     .track-line {
@@ -41,14 +41,14 @@
 </style>
 
 <section class="h-100 h-custom" style="background-color: #ffff;">
-    <div class="container py-5 h-130">
+    <div class="container mb-4 py-5 h-130">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-12">
                 <div class="card border-top border-bottom border-4" style="border-color: green !important; background-color: #ffff;">
                     <div class="card-body p-5">
-                        <div class="container bg-primary rounded-3 p-5 mt-3 mb-4">
+                        <div class="container bg-primary rounded-3 p-2 mt-3">
 
-                            <h1 class="lead fw-bold mb-5 text-center text-light display-6">Purchase Reciept</h1>
+                            <h1 class="lead fw-bold m-3 text-center text-light display-5">Order Details</h1>
 
                         </div>
                         <div class="container p-4 mt-3">
@@ -143,13 +143,13 @@
 
                         <div class="p-4 rounded-2 border">
                             <table class="table table-hover rounded">
-                                <thead class="bg-primary">
-                                    <tr class="text-light text-center">
-                                        <th class="text-light" scope="col">Sl</th>
-                                        <th class="text-light" scope="col">Image</th>
-                                        <th class="text-light" scope="col">Name</th>
-                                        <th class="text-light" scope="col">Quantity</th>
-                                        <th class="text-light" scope="col">Price</th>
+                                <thead class="bg-success">
+                                    <tr class="text-center">
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Sl</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -170,7 +170,7 @@
                                         Total Price
                                     </div>
                                     <div class="col-2 text-light">
-                                    {{$order->total_quantity}}
+                                        {{$order->total_quantity}}
                                     </div>
                                     <div class="col-2 text-center text-light">
                                         {{$order->total_price}}/-
@@ -178,14 +178,10 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mt-4 pt-2 mb-0">Want any help? <a href="#!" style="color: #f37a27;">Please contact
-                                us</a></p>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 @endsection
