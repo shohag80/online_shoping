@@ -49,7 +49,7 @@
                     </td>
                     <td class="col-3">
                         <a href="" class="btn btn-primary btn-sm">View</a>
-                        <a href="" class="btn btn-warning btn-sm">Update</a>
+                        <a href="{{route('category_update',$item->id)}}" class="btn btn-warning btn-sm">Update</a>
                         <a href="{{route('category_delete',$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>

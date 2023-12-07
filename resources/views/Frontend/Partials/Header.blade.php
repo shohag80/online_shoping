@@ -184,7 +184,7 @@
                   <path d="M16 10a4 4 0 0 1-8 0"></path>
                 </svg>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                @if(session()->has('virtual_cart'))
+                  @if(session()->has('virtual_cart'))
                   {{count(session()->get('virtual_cart'))}}
                   @else
                   0
@@ -268,13 +268,13 @@
             <div class="collapse mt-2" id="collapseExample">
               <div class="card card-body">
                 <ul class="mb-0 list-unstyled">
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Dairy, Bread & Eggs</a></li>
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Snacks & Munchies</a></li>
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Fruits & Vegetables</a></li>
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Cold Drinks & Juices</a></li>
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Breakfast & Instant Food</a></li>
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Bakery & Biscuits</a></li>
-                  <li><a class="dropdown-item" href="{{route('Dairy')}}">Chicken, Meat & Fish</a></li>
+                  <li><a class="dropdown-item" href="">Dairy, Bread & Eggs</a></li>
+                  <li><a class="dropdown-item" href="">Snacks & Munchies</a></li>
+                  <li><a class="dropdown-item" href="">Fruits & Vegetables</a></li>
+                  <li><a class="dropdown-item" href="">Cold Drinks & Juices</a></li>
+                  <li><a class="dropdown-item" href="">Breakfast & Instant Food</a></li>
+                  <li><a class="dropdown-item" href="">Bakery & Biscuits</a></li>
+                  <li><a class="dropdown-item" href="">Chicken, Meat & Fish</a></li>
                 </ul>
               </div>
             </div>
@@ -287,16 +287,12 @@
                   <rect x="14" y="3" width="7" height="7"></rect>
                   <rect x="14" y="14" width="7" height="7"></rect>
                   <rect x="3" y="14" width="7" height="7"></rect>
-                </svg></span> All Departments
+                </svg></span> Categories
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Dairy, Bread & Eggs</a></li>
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Snacks & Munchies</a></li>
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Fruits & Vegetables</a></li>
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Cold Drinks & Juices</a></li>
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Breakfast & Instant Food</a></li>
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Bakery & Biscuits</a></li>
-              <li><a class="dropdown-item" href="{{route('Dairy')}}">Chicken, Meat & Fish</a></li>
+              @foreach($category as $item)
+              <li><a class="dropdown-item" href="">{{$item->name}}</a></li>
+              @endforeach
             </ul>
           </div>
           <div class="">

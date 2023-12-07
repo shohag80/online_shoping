@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/product/cancel_order/{id}', [FrontendControllersOrderController::class, 'cancel_product'])->name('Cancel_Product');
     Route::get('/cart/checkout', [FrontendControllersOrderController::class, 'checkout'])->name('Checkout');
     Route::post('/cart/continue_order', [AccountController::class, 'continue_order'])->name('Continue_Order');
+    Route::get('/order', [AccountController::class, 'order'])->name('Order');
     Route::get('/account/order/details/{order_id}', [FrontendControllersOrderController::class, 'order_details'])->name('Order_Details');
     Route::get('/order/cancel/{order_id}', [OrderController::class, 'order_cancel'])->name('Order_Cancel');
 });
@@ -68,16 +69,12 @@ Route::group(['prefix' => 'account'], function () {
     Route::get('/cart/remove', [FrontendControllersOrderController::class, 'cart_remove'])->name('Cart_remove');
     Route::get('/cart/single_product_remove/{id}', [FrontendControllersOrderController::class, 'single_cart_remove'])->name('Remove_Cart_Single_Product');
     Route::get('/cart/quantity_decrease/{id}', [FrontendControllersOrderController::class, 'quantity_decrease'])->name('Cart_Item_Quantity_Decrease');
-    
-    Route::get('/order', [AccountController::class, 'order'])->name('Order');
+
     Route::get('/settings', [AccountController::class, 'settings'])->name('Settings');
     Route::get('/address', [AccountController::class, 'address'])->name('Address');
     Route::get('/payment', [AccountController::class, 'payment'])->name('Payment');
     Route::get('/notification', [AccountController::class, 'notification'])->name('Notification');
 });
-
-Route::get('/department', [DepartmentController::class, 'dairy'])->name('Dairy');
-
 
 
 
@@ -109,6 +106,8 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/category/form', [BackendControllersCategoriesController::class, 'from'])->name('add_category');
         Route::get('/category/list', [BackendControllersCategoriesController::class, 'list'])->name('category_list');
+        Route::get('/category/update/{id}', [BackendControllersCategoriesController::class, 'update'])->name('category_update');
+        Route::post('/category/update/store/{id}', [BackendControllersCategoriesController::class, 'update_store'])->name('category_update_store');
         Route::get('/category/delete/{id}', [BackendControllersCategoriesController::class, 'delete'])->name('category_delete');
         Route::post('/category/store', [BackendControllersCategoriesController::class, 'store'])->name('category_Store');
 
