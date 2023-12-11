@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('phone');
-            $table->double('total_price');
+            $table->double('amount');
             $table->string('payment_method');
+            $table->string('transaction_id');
+            $table->string('currency');
             $table->string('status');
             $table->timestamps();
         });

@@ -57,11 +57,10 @@
                       </g>
                       <defs>
                         <clipPath id="clip0_5543_19751">
-                          <rect width="16" height="12" fill="white" transform="translate(0 0.5)" />
+                          <rect width="16" height="12" fill="white" transform="translate(0 0.5)"/>
                         </clipPath>
                       </defs>
                     </svg>
-
                   </span>Bangla</a>
               </li>
 
@@ -91,7 +90,7 @@
           </a>
           <div class="d-flex justify-content-between w-100 d-lg-none">
             <a class="navbar-brand" href="">
-              <img src="https://freshcart.codescandy.com/assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template">
+              <img src="" alt="eCommerce HTML Template">
 
             </a>
 
@@ -268,13 +267,9 @@
             <div class="collapse mt-2" id="collapseExample">
               <div class="card card-body">
                 <ul class="mb-0 list-unstyled">
-                  <li><a class="dropdown-item" href="">Dairy, Bread & Eggs</a></li>
-                  <li><a class="dropdown-item" href="">Snacks & Munchies</a></li>
-                  <li><a class="dropdown-item" href="">Fruits & Vegetables</a></li>
-                  <li><a class="dropdown-item" href="">Cold Drinks & Juices</a></li>
-                  <li><a class="dropdown-item" href="">Breakfast & Instant Food</a></li>
-                  <li><a class="dropdown-item" href="">Bakery & Biscuits</a></li>
-                  <li><a class="dropdown-item" href="">Chicken, Meat & Fish</a></li>
+                  @foreach($category as $item)
+                  <li><a class="dropdown-item" href="">{{$item->name}}</a></li>
+                  @endforeach
                 </ul>
               </div>
             </div>

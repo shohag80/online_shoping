@@ -32,7 +32,7 @@
                         @if($item->status=='confirm')<span class="badge bg-success">{{$item->status}}</span>@endif
                         @if($item->status=='cancel')<span class="badge bg-danger">{{$item->status}}</span>@endif
                     </td>
-                    <td class="align-middle border-top-0">{{$item->total_price}}</td>
+                    <td class="align-middle border-top-0">{{$item->amount}}</td>
                     <td class="align-middle border-top-0">
                         <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
                         @if($item->status=='pending')<a href="{{route('Order_Cancel',$item->id)}}" class="btn btn-sm badge btn-danger">Cancel</a>@endif

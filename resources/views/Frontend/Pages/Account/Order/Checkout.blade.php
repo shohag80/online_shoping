@@ -2,6 +2,12 @@
 
 @section('content')
 
+<style>
+    .display-none {
+        display: none;
+    }
+</style>
+
 <div class="row p-6">
     <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -35,30 +41,30 @@
     </div>
     <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Billing address</h4>
-        <form action="{{route('Continue_Order')}}" method="post">
+        <form action="{{route('Continue_Order')}}" method="post" class="was-validated">
             @csrf
             <div class="row">
                 <div class="mb-3">
                     <label for="fullName">Full name</label>
-                    <input type="text" name="name" class="form-control" id="fullName" value="{{auth()->user()->name}}" required>
+                    <input type="text" name="name" class="form-control is-valid" id="fullName" value="{{auth()->user()->name}}" required>
                     <div class="invalid-feedback">
                         Valid first name is required.
                     </div>
                 </div>
             </div>
 
-            
+
             <div class="mb-3">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" value="{{auth()->user()->email}}" id="email" placeholder="you@example.com">
+                <input type="email" name="email" class="form-control is-valid" value="{{auth()->user()->email}}" id="email" placeholder="you@example.com" required>
                 <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                 </div>
             </div>
-            
+
             <div class="mb-3">
                 <label for="phone">Phone</label>
-                <input type="number" name="phone" class="form-control" id="phone" placeholder="phone">
+                <input type="number" name="phone" class="form-control is-valid" id="phone" placeholder="phone" required>
                 <div class="invalid-feedback">
                     Please enter a valid phone for shipping updates.
                 </div>
@@ -66,7 +72,7 @@
 
             <div class="mb-3">
                 <label for="address">Address</label>
-                <input type="text" name="address" class="form-control" id="address" placeholder="House/Road/Sector/Dist." required>
+                <input type="text" name="address" class="form-control is-valid" id="address" placeholder="House/Road/Sector/Dist." required>
                 <div class="invalid-feedback">
                     Please enter your shipping address.
                 </div>
@@ -75,7 +81,7 @@
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="country">Country</label>
-                    <select class="custom-select d-block w-100 form-control" name="country" id="country" required>
+                    <select class="custom-select d-block w-100 form-control" class="form-control is-valid" name="country" id="country" required>
                         <option>Choose...</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
@@ -328,7 +334,7 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="state">State</label>
-                    <input type="text" name="state" class="form-control" id="address" placeholder="State" required>
+                    <input type="text" name="state" class="form-control is-valid" id="address" placeholder="State" required>
                     <div class="invalid-feedback">
                         Please provide a valid state.
                     </div>
@@ -348,14 +354,38 @@
 
             <div class="d-block my-3">
                 <div class="custom-control custom-radio">
-                    <input id="COD" name="payment_method" type="radio" class="custom-control-input" checked>
+                    <input id="COD" name="payment_method" type="radio" class="custom-control-input">
                     <label class="custom-control-label" for="COD">Cash on delivery</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="epay" name="payment_method" type="radio" class="custom-control-input">
+                    <label class="custom-control-label" for="epay">Online Payment</label>
                 </div>
             </div>
 
             <hr class="mb-4">
-            <button class="col-12 btn btn-primary btn-lg btn-block" type="submit">Continue to Order</button>
+            <div class="row col-12">
+                <button class="col-12 btn btn-primary btn-lg display-none" id="offline" type="submit">Continue to Order</button>
+                <button class="col-12 btn btn-primary btn-lg display-none ml-3" id="sslczPayBtn" token="if you have any token validation" postdata="" order="If you already have the transaction generated for current order" endpoint="/pay-via-ajax">Pay Now</button>
+            </div>
         </form>
     </div>
 </div>
+<script>
+    var offline_payment = document.getElementById('COD');
+    var online_payment = document.getElementById('epay');
+    var offline_btn = document.getElementById('offline');
+    var epay_btn = document.getElementById('sslczPayBtn');
+    // alert(offline_payment);
+    offline_payment.onclick = function() {
+        // alert('Hello COD');
+        offline_btn.style.display = 'block';
+        epay_btn.style.display = 'none';
+    };
+    online_payment.onclick = function() {
+        // alert('Hello COD');
+        offline_btn.style.display = 'none';
+        epay_btn.style.display = 'block';
+    }
+</script>
 @endsection

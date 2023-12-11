@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\FrontendControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Order_Details;
 use App\Models\Product;
@@ -14,7 +15,8 @@ class OrderController extends Controller
     public function cart()
     {
         // dd('Hello Cart');
-        return view('Frontend.Pages.Account.Cart');
+        $category=Category::all();
+        return view('Frontend.Pages.Account.Cart',compact('category'));
     }
 
     public function add_to_cart($product_id)
@@ -90,15 +92,17 @@ class OrderController extends Controller
 
     public function checkout(){
         // dd('Hello Checkout');
-        return view('Frontend.Pages.Account.Order.Checkout');
+        $category=Category::all();
+        return view('Frontend.Pages.Account.Order.Checkout',compact('category'));
     }
 
     public function order_details($order_id){
         // dd('Hello Order Details');
         $order=Order::find($order_id);
         $order_details=Order_Details::with('product')->where('order_id',$order_id)->get();
+        $category=Category::all();
         //dd($order_details);
-        return view('Frontend.Pages.Account.Order.Order_Details',compact('order','order_details'));
+        return view('Frontend.Pages.Account.Order.Order_Details',compact('order','order_details','category'));
     }
 
     public function cancel_product($product_id)

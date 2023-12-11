@@ -30,5 +30,8 @@ class HomeController extends Controller
         return view('Frontend.Pages.Home.home',compact('products','category'));
     }
 
+    public function text(){
+        return  view('text');
+    }
     
 }

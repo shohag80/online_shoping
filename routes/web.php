@@ -15,11 +15,11 @@ use App\Http\Controllers\BackendControllers\ProductsController as BackendControl
 use App\Http\Controllers\BackendControllers\SuppliersController;
 use App\Http\Controllers\FrontendControllers\AccountController;
 use App\Http\Controllers\FrontendControllers\CategoriesController;
-use App\Http\Controllers\FrontendControllers\DepartmentController;
 use App\Http\Controllers\FrontendControllers\HomeController;
 use App\Http\Controllers\FrontendControllers\OrderController as FrontendControllersOrderController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
 use App\Http\Controllers\FrontendControllers\UserController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,8 +43,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/cart/checkout', [FrontendControllersOrderController::class, 'checkout'])->name('Checkout');
     Route::post('/cart/continue_order', [AccountController::class, 'continue_order'])->name('Continue_Order');
     Route::get('/order', [AccountController::class, 'order'])->name('Order');
+    // SSLCOMMERZ Start
+    Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+    Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+    Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+    // Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+    Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+    Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+    Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+    Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+    //SSLCOMMERZ END
     Route::get('/account/order/details/{order_id}', [FrontendControllersOrderController::class, 'order_details'])->name('Order_Details');
-    Route::get('/order/cancel/{order_id}', [OrderController::class, 'order_cancel'])->name('Order_Cancel');
 });
 
 Route::get('/signup', [UserController::class, 'signup'])->name('SignUp');
@@ -121,16 +133,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/list/{id}', [BackendControllersProductsController::class, 'delete'])->name('product_delete');
         Route::get('/product/reviews', [BackendControllersProductsController::class, 'product_reviews'])->name('product_reviews');
 
-
-
-
-
-
         Route::get('/order/recent', [OrderController::class, 'recent_order'])->name('Recent');
         Route::get('/order/last_month', [OrderController::class, 'last_month'])->name('Last_Month');
         Route::get('/order/all_orders', [OrderController::class, 'all_orders'])->name('All_Orders');
         Route::get('/order/confirm/{order_id}', [OrderController::class, 'order_comfirm'])->name('Order_Comfirm');
         Route::get('/order/details/{order_id}', [OrderController::class, 'order_details'])->name('Admin_Order_Details');
+        Route::get('/order/cancel/{order_id}', [OrderController::class, 'order_cancel'])->name('Order_Cancel');
+
+
+
+
+
 
         Route::get('/delivery/panding', [DeliveryController::class, 'panding'])->name('Delivery_Panding');
         Route::get('/delivery/processing', [DeliveryController::class, 'processing'])->name('Delivery_Processing');

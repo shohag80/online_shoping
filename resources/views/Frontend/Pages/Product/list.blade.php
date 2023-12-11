@@ -186,7 +186,7 @@
                            <a class="btn btn-light" href="#!" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Wishlist"><i class="feather-icon icon-heart"></i></a>
                         </div>
                      </div>
-                     <hr class="my-6" />
+                     <hr class="my-6"/>
                      <div>
                         <table class="table table-borderless">
                            <tbody>
