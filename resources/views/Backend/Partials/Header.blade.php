@@ -23,19 +23,24 @@
                     <h3 class="text-warning"><b>Online <span class="text-success">Shop</span></b></h3>
                 </a>
             </div>
-            <div class="col-md-6 ">
+            <div class="col-md-6">
                 <form class="form-inline">
                     <input class="form-control ml-3 col-10 mr-sm-1" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
             </div>
             <div class="col-md-3">
-                <div class="list-inline-item">
-                    <a href="#!" style="text-decoration: none;" class="text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg> {{auth()->guard('admin')->user()->name}}
+                <div class="rowlist-inline-item">
+                    <a href="#!" style="text-decoration: none;" class="row text-muted" data-bs-toggle="modal" data-bs-target="#userModal">
+                        <div class="col-md-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="col-md-10">
+                            {{auth()->guard('admin')->user()->name}}
+                        </div>
                     </a>
                 </div>
             </div>
@@ -51,7 +56,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="row">
                         <div class="text-center rounded-5">
-                            <img style="border-radius: 50%;" height="150" width="150" src="{{ url('uploads/'.auth()->guard('admin')->user()->photo) }}" alt="">
+                            <img style="border-radius: 10%; margin-left: 110px" height="150" width="150" src="{{ url('uploads/'.auth()->guard('admin')->user()->photo) }}" alt="">
                             <div class="mt-2">
                                 <input type="button" class="btn btn-sm btn-primary" value="Change" terget="profilePicture" />
                                 <input type="file" style="display: none;" id="profilePicture" name="file" />

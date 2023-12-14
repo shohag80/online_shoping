@@ -19,6 +19,13 @@ class OrderController extends Controller
         return view('Frontend.Pages.Account.Cart',compact('category'));
     }
 
+    public function product_buy($product_id){
+        // dd($product_id);
+        $product_details=Product::find($product_id);
+        // dd($product_details);
+        return view('Frontend.Pages.Account.Order.Checkout',compact('product_details'));
+    }
+
     public function add_to_cart($product_id)
     {
         $product = Product::find($product_id);

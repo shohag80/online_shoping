@@ -4,7 +4,10 @@
 @section('content')
 <div class="p-md-1 p-lg-4">
     <!-- heading -->
-    <h2 class="mb-6">Your Orders</h2>
+    <div class="d-flex justify-content-between m-4">
+        <h2 class="">Your Orders</h2>
+        <a href="{{route('All_Products')}}" class="btn btn-primary">Continue Shopping <i class="bi bi-cart"></i></a>
+    </div>
 
     <div class="table-responsive-xxl border-0">
         <!-- Table -->
@@ -30,12 +33,17 @@
                     <td class="align-middle border-top-0">
                         @if($item->status=='pending')<span class="badge bg-danger">{{$item->status}}</span>@endif
                         @if($item->status=='confirm')<span class="badge bg-success">{{$item->status}}</span>@endif
-                        @if($item->status=='cancel')<span class="badge bg-danger">{{$item->status}}</span>@endif
+                        @if($item->status=='cancel')<span class="badge bg-secondary">{{$item->status}}</span>@endif
                     </td>
-                    <td class="align-middle border-top-0">{{$item->amount}}</td>
+                    <td class="align-middle border-top-0">৳ {{$item->amount}}/-</td>
                     <td class="align-middle border-top-0">
+                        @if($item->status=='pending')
                         <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
-                        @if($item->status=='pending')<a href="{{route('Order_Cancel',$item->id)}}" class="btn btn-sm badge btn-danger">Cancel</a>@endif
+                        <a href="{{route('Order_Cancel',$item->id)}}" class="btn btn-sm badge btn-danger">Cancel</a>
+                        @elseif($item->status=='confirm')
+                        <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
+                        @endif
+
                     </td>
                 </tr>
                 @endforeach

@@ -10,11 +10,11 @@
         </div>
         <div class="text-end col-md-6 col-sm-8">
             <a href="" class="btn btn-outline-success">Order Filter</a> |
-            <a href="" class="btn btn-outline-info">Export</a>
+            <a href="{{route('Admins_Mails')}}" class="btn btn-outline-info">Send Mail</a>
         </div>
         <div class="col-md-3">
-            <form class="form-inline">
-                <input class="form-control col-8 mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+            <form action="{{route('Order_Search')}}" method="get" class="form-inline">
+                <input type="text" name="search" class="form-control col-8 mr-sm-1" placeholder="Search" aria-label="Search">
                 <button class="btn btn-info" type="submit">Search</button>
             </form>
         </div>
@@ -39,7 +39,7 @@
                 @foreach($orders as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
-                    <td>{{$item->user_id}}</td>
+                    <td>{{$item->user->name}}</td>
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->total_price}}</td>
                     <td>
@@ -50,7 +50,7 @@
                     <td><a href="" class="text-dark btn-sm rounded-5">{{$item->payment_method}}</a></td>
                     <td>
                         <a href="{{route('Admin_Order_Details',$item->id)}}" class="btn badge btn-success btn-sm">View</a>
-                        <a href="" class="btn badge btn-danger btn-sm">Delete</a>
+                        <a href="{{route('Delete_Order',$item->id)}}" class="btn badge btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 @endforeach

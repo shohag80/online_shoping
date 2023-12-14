@@ -30,8 +30,45 @@ class AccountController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'phone' => $request->phone,
-            'amount' => array_sum(array_column(session()->get('virtual_cart'), 'subtotal')),
-            'payment_method' => 'COD',
+            'amount' => $request->amount,
+            'payment_method' => $request->payment_method,
+            'transaction_id' => 'empty',
+            'currency' => 'BDT',
+            'status' => 'pending',
+        ]);
+        if (session()->get('virtual_cart')) {
+            $quantity = array_sum(array_column(session()->get('virtual_cart'), 'quantity'));
+            // $total_price = array_sum(array_column(session()->get('virtual_cart'), 'subtotal')) - 10;
+
+
+            foreach ($cart as $item) {
+                Order_Details::create([
+                    'order_id' => $order->id,
+                    'product_id' => $item['id'],
+                    'quantity' => $item['quantity'],
+                    'total_quantity' => $quantity,
+                    'subtotal' => $item['subtotal'],
+                    'total_price' => $request->amount,
+                ]);
+            }
+            session()->forget('virtual_cart');
+        }
+        return redirect()->route('Order');
+    }
+
+    public function order_with_pay(Request $request)
+    {
+        // dd($request);
+        $cart = session()->get('virtual_cart');
+
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'amount' => array_sum(array_column(session()->get('virtual_cart'), 'subtotal')) - 10,
+            'payment_method' => 'ePay',
             'transaction_id' => 'empty',
             'currency' => 'BDT',
             'status' => 'pending',
@@ -58,7 +95,7 @@ class AccountController extends Controller
 
     public function online_pay($order)  // This method is call by previous method.
     {
-        //dd($order);
+        // dd($order);
         $post_data = array();
         $post_data['total_amount'] = $order->amount; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
@@ -107,9 +144,6 @@ class AccountController extends Controller
             print_r($payment_options);
             $payment_options = array();
         }
-
-
-
     }
 
     public function settings()

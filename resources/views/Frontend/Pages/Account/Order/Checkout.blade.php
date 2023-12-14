@@ -26,6 +26,13 @@
             </li>
             @endforeach
             @endif
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">{{$product_details->name}}</h6>
+                    <small class="text-muted">{{$product_details->brand_id}} pcs</small>
+                </div>
+                <span class="text-muted">৳ {{$product_details->price}}</span>
+            </li>
             <li class="list-group-item d-flex justify-content-between bg-light">
                 <div class="text-success">
                     <h6 class="my-0">Discount</h6>
@@ -35,7 +42,11 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
                 <span><b><i>Total (৳)</i></b></span>
-                <strong><b><i>৳ {{$subtotal=array_sum(array_column(session()->get('virtual_cart'),'subtotal'))-$discount}}</i></b></strong>
+                @if(session()->get('virtual_cart'))
+                <strong><b><i>৳ {{array_sum(array_column(session()->get('virtual_cart'),'subtotal'))-$discount}}</i></b></strong>
+                @else
+                <strong><b><i>৳ {{$subtotal=$product_details->price-$discount}}</i></b></strong>
+                @endif
             </li>
         </ul>
     </div>
@@ -335,13 +346,14 @@
                 <div class="col-md-4 mb-3">
                     <label for="state">State</label>
                     <input type="text" name="state" class="form-control is-valid" id="address" placeholder="State" required>
+                    <input type="hidden" name="amount" value="{{$subtotal}}">
                     <div class="invalid-feedback">
                         Please provide a valid state.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="zip">Zip</label>
-                    <input type="number" class="form-control" id="zip" placeholder="code" required>
+                    <input type="number" name="zip" class="form-control" id="zip" placeholder="code" required>
                     <div class="invalid-feedback">
                         Zip code required.
                     </div>
@@ -354,11 +366,11 @@
 
             <div class="d-block my-3">
                 <div class="custom-control custom-radio">
-                    <input id="COD" name="payment_method" type="radio" class="custom-control-input">
+                    <input id="COD" name="payment_method" type="radio" value="COD" class="custom-control-input">
                     <label class="custom-control-label" for="COD">Cash on delivery</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input id="epay" name="payment_method" type="radio" class="custom-control-input">
+                    <input id="epay" name="payment_method" type="radio" value="ePay" class="custom-control-input">
                     <label class="custom-control-label" for="epay">Online Payment</label>
                 </div>
             </div>
@@ -366,7 +378,7 @@
             <hr class="mb-4">
             <div class="row col-12">
                 <button class="col-12 btn btn-primary btn-lg display-none" id="offline" type="submit">Continue to Order</button>
-                <button class="col-12 btn btn-primary btn-lg display-none ml-3" id="sslczPayBtn" token="if you have any token validation" postdata="" order="If you already have the transaction generated for current order" endpoint="/pay-via-ajax">Pay Now</button>
+                <a href="{{route('order_with_pay')}}" class="col-12 btn btn-primary btn-lg display-none" id="online_pay" type="submit">Pay Now</a>
             </div>
         </form>
     </div>
@@ -375,7 +387,7 @@
     var offline_payment = document.getElementById('COD');
     var online_payment = document.getElementById('epay');
     var offline_btn = document.getElementById('offline');
-    var epay_btn = document.getElementById('sslczPayBtn');
+    var epay_btn = document.getElementById('online_pay');
     // alert(offline_payment);
     offline_payment.onclick = function() {
         // alert('Hello COD');

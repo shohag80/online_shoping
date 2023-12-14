@@ -8,7 +8,7 @@
 <section>
    <div class="container col-md-12">
       <div class="row">
-         <h3 class="col-md-12 m-3">Popular Products</h3>
+         <h3 class="col-md-12">Popular Products</h3>
 
 
          @foreach($products as $item)
@@ -47,19 +47,17 @@
                         <!-- <span class="text-decoration-line-through text-muted">$24</span> -->
                      </div>
                   </div>
-                  <div class="d-flex justify-content-between align-items-center mt-3">
-                     <div><a href="{{route('Product_Buy',$item->id)}}" class="btn btn-primary btn-sm">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                              <line x1="12" y1="5" x2="12" y2="19"></line>
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                           </svg>
-                           Buy Now</a>
-                        <a href="{{route('Add_to_Cart',$item->id)}}" class="btn btn-primary btn-sm">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                              <line x1="12" y1="5" x2="12" y2="19"></line>
-                              <line x1="5" y1="12" x2="19" y2="12"></line>
-                           </svg> Add to cart</a>
-                     </div>
+                  <div class="d-flex justify-content-center align-items-center mt-3">
+                     <a href="{{route('Product_Buy',$item->id)}}" class="btn btn-primary btn-sm m-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                           <line x1="12" y1="5" x2="12" y2="19"></line>
+                           <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>Buy Now</a>
+                     <a href="{{route('Add_to_Cart',$item->id)}}" class="btn btn-primary btn-sm m-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                           <line x1="12" y1="5" x2="12" y2="19"></line>
+                           <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>Add to cart</a>
                   </div>
                </div>
             </div>
@@ -186,7 +184,7 @@
                            <a class="btn btn-light" href="#!" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Wishlist"><i class="feather-icon icon-heart"></i></a>
                         </div>
                      </div>
-                     <hr class="my-6"/>
+                     <hr class="my-6" />
                      <div>
                         <table class="table table-borderless">
                            <tbody>

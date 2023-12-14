@@ -13,13 +13,32 @@ class OrderController extends Controller
         return view('Backend.Pages.Orders.Recent');
     }
 
+    public function search(Request $request){
+        if($request->search){
+            $orders=Order::where('name','LIKE','%'.$request->search.'%')->get();
+        }else{
+            $orders=Order::all();
+        }
+        return view('Backend.Pages.Orders.All_Order',compact('orders'));
+    }
+
     public function last_month(){
         return view('Backend.Pages.Orders.Last_Month');
     }
 
     public function all_orders(){
-        $orders=Order::all();
+        $orders=Order::with('user')->get();
         return view('Backend.Pages.Orders.All_Order',compact('orders'));
+    }
+
+    public function order_delete($order_id){
+        // dd($order_id);
+        $order=Order::find($order_id);
+        if($order){
+            $order->delete();
+        }
+        notify()->success('Order Delete Successfully!');
+        return redirect()->back();
     }
 
     public function order_comfirm($order_id){

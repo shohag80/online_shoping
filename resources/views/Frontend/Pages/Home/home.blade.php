@@ -19,5 +19,10 @@
 
 @endsection
 
+@section('best_sale')
+
+@include('Frontend.Partials.Best_Sales')
+
+@endsection
 
 

@@ -173,7 +173,7 @@
                                     {{$order->total_quantity}}
                                     </div>
                                     <div class="col-2 text-center text-light">
-                                        {{$order->total_price}}/-
+                                    ৳ {{$order->amount}}/-
                                     </div>
                                 </div>
                             </div>

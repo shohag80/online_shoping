@@ -49,7 +49,7 @@
                     <td>{{$item->phone}}</td>
                     <td>{{$item->email}}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">Active</a>
+                        <a href="{{route('Admins_Status')}}" class="btn btn-primary btn-sm">Active</a>
                     </td>
                     <td>
                         <a href="" class="btn btn-success btn-sm">View</a>

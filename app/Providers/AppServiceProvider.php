@@ -10,6 +10,7 @@ use App\Models\Order_Details;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,14 +30,28 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::usebootstrap();
-        View::share([
-            'user',User::all(),
-            'product',Product::all(),
-            'category',Category::all(),
-            'brand',Brand::all(),
-            'admin',Admin::all(),
-            'order',Order::all(),
-            'order_details',Order_Details::all(),
-        ]);
+
+        if(!app()->runningInConsole()){
+            if(Schema::hasTable('users')){
+                $user=User::all();
+                view::share('user',$user);
+            }
+            if(Schema::hasTable('products')){
+                $products=Product::all();
+                view::share('product',$products);
+            }
+            if(Schema::hasTable('categories')){
+                $categories=Category::all();
+                view::share('category',$categories);
+            }
+            if(Schema::hasTable('orders')){
+                $orders=Order::all();
+                view::share('order',$orders);
+            }
+            if(Schema::hasTable('order__details')){
+                $order_details_all=Order_Details::all();
+                view::share('order_details',$order_details_all);
+            }
+        }
     }
 }

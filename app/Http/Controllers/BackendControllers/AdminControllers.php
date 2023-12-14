@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\BackendControllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Online_Shoping;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AdminControllers extends Controller
@@ -70,6 +72,7 @@ class AdminControllers extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
+
         if ($valitator->fails()) {
             notify()->error('Please, Input your valid data.');
             return redirect()->back()->withErrors($valitator)->withInput();
@@ -90,7 +93,9 @@ class AdminControllers extends Controller
             'password' => bcrypt($request->password),
             'photo' => $file_name,
         ]);
-
+        
+        Mail::to($request->email)->send(new Online_Shoping);
+        notify()->success('Registration successfully Completed!');
         return redirect()->route('Admins');
     }
 }

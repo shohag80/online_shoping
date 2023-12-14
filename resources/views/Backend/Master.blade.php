@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    @notifyCss
+    <style>
+        .notify {
+            z-index: 1000000;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Online Shop</title>
@@ -12,7 +18,7 @@
 </head>
 
 <body>
-
+    <x-notify::notify />
     @include('Backend.Partials.Header')
 
 
@@ -31,7 +37,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    @notifyJs
 </body>
 
 </html>

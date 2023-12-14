@@ -6,7 +6,7 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
    <meta content="Codescandy" name="author" />
-   <title>Sign in eCommerce HTML Template - FreshCart</title>
+   <title>Sign in eCommerce HTML Template - Online Shoping</title>
    <!-- Favicon icon-->
    <link rel="shortcut icon" type="image/x-icon" href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico" />
 
@@ -38,7 +38,7 @@
             <a class="navbar-brand pt-3" href="{{route('User_Home')}}">
                <h3><b><i>
                         <span class="text-warning">Online</span>
-                        <span class="text-success">Shop</span>
+                        <span class="text-success">Shoping</span>
                      </i></b></h3>
             </a>
             <span class="navbar-text">
@@ -62,8 +62,8 @@
                <!-- col -->
                <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
                   <div class="mb-lg-9 mb-5">
-                     <h1 class="mb-1 h2 fw-bold">Sign in to FreshCart</h1>
-                     <p>Welcome back to FreshCart! Enter your email to get started.</p>
+                     <h1 class="mb-1 h2 fw-bold">Sign in to Online Shoping</h1>
+                     <p>Welcome back to Online Shoping! Enter your email to get started.</p>
                   </div>
 
                   <form action="{{route('Do_SignIn')}}" method="post">
@@ -145,7 +145,7 @@
                </div>
                <div class="col-lg-7 mt-4 mt-md-0">
                   <ul class="list-inline mb-0 text-lg-end text-center">
-                     <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with FreshCart</li>
+                     <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with Online Shoping</li>
                      <li class="list-inline-item ms-4">
                         <a href="#!"><img src="https://freshcart.codescandy.com/assets/images/appbutton/appstore-btn.svg" alt="" style="width: 140px" /></a>
                      </li>
@@ -167,7 +167,7 @@
                            document.getElementById("copyright").appendChild(document.createTextNode(new Date().getFullYear()));
                         </script>
                      </span>
-                     FreshCart eCommerce HTML Template. All rights reserved. Powered by
+                     Online Shoping eCommerce HTML Template. All rights reserved. Powered by
                      <a href="https://codescandy.com/">Codescandy</a>
                      .
                   </span>

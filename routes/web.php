@@ -8,6 +8,7 @@ use App\Http\Controllers\BackendControllers\ContactController;
 use App\Http\Controllers\BackendControllers\CustomerController;
 use App\Http\Controllers\BackendControllers\DeliveryController;
 use App\Http\Controllers\BackendControllers\LoginController as BackendControllersLoginController;
+use App\Http\Controllers\BackendControllers\MailController;
 use App\Http\Controllers\BackendControllers\MasterHomeControllers;
 use App\Http\Controllers\BackendControllers\MasterProController;
 use App\Http\Controllers\BackendControllers\OrderController;
@@ -42,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/product/cancel_order/{id}', [FrontendControllersOrderController::class, 'cancel_product'])->name('Cancel_Product');
     Route::get('/cart/checkout', [FrontendControllersOrderController::class, 'checkout'])->name('Checkout');
     Route::post('/cart/continue_order', [AccountController::class, 'continue_order'])->name('Continue_Order');
+    Route::post('/cart/continue_order_pay', [AccountController::class, 'order_with_pay'])->name('order_with_pay');
     Route::get('/order', [AccountController::class, 'order'])->name('Order');
     // SSLCOMMERZ Start
     Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -105,12 +107,17 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/', [MasterHomeControllers::class, 'main'])->name('Home');
 
-        Route::get('/profile/admins', [AdminControllers::class, 'admin'])->name('Admins');
-        Route::get('/profile/admin/delete/{id}', [AdminControllers::class, 'delete'])->name('Admin_Delete');
-        Route::get('/profile/admin/update/{id}', [AdminControllers::class, 'update'])->name('Admin_Update');
-        Route::put('/profile/admin/update/store/{id}', [AdminControllers::class, 'update_store'])->name('Admin_Update_Store');
-        Route::get('/profile/admin/form', [AdminControllers::class, 'form'])->name('Admin_Form');
-        Route::post('/profile/admin/store', [AdminControllers::class, 'store'])->name('Admin_store');
+        Route::group(['prefix' => 'profile'], function () {
+            Route::get('/admins', [AdminControllers::class, 'admin'])->name('Admins');
+            Route::get('/admins/status', [AdminControllers::class, 'admin_status'])->name('Admins_Status');
+            Route::get('/admin/delete/{id}', [AdminControllers::class, 'delete'])->name('Admin_Delete');
+            Route::get('/admin/update/{id}', [AdminControllers::class, 'update'])->name('Admin_Update');
+            Route::put('/admin/update/store/{id}', [AdminControllers::class, 'update_store'])->name('Admin_Update_Store');
+            Route::get('/admin/form', [AdminControllers::class, 'form'])->name('Admin_Form');
+            Route::post('/admin/store', [AdminControllers::class, 'store'])->name('Admin_store');
+        });
+
+        Route::get('/mail-send',[MailController::class,'mail'])->name('Admins_Mails');
 
         Route::get('/profile/suppliers', [SuppliersController::class, 'master_supplier'])->name('Supplier');
         Route::get('/profile/customers', [CustomerController::class, 'list'])->name('Customers');
@@ -133,15 +140,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/list/{id}', [BackendControllersProductsController::class, 'delete'])->name('product_delete');
         Route::get('/product/reviews', [BackendControllersProductsController::class, 'product_reviews'])->name('product_reviews');
 
+        Route::get('/order/search', [OrderController::class, 'search'])->name('Order_Search');
         Route::get('/order/recent', [OrderController::class, 'recent_order'])->name('Recent');
         Route::get('/order/last_month', [OrderController::class, 'last_month'])->name('Last_Month');
         Route::get('/order/all_orders', [OrderController::class, 'all_orders'])->name('All_Orders');
         Route::get('/order/confirm/{order_id}', [OrderController::class, 'order_comfirm'])->name('Order_Comfirm');
         Route::get('/order/details/{order_id}', [OrderController::class, 'order_details'])->name('Admin_Order_Details');
         Route::get('/order/cancel/{order_id}', [OrderController::class, 'order_cancel'])->name('Order_Cancel');
-
-
-
+        Route::get('/order/delete/{order_id}', [OrderController::class, 'order_delete'])->name('Delete_Order');
 
 
 
