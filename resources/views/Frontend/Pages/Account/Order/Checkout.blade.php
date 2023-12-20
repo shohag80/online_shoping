@@ -8,7 +8,9 @@
     }
 </style>
 
+
 <div class="row p-6">
+
     <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span>Your cart</span>
@@ -26,6 +28,7 @@
             </li>
             @endforeach
             @endif
+            @if(!$cart=session()->get('virtual_cart'))
             <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
                     <h6 class="my-0">{{$product_details->name}}</h6>
@@ -33,23 +36,36 @@
                 </div>
                 <span class="text-muted">৳ {{$product_details->price}}</span>
             </li>
+            @endif
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div class="text-success">
+                    <h6 class="my-0">Service Fee</h6>
+                    <small>In Dhaka</small>
+                </div>
+                <span class="text-success">৳ {{$service_fee='70'}}</span>
+            </li>
             <li class="list-group-item d-flex justify-content-between bg-light">
                 <div class="text-success">
                     <h6 class="my-0">Discount</h6>
-                    <small>EXAMPLECODE</small>
+                    <small>All product</small>
                 </div>
                 <span class="text-success">- ৳ {{$discount='10'}}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
+            <li class="list-group-item d-flex justify-content-between bg-primary text-light">
                 <span><b><i>Total (৳)</i></b></span>
                 @if(session()->get('virtual_cart'))
-                <strong><b><i>৳ {{array_sum(array_column(session()->get('virtual_cart'),'subtotal'))-$discount}}</i></b></strong>
+                <strong><b><i>৳ {{$amount=array_sum(array_column(session()->get('virtual_cart'),'subtotal'))+$service_fee-$discount}} /-</i></b></strong>
                 @else
-                <strong><b><i>৳ {{$subtotal=$product_details->price-$discount}}</i></b></strong>
+                <strong><b><i>৳ {{$amount=$product_details->price+$service_fee-$discount}}</i></b></strong>
                 @endif
             </li>
         </ul>
     </div>
+
+
+
+
+
     <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Billing address</h4>
         <form action="{{route('Continue_Order')}}" method="post" class="was-validated">
@@ -63,7 +79,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="mb-3">
                 <label for="email">Email</label>
@@ -346,7 +361,6 @@
                 <div class="col-md-4 mb-3">
                     <label for="state">State</label>
                     <input type="text" name="state" class="form-control is-valid" id="address" placeholder="State" required>
-                    <input type="hidden" name="amount" value="{{$subtotal}}">
                     <div class="invalid-feedback">
                         Please provide a valid state.
                     </div>
@@ -354,6 +368,10 @@
                 <div class="col-md-3 mb-3">
                     <label for="zip">Zip</label>
                     <input type="number" name="zip" class="form-control" id="zip" placeholder="code" required>
+                    <input type="hidden" name="amount" value="{{$amount}}">
+                    @if(!session()->get('virtual_cart'))
+                    <input type="hidden" name="product_id" value="{{$product_details->id}}">
+                    @endif
                     <div class="invalid-feedback">
                         Zip code required.
                     </div>
@@ -377,8 +395,8 @@
 
             <hr class="mb-4">
             <div class="row col-12">
-                <button class="col-12 btn btn-primary btn-lg display-none" id="offline" type="submit">Continue to Order</button>
-                <a href="{{route('order_with_pay')}}" class="col-12 btn btn-primary btn-lg display-none" id="online_pay" type="submit">Pay Now</a>
+                <button class="col-12 btn btn-primary btn-lg display-none" id="offline" type="submit">Continue to order</button>
+                <button class="col-12 btn btn-primary btn-lg display-none" id="online_pay" type="submit">Order with pay</button>
             </div>
         </form>
     </div>

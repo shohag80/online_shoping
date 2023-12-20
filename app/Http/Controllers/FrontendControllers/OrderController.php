@@ -117,7 +117,7 @@ class OrderController extends Controller
         $order = Order::find($product_id);
         if ($order) {
             $order->update([
-                'status' => 'cancelled'
+                'delivery_status' => 'cancelled'
             ]);
             return redirect()->back();
         }

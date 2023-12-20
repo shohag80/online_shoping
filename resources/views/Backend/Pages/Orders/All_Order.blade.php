@@ -26,12 +26,13 @@
         <table class="table table-hover text-center">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Customer ID</th>
+                    <th scope="col">Order ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Total Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Payment</th>
+                    <th scope="col">Pay Method</th>
+                    <th scope="col">Pay Status</th>
+                    <th scope="col">Transaction Id</th>
+                    <th scope="col">Delivery Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -39,15 +40,16 @@
                 @foreach($orders as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
-                    <td>{{$item->user->name}}</td>
                     <td>{{$item->created_at}}</td>
-                    <td>{{$item->total_price}}</td>
-                    <td>
-                        @if($item->status=='pending')<a href="{{route('Order_Comfirm',$item->id)}}" class="badge bg-danger">{{$item->status}}</a>@endif
-                        @if($item->status=='confirm')<span class="badge bg-success">{{$item->status}}</span>@endif
-                        @if($item->status=='cancel')<span class="badge bg-danger">{{$item->status}}</span>@endif
-                    </td>
+                    <td>{{$item->amount}}/-</td>
                     <td><a href="" class="text-dark btn-sm rounded-5">{{$item->payment_method}}</a></td>
+                    <td><a href="" class="text-dark btn-sm rounded-5">{{$item->payment_status}}</a></td>
+                    <td>{{$item->transaction_id}}</td>
+                    <td>
+                        @if($item->delivery_status=='pending')<a href="{{route('Order_Comfirm',$item->id)}}" class="badge bg-danger">{{$item->delivery_status}}</a>@endif
+                        @if($item->delivery_status=='confirm')<span class="badge bg-success">{{$item->delivery_status}}</span>@endif
+                        @if($item->delivery_status=='cancel')<span class="badge bg-danger">{{$item->delivery_status}}</span>@endif
+                    </td>
                     <td>
                         <a href="{{route('Admin_Order_Details',$item->id)}}" class="btn badge btn-success btn-sm">View</a>
                         <a href="{{route('Delete_Order',$item->id)}}" class="btn badge btn-danger btn-sm">Delete</a>
@@ -56,6 +58,7 @@
                 @endforeach
             </tbody>
         </table>
+{{$orders->links()}}
     </div>
 </section>
 

@@ -8,11 +8,11 @@
 <section>
    <div class="container col-md-12">
       <div class="row">
-         <h3 class="col-md-12">Popular Products</h3>
+         <h3 class="col-md-12 mt-5">Popular Products</h3>
 
 
          @foreach($products as $item)
-         <div style="float: left;" class="col-md-3 mt-2 mb-2">
+         <div style="float: left;" class="col-md-3 col-sm-6 mt-2 mb-2">
             <div class="card card-product">
                <div class="card-body">
 

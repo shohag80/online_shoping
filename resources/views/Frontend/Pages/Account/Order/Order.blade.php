@@ -17,7 +17,7 @@
                 <tr>
                     <th class="align-middle">Order ID</th>
                     <th class="align-middle">Date</th>
-                    <th class="align-middle">Status</th>
+                    <th class="align-middle">Delivery Status</th>
                     <th class="align-middle">Amount</th>
                     <th class="align-middle">Action</th>
                 </tr>
@@ -31,16 +31,16 @@
                     </td>
                     <td class="align-middle border-top-0">{{$item->created_at}}</td>
                     <td class="align-middle border-top-0">
-                        @if($item->status=='pending')<span class="badge bg-danger">{{$item->status}}</span>@endif
-                        @if($item->status=='confirm')<span class="badge bg-success">{{$item->status}}</span>@endif
-                        @if($item->status=='cancel')<span class="badge bg-secondary">{{$item->status}}</span>@endif
+                        @if($item->delivery_status=='pending')<span class="badge bg-danger">{{$item->delivery_status}}</span>@endif
+                        @if($item->delivery_status=='confirm')<span class="badge bg-success">{{$item->delivery_status}}</span>@endif
+                        @if($item->delivery_status=='cancel')<span class="badge bg-secondary">{{$item->delivery_status}}</span>@endif
                     </td>
                     <td class="align-middle border-top-0">৳ {{$item->amount}}/-</td>
                     <td class="align-middle border-top-0">
-                        @if($item->status=='pending')
+                        @if($item->delivery_status=='pending')
                         <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
                         <a href="{{route('Order_Cancel',$item->id)}}" class="btn btn-sm badge btn-danger">Cancel</a>
-                        @elseif($item->status=='confirm')
+                        @elseif($item->delivery_status=='confirm')
                         <a href="{{route('Order_Details',$item->id)}}" class="btn btn-sm badge btn-primary">Details</a>
                         @endif
 

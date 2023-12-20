@@ -58,7 +58,7 @@
                                     <p>{{$order->created_at}}</p>
                                 </div>
                                 <div class="col">
-                                    <p class="small text-muted mb-1">Payment Status</p>
+                                    <p class="small text-muted mb-1">Payment Method</p>
                                     <p>{{$order->payment_method}}</p>
                                 </div>
                                 <div class="col">
@@ -94,6 +94,12 @@
                                     <p>Bangladesh</p>
                                 </div>
 
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="small text-muted mb-1">Payment Status</p>
+                                    <p>{{$order->payment_status}}</p>
+                                </div>
                             </div>
 
                         </div>

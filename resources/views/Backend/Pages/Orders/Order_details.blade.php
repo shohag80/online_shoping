@@ -48,7 +48,7 @@
                     <div class="card-body p-5">
                         <div class="container bg-primary rounded-3 p-2 mt-3">
 
-                            <h1 class="lead fw-bold m-3 text-center text-light display-5">Order Details</h1>
+                            <h1 class="lead fw-bold m-3 text-center text-light display-4">Order Details</h1>
 
                         </div>
                         <div class="container p-4 mt-3">
@@ -58,7 +58,7 @@
                                     <p>{{$order->created_at}}</p>
                                 </div>
                                 <div class="col">
-                                    <p class="small text-muted mb-1">Payment Status</p>
+                                    <p class="small text-muted mb-1">Payment Mathod</p>
                                     <p>{{$order->payment_method}}</p>
                                 </div>
                                 <div class="col">
@@ -93,6 +93,13 @@
                                     <p class="small text-muted mb-1">Country</p>
                                     <p>Bangladesh</p>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="small text-muted mb-1">Payment Status</p>
+                                    <p>{{$order->payment_status}}</p>
+                                </div>
+                                
 
                             </div>
 
@@ -145,8 +152,8 @@
                             <table class="table table-hover rounded">
                                 <thead class="bg-success">
                                     <tr class="text-center">
-                                        <th scope="col">Image</th>
                                         <th scope="col">Sl</th>
+                                        <th scope="col">Image</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Price</th>
@@ -156,7 +163,7 @@
                                     @foreach($order_details as $key=>$item)
                                     <tr class="text-center">
                                         <td scope="row">{{$key+1}}</td>
-                                        <td><img height="40" width="40" src="{{url('uploads/',$item->product->photo)}}" alt=""></td>
+                                        <td class="text-center"><img height="40" width="40" src="{{url('uploads/',$item->product->photo)}}" alt=""></td>
                                         <td>{{$item->product->name}}</td>
                                         <td>{{$item->quantity}} pcs</td>
                                         <td>{{$item->subtotal}}/-</td>
@@ -173,7 +180,7 @@
                                         {{$order->total_quantity}}
                                     </div>
                                     <div class="col-2 text-center text-light">
-                                        {{$order->total_price}}/-
+                                    ৳ {{$order->amount}}/-
                                     </div>
                                 </div>
                             </div>

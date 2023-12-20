@@ -33,25 +33,27 @@ class AppServiceProvider extends ServiceProvider
 
         if(!app()->runningInConsole()){
             if(Schema::hasTable('users')){
-                $user=User::all();
-                view::share('user',$user);
+                view::share('user',User::all());
             }
-            if(Schema::hasTable('products')){
-                $products=Product::all();
-                view::share('product',$products);
-            }
+            // if(Schema::hasTable('products')){
+            //     view::share('product',Product::all());
+            // }
             if(Schema::hasTable('categories')){
-                $categories=Category::all();
-                view::share('category',$categories);
+                
+                view::share('category',Category::all());
             }
-            if(Schema::hasTable('orders')){
-                $orders=Order::all();
-                view::share('order',$orders);
-            }
-            if(Schema::hasTable('order__details')){
-                $order_details_all=Order_Details::all();
-                view::share('order_details',$order_details_all);
-            }
+            // if(Schema::hasTable('orders')){
+            //     view::share('order',Order::all());
+            // }
+            // if(Schema::hasTable('order__details')){
+            //     view::share('order_details',Order_Details::all());
+            // } 
+            if(Schema::hasTable('brands')){
+                view::share('brand',Brand::all());
+            } 
+            if(Schema::hasTable('admin')){
+                view::share('brand',Brand::all());
+            } 
         }
     }
 }

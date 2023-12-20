@@ -22,9 +22,9 @@
                             <p class="lead">{{$single_product->discription}}</p>
                             <div class="d-flex">
                                 <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                                <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                <button class="btn btn-outline-light flex-shrink-0" type="button"><a href="{{route('Add_to_Cart',$single_product->id)}}">
                                     <i class="bi-cart-fill me-1"></i>
-                                    Add to cart
+                                    Add to cart</a>
                                 </button>
                             </div>
                         </div>

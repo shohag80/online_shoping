@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('phone');
             $table->double('amount');
             $table->string('payment_method');
-            $table->string('transaction_id');
+            $table->string('payment_status');
+            $table->string('transaction_id')->unique();
             $table->string('currency');
-            $table->string('status');
+            $table->string('delivery_status');
             $table->timestamps();
         });
     }

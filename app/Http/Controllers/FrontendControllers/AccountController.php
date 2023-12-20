@@ -21,25 +21,43 @@ class AccountController extends Controller
 
     public function continue_order(Request $request)
     {
-        // dd($request);
+        //dd($request);
+        $amount = $request->amount;
         $cart = session()->get('virtual_cart');
+        // dd($cart);
 
-        $order = Order::create([
-            'user_id' => auth()->user()->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'amount' => $request->amount,
-            'payment_method' => $request->payment_method,
-            'transaction_id' => 'empty',
-            'currency' => 'BDT',
-            'status' => 'pending',
-        ]);
-        if (session()->get('virtual_cart')) {
+        if ($request->payment_method == 'ePay') {
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'amount' => $amount,
+                'payment_method' => 'ePay',
+                'transaction_id' => date('YmdHis'),
+                'payment_status' => 'pending',
+                'currency' => 'BDT',
+                'delivery_status' => 'pending',
+            ]);
+        } else {
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'amount' => $amount,
+                'payment_method' => 'COD',
+                'transaction_id' => date('Ymdhis'),
+                'currency' => 'BDT',
+                'payment_status' => 'pending',
+                'delivery_status' => 'pending',
+            ]);
+        }
+
+        if ($cart) {
             $quantity = array_sum(array_column(session()->get('virtual_cart'), 'quantity'));
-            // $total_price = array_sum(array_column(session()->get('virtual_cart'), 'subtotal')) - 10;
-
 
             foreach ($cart as $item) {
                 Order_Details::create([
@@ -51,45 +69,21 @@ class AccountController extends Controller
                     'total_price' => $request->amount,
                 ]);
             }
-            session()->forget('virtual_cart');
-        }
-        return redirect()->route('Order');
-    }
-
-    public function order_with_pay(Request $request)
-    {
-        // dd($request);
-        $cart = session()->get('virtual_cart');
-
-        $order = Order::create([
-            'user_id' => auth()->user()->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'amount' => array_sum(array_column(session()->get('virtual_cart'), 'subtotal')) - 10,
-            'payment_method' => 'ePay',
-            'transaction_id' => 'empty',
-            'currency' => 'BDT',
-            'status' => 'pending',
-        ]);
-
-        $quantity = array_sum(array_column(session()->get('virtual_cart'), 'quantity'));
-        $total_price = array_sum(array_column(session()->get('virtual_cart'), 'subtotal')) - 10;
-
-        foreach ($cart as $item) {
+        } else {
             Order_Details::create([
                 'order_id' => $order->id,
-                'product_id' => $item['id'],
-                'quantity' => $item['quantity'],
-                'total_quantity' => $quantity,
-                'subtotal' => $item['subtotal'] - 10, // 10 is discoutnt
-                'total_price' => $total_price,
+                'product_id' => $request->product_id,
+                'quantity' => '1',
+                'total_quantity' => '1',
+                'subtotal' => $request->amount,
+                'total_price' => $request->amount,
             ]);
         }
-        session()->forget('virtual_cart');
 
-        $this->online_pay($order);
+        session()->forget('virtual_cart');
+        if ($request->payment_method == 'ePay') {
+            $this->online_pay($order);
+        }
         return redirect()->route('Order');
     }
 
@@ -99,7 +93,7 @@ class AccountController extends Controller
         $post_data = array();
         $post_data['total_amount'] = $order->amount; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
-        $post_data['tran_id'] = uniqid(); // tran_id must be unique
+        $post_data['tran_id'] = $order->transaction_id; // tran_id must be unique
 
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = $order->name;

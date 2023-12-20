@@ -27,7 +27,7 @@ class OrderController extends Controller
     }
 
     public function all_orders(){
-        $orders=Order::with('user')->get();
+        $orders=Order::with('user')->paginate(20);
         return view('Backend.Pages.Orders.All_Order',compact('orders'));
     }
 
@@ -44,7 +44,7 @@ class OrderController extends Controller
     public function order_comfirm($order_id){
         $order_id=Order::find($order_id);
         $order_id->update([
-            'status'=>'confirm',
+            'delivery_status'=>'confirm',
         ]);
         return redirect()->route('All_Orders');
     }
@@ -58,7 +58,7 @@ class OrderController extends Controller
     public function order_cancel($order_id){
         $order_id=Order::find($order_id);
         $order_id->update([
-            'status'=>'cancel',
+            'delivery_status'=>'cancel',
         ]);
         return redirect()->route('Order');
     }

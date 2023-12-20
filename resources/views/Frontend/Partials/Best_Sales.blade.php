@@ -1,8 +1,8 @@
 <section class="mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mb-6">
-        <h3 class="mb-0">Daily Best Sells</h3>
+      <div class="col-md-12 mb-6 mt-5">
+        <h3 class="mb-0 mt-5">Daily Best Sells</h3>
       </div>
     </div>
     <div class="table-responsive-xl pb-6">

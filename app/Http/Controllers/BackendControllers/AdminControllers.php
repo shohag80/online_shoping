@@ -18,6 +18,10 @@ class AdminControllers extends Controller
         return view('Backend.Pages.Profiles.Admin.Admins', compact('admin_data'));
     }
 
+    public function admin_profile(){
+        return view('Backend.Pages.Profiles.Admin.single_view');
+    }
+
     public function update($id)
     {
         // dd('Hello admin');

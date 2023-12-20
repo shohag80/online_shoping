@@ -52,7 +52,7 @@
                         <a href="{{route('Admins_Status')}}" class="btn btn-primary btn-sm">Active</a>
                     </td>
                     <td>
-                        <a href="" class="btn btn-success btn-sm">View</a>
+                        <a href="{{route('Admin_Single_View')}}" class="btn btn-success btn-sm">View</a>
                         <a href="{{route('Admin_Update',$item->id)}}" class="btn btn-warning btn-sm mt-1">Update</a>
                         <a href="{{route('Admin_Delete',$item->id)}}" class="btn btn-danger btn-sm mt-1">Delete</a>
                     </td>
