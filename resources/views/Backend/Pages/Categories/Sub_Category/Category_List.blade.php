@@ -6,11 +6,11 @@
     <div class="row">
 
         <div class="col-md-3 text-center bg-warning rounded-right">
-            <h4>Product Details</h4>
+            <h4>Sub-Category Details</h4>
         </div>
         <div class="text-end col-md-6 col-sm-8">
             <a href="" class="btn btn-outline-primary">Filter</a> |
-            <a href="{{route('add_product')}}" class="btn btn-outline-success">Add Product</a> |
+            <a href="" class="btn btn-outline-success">Add Sub-Category</a> |
             <a href="" class="btn btn-outline-info">Export</a>
         </div>
         <div class="col-md-3">
@@ -28,39 +28,31 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Brand</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Sub-Category</th>
+                    <th scope="col">Sub Category</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Stock</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($product as $item)
+                @foreach($sub_category as $key=>$item)
                 <tr>
-                    <th scope="row">{{$item->id}}</th>
+                    <th scope="row">{{$key+1}}</th>
                     <td>
-                        <img height="50" width="50" src="{{url('uploads/',$item->photo)}}" alt="photo">
+                        <img height="50px" width="50px" src="{{url('uploads/',$item->photo)}}" alt="photo">
                     </td>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->brand->name}}</td>
                     <td>{{$item->category->name}}</td>
-                    <td>{{$item->sub_category->name}}</td>
+                    <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
-                    <td>BDT-{{$item->price}}/-</td>
-                    <td>{{$item->stock}} pcs</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">Active</a>
+                        <a href="" class="btn btn-outline-primary btn-sm">Active</a>
                     </td>
-                    <td class="col-2">
-                        <a href="" class="btn btn-success btn-sm">View</a>
-                        <a href="" class="btn btn-warning btn-sm">Update</a>
-                        <a href="{{route('product_delete',$item->id)}}" class="btn btn-danger btn-sm mt-1">Delete</a>
+                    <td class="col-3">
+                        <a href="" class="btn btn-primary btn-sm">View</a>
+                        <a href="{{route('category_update',$item->id)}}" class="btn btn-warning btn-sm">Update</a>
+                        <a href="{{route('category_delete',$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -68,5 +60,6 @@
         </table>
     </div>
 </section>
+
 
 @endsection

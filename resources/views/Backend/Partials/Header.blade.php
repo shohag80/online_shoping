@@ -152,6 +152,14 @@
                 </div>
 
                 <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Sub-Category</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="{{route('add_sub_category')}}">Add Sub-Category</a></li>
+                        <li><a class="dropdown-item" href="{{route('sub_category_list')}}">All Sub-Category</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">Brand</button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{{route('add_brand')}}">Add</a></li>

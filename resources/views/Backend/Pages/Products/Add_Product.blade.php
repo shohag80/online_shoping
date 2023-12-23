@@ -20,6 +20,14 @@
                     @error('category_id')<p class="text-danger">{{$message}}</p>@enderror
                 </div>
                 <div class="mb-3">
+                    <label for="exampleInputSub_Category" class="form-label">Sub_Category Name</label><span class="text-danger">*</span>
+                    <select name="sub_category_id" class="form-control" id="exampleInputSub_Category">
+                        <option>Select Sub_Category</option>
+                        @foreach($sub_category as $item)<option value="{{$item->id}}">{{$item->name}}</option>@endforeach
+                    </select>
+                    @error('sub_category_id')<p class="text-danger">{{$message}}</p>@enderror
+                </div>
+                <div class="mb-3">
                     <label for="exampleInputBrand" class="form-label">Brand Name</label><span class="text-danger">*</span>
                     <select name="brand_id" class="form-control" required id="exampleInputCategory">
                         <option>Select Brand</option>

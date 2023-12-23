@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Sub_Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,13 +16,15 @@ class ProductsController extends Controller
     public function form()
     {
         $category = Category::all();
+        $sub_category=Sub_Category::all();
         $brand = Brand::all();
-        return view('Backend.Pages.Products.Add_Product', compact('category', 'brand'));
+        return view('Backend.Pages.Products.Add_Product', compact('category', 'brand','sub_category'));
     }
 
     public  function list()
     {
-        $product = Product::with(['brand', 'category'])->paginate(31);
+        $product = Product::with(['brand', 'category','sub_category'])->paginate(31);
+        // dd($product);
         return view('Backend.Pages.Products.Product_list', compact('product'));
     }
 

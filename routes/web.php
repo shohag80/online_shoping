@@ -20,6 +20,7 @@ use App\Http\Controllers\FrontendControllers\HomeController;
 use App\Http\Controllers\FrontendControllers\OrderController as FrontendControllersOrderController;
 use App\Http\Controllers\FrontendControllers\ProductsController;
 use App\Http\Controllers\FrontendControllers\UserController;
+use App\Http\Controllers\FrontendControllers\WishlistController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Route;
 use Whoops\Run;
@@ -46,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/cart/continue_order', [AccountController::class, 'continue_order'])->name('Continue_Order');
     Route::get('/order', [AccountController::class, 'order'])->name('Order');
     
+    Route::get('/wishlist/{user_id}', [WishlistController::class, 'wishlist'])->name('Wish_List');
+    Route::get('/wishlist/add-to-wishlist/{product_id}', [WishlistController::class, 'store'])->name('Add_to_wishlist');
+    Route::get('/wishlist/remove-wishlist/{wishlist_id}', [WishlistController::class, 'remove'])->name('Remove_Wishlist');
     // SSLCOMMERZ Start
     Route::post('/success', [SslCommerzPaymentController::class, 'success']);
     Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
@@ -124,7 +128,11 @@ Route::group(['prefix' => 'manage'], function () {
         Route::post('/category/update/store/{id}', [BackendControllersCategoriesController::class, 'update_store'])->name('category_update_store');
         Route::get('/category/delete/{id}', [BackendControllersCategoriesController::class, 'delete'])->name('category_delete');
         Route::post('/category/store', [BackendControllersCategoriesController::class, 'store'])->name('category_Store');
-
+        
+        Route::get('/sub-category/form', [BackendControllersCategoriesController::class, 'sub_from'])->name('add_sub_category');
+        Route::post('/sub-category/store', [BackendControllersCategoriesController::class, 'sub_store'])->name('sub_category_store');
+        Route::get('/sub-category/sub-list', [BackendControllersCategoriesController::class, 'sub_list'])->name('sub_category_list');
+        
         Route::get('/brand/form', [BackendControllersBrandsController::class, 'form'])->name('add_brand');
         Route::get('/brand/list', [BackendControllersBrandsController::class, 'list'])->name('brnad_list');
         Route::post('/brand/store', [BackendControllersBrandsController::class, 'store'])->name('brand_store');
